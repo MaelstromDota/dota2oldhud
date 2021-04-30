@@ -7,6 +7,8 @@ function removetrash(){
 	newUI.FindChildTraverse('inventory_backpack_list').style.visibility = 'collapse';
 	newUI.FindChildTraverse('GridNeutralsTab').style.visibility = 'collapse';
 	newUI.FindChildTraverse('AghsStatusShard').style.visibility = 'collapse';
+	newUI.FindChildTraverse('stash').style.marginBottom = '90px';
+	newUI.FindChildTraverse('stash').style.marginRight = '350px';
 	newUI.FindChildTraverse('lower_hud').FindChildTraverse('center_block').FindChildTraverse('ButtonAndLevel').style.visibility = 'collapse';
 	GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_PANEL, false );
     GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_MINIMAP, true );

@@ -154,7 +154,7 @@
                 abilities[ab].update();
             }
         }
-        $.Schedule(0.005, onUpdate);
+        $.Schedule(0.03, onUpdate);
     }
     GameEvents.Subscribe("dota_player_update_selected_unit", onUpdateSelectedUnit);
     GameEvents.Subscribe("dota_player_update_query_unit", onUpdateQueryUnit);

@@ -11,7 +11,7 @@
 		newUI.FindChildTraverse("StatBranch").style.visibility = "collapse";
 		newUI.FindChildTraverse('level_stats_frame').style.visibility = 'collapse';		
 		newUI.FindChildTraverse('StatBranchDrawer').style.visibility = 'collapse';
-		newUI.FindChildTraverse('RadarButton').style.visibility = 'collapse';
+		newUI.FindChildTraverse('GlyphScanContainer').style.visibility = 'collapse';
 		newUI.FindChildTraverse('inventory_tpscroll_slot').style.visibility = 'collapse';
 		newUI.FindChildTraverse('inventory_tpscroll_container').style.visibility = 'collapse';
 		newUI.FindChildTraverse('inventory_neutral_slot_container').style.visibility = 'collapse';
@@ -25,6 +25,7 @@
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/actionpanel/stats.xml" />
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hud.xml" />
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/buttons/glyph.xml" />
+        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/buttons/shopbutton.xml" />
     </Panel>
 </root>
 
