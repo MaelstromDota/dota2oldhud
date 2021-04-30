@@ -1,3 +1,1 @@
-function UseGlyph() {
-    GameEvents.SendCustomGameEventToServer("useglyph", {team: Entities.GetTeamNumber(Players.GetLocalPlayerPortraitUnit())})
-}
+function UseGlyph() {Game.PrepareUnitOrders({OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_GLYPH});}

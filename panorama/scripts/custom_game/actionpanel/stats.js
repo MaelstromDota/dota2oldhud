@@ -1,6 +1,5 @@
 function statsupdate(){
 	$.Schedule(0.1, statsupdate)
-    var pid = Game.GetLocalPlayerID()
     var unit = Players.GetLocalPlayerPortraitUnit()
     $("#damagetext").text = (Entities.GetDamageMin(unit) + Entities.GetDamageMax(unit)) / 2
     if (Entities.GetDamageBonus(unit) == 0) {$("#damagetextbonus").text = ''
