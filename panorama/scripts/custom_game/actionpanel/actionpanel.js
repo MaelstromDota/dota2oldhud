@@ -17,6 +17,7 @@
     var abilities = {};
     var learnMode = false;
     var silenceState = SilenceState.None;
+    var lastUnit;
     function SetActionPanel(unit) {
         var abilityContainer = $("#AbilitiesContainer");
         for (var ab in abilities) {
@@ -44,17 +45,22 @@
         }
         abilityContainer.AddClass("AbilityLayout" + countAbilityLayout(unit));
 		$("#HeroName").text = $.Localize(Entities.GetUnitName(currentUnit))
-		$("#Portrait").SetUnit(Entities.GetUnitName(currentUnit),Entities.GetUnitName(currentUnit),true)
+        $.Msg(` unit = ${unit} \n lastUnit = ${lastUnit}`)
+        if (lastUnit != unit) {
+            $("#Portrait").SetUnit(Entities.GetUnitName(currentUnit),Entities.GetUnitName(currentUnit),true)
+        }
 		onUpdate()
     }
     function onUpdateSelectedUnit(event) {
         var unit = Players.GetLocalPlayerPortraitUnit();
         SetActionPanel(unit);
+        lastUnit = unit;
     }
     function onUpdateQueryUnit(event) {
-        var unit = Players.GetQueryUnit(Players.GetLocalPlayer());
-        if (unit !== -1) {
+        var unit = Players.GetLocalPlayerPortraitUnit();//Players.GetQueryUnit(Players.GetLocalPlayer());
+        if (unit !== -1) {            
             SetActionPanel(unit);
+            lastUnit = unit;
         }
     }
     function onStatsChanged(event) {
@@ -136,12 +142,21 @@
             }
         }
         $("#HealthBarInner").style.width = (Entities.GetHealth(currentUnit) / Entities.GetMaxHealth(currentUnit)) * 100 + "%";
-        $("#ManaBarInner").style.width = (Entities.GetMana(currentUnit) / Entities.GetMaxMana(currentUnit)) * 100 + "%";
 		$("#HealthBarText").text = (Entities.GetHealth(currentUnit) + '/' + Entities.GetMaxHealth(currentUnit)) + ' +' + Entities.GetHealthThinkRegen(currentUnit);
-        $("#ManaBarText").text = (Entities.GetMana(currentUnit) + '/' + Entities.GetMaxMana(currentUnit)) + ' +' + Entities.GetManaThinkRegen(currentUnit).toFixed(1);
-        $("#LevelNumber").text = Players.GetLevel(Game.GetLocalPlayerID());
+        $("#LevelNumber").text = Players.GetLevel(Players.GetLocalPlayer());
         $("#XPLabel").text = Entities.GetCurrentXP(currentUnit) + '/' + (Entities.GetNeededXPToLevel(currentUnit));
-        if (String(Number(Entities.GetCurrentXP(currentUnit) / Entities.GetNeededXPToLevel(currentUnit) * 40)) != 'NaN') {$("#XPBar").style.width = (Number(Entities.GetCurrentXP(currentUnit) / Entities.GetNeededXPToLevel(currentUnit) * 40) + '%');}
+        if (Entities.IsHero(currentUnit)) {
+            $("#XPBar").style.width = Entities.GetCurrentXP(currentUnit) / Entities.GetNeededXPToLevel(currentUnit) * 40 + "%";
+        } else {
+            $("#XPBar").style.width = "0%";
+        }
+        if (Entities.GetMaxMana(currentUnit) != 0) {
+            $("#ManaBarInner").style.width = (Entities.GetMana(currentUnit) / Entities.GetMaxMana(currentUnit)) * 100 + "%";
+            $("#ManaBarText").text = (Entities.GetMana(currentUnit) + '/' + Entities.GetMaxMana(currentUnit)) + ' +' + Entities.GetManaThinkRegen(currentUnit).toFixed(1);
+        } else {
+            $("#ManaBarInner").style.width = '0%'
+            $("#ManaBarText").text = ' 0 /  1 '
+        }
         if (!Entities.IsEnemy(currentUnit)) {
             var silenceS = getSilenceState(currentUnit);
             if (silenceS !== silenceState) {
@@ -154,7 +169,7 @@
                 abilities[ab].update();
             }
         }
-        $.Schedule(0.03, onUpdate);
+        $.Schedule(1/30, onUpdate);
     }
     GameEvents.Subscribe("dota_player_update_selected_unit", onUpdateSelectedUnit);
     GameEvents.Subscribe("dota_player_update_query_unit", onUpdateQueryUnit);
@@ -166,5 +181,6 @@
         unit = Players.GetLocalPlayerPortraitUnit();
     }
     SetActionPanel(unit);
+    lastUnit = unit;
     onUpdate();
 })();

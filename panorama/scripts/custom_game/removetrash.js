@@ -9,6 +9,11 @@ function removetrash(){
 	newUI.FindChildTraverse('AghsStatusShard').style.visibility = 'collapse';
 	newUI.FindChildTraverse('stash').style.marginBottom = '90px';
 	newUI.FindChildTraverse('stash').style.marginRight = '350px';
+	newUI.FindChildTraverse('QuickBuyRows').style.marginBottom = '95px';
+	newUI.FindChildTraverse('QuickBuyRows').style.height = '68px';
+	newUI.FindChildTraverse('QuickBuyRows').style.width = '213px';
+	newUI.FindChildTraverse('QuickBuyRows').style.horizontalAlign = 'right';
+	newUI.FindChildTraverse('QuickBuyRows').style.backgroundColor = "#000000";
 	newUI.FindChildTraverse('lower_hud').FindChildTraverse('center_block').FindChildTraverse('ButtonAndLevel').style.visibility = 'collapse';
 	GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_PANEL, false );
     GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_MINIMAP, true );

@@ -16,7 +16,7 @@
 #background
 {
     /* Remember to add 4:3 aspect ratio system in later */
-    background-image: url("s2r://panorama/images/hud/default/inventory/background_wide.png");
+    background-image: url("file://{images}/hud/default/inventory/background_wide.png");
     background-size: 100% 100%;
     margin-left: 19%;
     width: 81%;

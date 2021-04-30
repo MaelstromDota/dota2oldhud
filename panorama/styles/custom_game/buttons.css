@@ -2,3 +2,4 @@
 #GlyphButton{background-image: url("s2r://panorama/images/hud/icon_glyph_small_psd.vtex");}
 .ShopButtonClass{horizontal-align: right;vertical-align: bottom; z-index: -1; position: -2px -154px 0px;}
 #ShopButton{width: 100px;height: 36px;}
+.QuckBuyClass{horizontal-align: right; vertical-align: bottom; width: 215px; height: 100%; z-index: 3; position: 0px 915px 0px;}
