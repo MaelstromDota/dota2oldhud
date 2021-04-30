@@ -8,13 +8,11 @@
     <scripts>
         <include src="file://{resources}/scripts/custom_game/buttons.js" />
     </scripts>
-    <Panel class="Buttons">
-        <Panel id="GlyphButtonPanel">
-            <Panel id="NormalRoot" onmouseover="DOTAHUDShowGlyphTooltip()" onmouseout="DOTAHUDHideGlyphTooltip()"	onactivate="DOTAHUDActivateGlyph()">
-                <Button id="GlyphButton">
-                </Button>
-                <Panel id="GlyphCooldown" hittest="false" />
-            </Panel>
+    <Panel class="GlyphButtonClass">
+        <Panel id="NormalRoot" onmouseover="DOTAHUDShowGlyphTooltip()" onmouseout="DOTAHUDHideGlyphTooltip()" onactivate="UseGlyph()">
+            <Button id="GlyphButton">
+            </Button>
+            <Panel id="GlyphCooldown" hittest="false" />
         </Panel>
     </Panel>
 </root>

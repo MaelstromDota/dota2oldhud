@@ -24,7 +24,7 @@
     <Panel>
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/actionpanel/stats.xml" />
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hud.xml" />
-        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/buttons.xml" />
+        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/buttons/glyph.xml" />
     </Panel>
 </root>
 

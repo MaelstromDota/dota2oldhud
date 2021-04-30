@@ -141,7 +141,7 @@
         $("#ManaBarText").text = (Entities.GetMana(currentUnit) + '/' + Entities.GetMaxMana(currentUnit)) + ' +' + Entities.GetManaThinkRegen(currentUnit).toFixed(1);
         $("#LevelNumber").text = Players.GetLevel(Game.GetLocalPlayerID());
         $("#XPLabel").text = Entities.GetCurrentXP(currentUnit) + '/' + (Entities.GetNeededXPToLevel(currentUnit));
-        $("#XPBar").style.width = Entities.GetCurrentXP(currentUnit) / Entities.GetNeededXPToLevel(currentUnit) * 40 + "%";
+        if (String(Number(Entities.GetCurrentXP(currentUnit) / Entities.GetNeededXPToLevel(currentUnit) * 40)) != 'NaN') {$("#XPBar").style.width = (Number(Entities.GetCurrentXP(currentUnit) / Entities.GetNeededXPToLevel(currentUnit) * 40) + '%');}
         if (!Entities.IsEnemy(currentUnit)) {
             var silenceS = getSilenceState(currentUnit);
             if (silenceS !== silenceState) {
