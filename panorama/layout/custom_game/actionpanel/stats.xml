@@ -8,7 +8,7 @@
         <include src="file://{resources}/scripts/custom_game/actionpanel/stats.js" />
     </scripts>
     <Panel class="StatsClass">
-        <Image id="damageicon" src="s2r://panorama/images/hud/hudv2_icondamage_png.vtex">
+        <Image id="damageicon" src="s2r://panorama/images/hud/hudv2_icondamage_png.vtex" onmouseover="ShowLeftStats()" onmouseout="HideLeftStats()">
             <Label id="damagetext" text="N/A" />
             <Label id="damagetextbonus" text="+ N/A" />
         </Image>

@@ -16,4 +16,10 @@ function statsupdate(){
     $("#inttext").text = CustomNetTables.GetTableValue("stats", unit).int
     if (CustomNetTables.GetTableValue("stats", unit).intbonus == 0) {$("#inttextbonus").text = ''} else {$("#inttextbonus").text = '+ ' + CustomNetTables.GetTableValue("stats", unit).intbonus}
 }
+function ShowLeftStats(){
+    $.DispatchEvent("DOTAShowTextTooltip", $('#damageicon'), `Скорость атаки: ${Math.ceil(Entities.GetAttackSpeed(unit))} (1.49сек на атаку) Урон: ${Math.ceil(Entities.GetDamageMin(unit))}-${Math.ceil(Entities.GetDamageMax(unit))}                                        Дальность атаки: ${Math.ceil(Entiteis.GetAttackRange(unit))}`);
+}
+function HideLeftStats(){
+    $.DispatchEvent("DOTAHideTextTooltip");
+}
 statsupdate()
