@@ -45,10 +45,10 @@
         }
         abilityContainer.AddClass("AbilityLayout" + countAbilityLayout(unit));
 		$("#HeroName").text = $.Localize(Entities.GetUnitName(currentUnit))
-        $.Msg(` unit = ${unit} \n lastUnit = ${lastUnit}`)
-        if (lastUnit != unit) {
-            $("#Portrait").SetUnit(Entities.GetUnitName(currentUnit),Entities.GetUnitName(currentUnit),true)
-        }
+        // $.Msg(` unit = ${unit} \n lastUnit = ${lastUnit}`)
+        // if (lastUnit != unit) {
+        //     $("#Portrait").SetUnit(Entities.GetUnitName(currentUnit),Entities.GetUnitName(currentUnit),true)
+        // }
 		onUpdate()
     }
     function onUpdateSelectedUnit(event) {

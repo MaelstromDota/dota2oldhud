@@ -26,6 +26,7 @@
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hud.xml" />
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/buttons/glyph.xml" />
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/buttons/shopbutton.xml" />
+        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/buttons/portrait.xml" />
         <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/buttons/quickbuy.xml" /> -->
     </Panel>
 </root>

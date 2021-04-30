@@ -2,6 +2,7 @@
     <styles>
         <include src="s2r://panorama/styles/dotastyles.vcss_c" />
         <include src="s2r://panorama/styles/hudstyles.vcss_c" />
+		<include src="s2r://panorama/styles/hud/dota_hud_portrait.vcss_c" />
         <include src="file://panorama/styles/custom_game/actionpanel/abilitypanel.css" />     
         <include src="file://panorama/styles/custom_game/actionpanel/actionpanel.css" />     
     </styles>
@@ -67,7 +68,11 @@
             <Panel id="XPBar" />
             <Label id="XPLabel" text="N/A" />
         </Image>
-        <DOTAScenePanel class="hud" id="Portrait" unit="npc_dota_hero_zuus"/>
+        <!-- <DOTAScenePanel class="hud" id="Portrait" unit="npc_dota_hero_zuus"/> -->
+        <DOTAPortrait>
+            <Button id="InspectButton" class="PortraitButton" onactivate="DOTAHUDInspect();" always-cache-composition-layer="true" />
+            <Button id="HeroViewButton" class="PortraitButton" onactivate="DOTAHUDHeroViewClicked();" always-cache-composition-layer="true" />
+        </DOTAPortrait>
 
         <!-- Stat container -->
         <Image class="hud" id="center_left_wide" src="raw://resource/flash3/images/hud_skins/default/actionpanel/center_left_wide.png" hittest="true">

@@ -1,6 +1,5 @@
 #ActionPanel {
     padding-bottom: 0px;
-    visibility: visible;
 }
 
 /* Minimap border */
@@ -35,7 +34,6 @@
     height: 100%;
     margin-left: -23px;
     z-index: -1;
-	visibility: visible;
 }
 
 .AspectRatio4x3 #MinimapSpacer
@@ -50,7 +48,6 @@
     margin-left: -3.8%;
     width: 16.6%;
     z-index: 5;
-	visibility: visible;
 }
 .AspectRatio4x3 #PortraitBorder
 {
@@ -83,7 +80,6 @@
     height: 69%;
     margin-left: -12%;
     margin-right: 4%;
-	visibility: visible;
 }
 
 #LevelTextBox
@@ -166,10 +162,10 @@
 /* Health/Mana bars */
 #HealthBar
 {
-    width: 35.7%;
+    width: 34.7%;
     height: 9%;
     margin-top: 44%;
-    margin-left: -36.25%;
+    margin-left: -36%;
     /* z-index: 5; */
     border-radius: 10px;
     flow-children: right;
@@ -199,7 +195,7 @@
 	overflow: noclip;
 	font-weight: bold;
 	margin-top: -1.5px;
-	margin-left: 300px;
+	margin-left: 350px;
 }
 
 #HealthBarInner
@@ -250,10 +246,10 @@
 
 #ManaBar
 {
-    width: 35.62%;
+    width: 34.7%;
     height: 5%;
     margin-top: 53%;
-    margin-left: -35.6%;
+    margin-left: -34.7%;
     border-radius: 3px;
     flow-children: right;
 }
@@ -274,7 +270,7 @@
 	horizontal-align: center;
 	vertical-align: center;
 	margin-top: 20px;
-	margin-left: 300px;
+	margin-left: 350px;
 }
 
 #ManaBarInner
@@ -332,6 +328,7 @@
     padding-right: 0%;
     margin-left: 395px;
 }
+DOTAPortrait{horizontal-align: center; vertical-align: bottom; width: 8%; height: 69%; z-index: 3; margin-left: -1120px; margin-right: 965px;}
 .StatsClass{width: 890px; height: 200px; z-index: 1; vertical-align: bottom;}
 #damageicon{position: 672px 68px 0px; width: 140px; height: 55px;}
 #damagetext{color: #ffffff; font-size: 16px; position: -22px 1.25px 0px; horizontal-align: center; vertical-align: center;}

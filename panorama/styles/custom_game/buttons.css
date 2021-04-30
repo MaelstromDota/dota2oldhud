@@ -3,3 +3,4 @@
 .ShopButtonClass{horizontal-align: right;vertical-align: bottom; z-index: -1; position: -2px -154px 0px;}
 #ShopButton{width: 100px;height: 36px;}
 .QuckBuyClass{horizontal-align: right; vertical-align: bottom; width: 215px; height: 100%; z-index: 3; position: 0px 915px 0px;}
+.PortraitButtonsClass{horizontal-align: center; vertical-align: bottom; width: 90px; height: 40px; z-index: 3; position: -400px 0px 0px;}
