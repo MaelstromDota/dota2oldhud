@@ -15,5 +15,6 @@ function statsupdate(){
     if (CustomNetTables.GetTableValue("stats", unit).agibonus == 0) {$("#agitextbonus").text = ''} else {$("#agitextbonus").text = '+ ' + CustomNetTables.GetTableValue("stats", unit).agibonus}
     $("#inttext").text = CustomNetTables.GetTableValue("stats", unit).int
     if (CustomNetTables.GetTableValue("stats", unit).intbonus == 0) {$("#inttextbonus").text = ''} else {$("#inttextbonus").text = '+ ' + CustomNetTables.GetTableValue("stats", unit).intbonus}
+    if (CustomNetTables.GetTableValue("stats", unit).att == 0) {$("#stricon").style.border = "1px solid #ffbe07)"} else if (CustomNetTables.GetTableValue("stats", unit).att == 1) {$("#agiicon").style.border = "1px solid #ffbe07)"} else if (CustomNetTables.GetTableValue("stats", unit).att == 2) {$("#inticon").style.border = "1px solid #ffbe07)"}
 }
 statsupdate()

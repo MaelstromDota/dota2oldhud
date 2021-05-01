@@ -338,12 +338,12 @@ DOTAPortrait{horizontal-align: center; vertical-align: bottom; width: 8%; height
 #armortextbonus{color: #00ff15; font-size: 12px; position: 259px 175px 0px; horizontal-align: center;}
 #speedicon{position: 715px 118px 0px; width: 65px; height: 45px;}
 #speedtext{color: #ffffff; font-size: 12px; position: 305px 162px 0px; horizontal-align: center;}
-#stricon{position: 785px 83px 0px; width: 32px; height: 32px;}
+#stricon{position: 785px 83px 0px; width: 32px; height: 32px; border-radius: 50% / 50%;}
 #strtext{color: #ffffff; font-size: 14px; position: -42px 90.5px 0px; horizontal-align: right;}
 #strtextbonus{color: #00ff15; font-size: 14px; position: 848px 90px 0px;}
-#agiicon{position: 785px 118px 0px; width: 32px; height: 32px;}
+#agiicon{position: 785px 118px 0px; width: 32px; height: 32px; border-radius: 50% / 50%;}
 #agitext{color: #ffffff; font-size: 14px; position: -42px 127.5px 0px; horizontal-align: right;}
 #agitextbonus{color: #00ff15; font-size: 14px; position: 848px 127px 0px;}
-#inticon{position: 785px 153px 0px; width: 32px; height: 32px;}
+#inticon{position: 785px 153px 0px; width: 32px; height: 32px; border-radius: 50% / 50%;}
 #inttext{color: #ffffff; font-size: 14px; position: -42px 164.5px 0px; horizontal-align: right;}
 #inttextbonus{color: #00ff15; font-size: 14px; position: 849px 164px 0px;}
