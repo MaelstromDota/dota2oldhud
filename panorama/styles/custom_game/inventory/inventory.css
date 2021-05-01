@@ -125,17 +125,17 @@
     visibility: collapse;
 }
 #courier.Flying.Selected #courierStatus {
-    background-image: url("s2r://panorama/images/hud/flying_courier_select_selected.png"); 
+    background-image: url("file://panorama/images/hud/courier_selected.png"); 
 }
 #courier.Flying #courierStatus {
-    background-image: url("s2r://panorama/images/hud/flying_courier_select.png");
+    background-image: url("s2r://panorama/images/hud/courier_select_png.vtex");
     width: 25%;
 }
 #courier.Selected #courierStatus {
-    background-image: url("s2r://panorama/images/hud/button_courier_down.png");
+    background-image: url("file://panorama/images/hud/courier_selected.png");
 }
 #courierStatus {
-    background-image: url("s2r://panorama/images/hud/button_courier_def.png");
+    background-image: url("s2r://panorama/images/hud/courier_select_png.vtex");
     background-size: 100% 100%;
     width: 50%;
     height: 100%;
@@ -149,7 +149,7 @@
 }
 #courierDelivery {
     visibility: collapse;
-    background-image: url("s2r://panorama/images/hud/button_courier_deliver.png");
+    background-image: url("file://panorama/images/hud/courier_deliver.png");
     background-size: 100% 100%;
     width: 50%;
     height: 100%;
@@ -170,7 +170,7 @@
     height: 100%;
     margin-left: 25%;
     /* horizonatal-align: left; */
-    background-image: url("s2r://panorama/images/hud/courier_haste.png");
+    background-image: url("file://panorama/images/hud/courier_burst.png");
     background-size: 100% 100%;
 }
 #courierBurst {
