@@ -1,8 +1,8 @@
 function econHover(origin) {$.DispatchEvent("DOTAShowTextTooltipStyled", $(origin), "Select Courier", "EconTooltip");}
 function econHoverEnd(origin) {$.DispatchEvent("DOTAHideTextTooltip");}
 function statusClicked() {GameUI.SelectUnit(currentCourier, false);}
-function burstClicked() {GameEvents.SendCustomGameEventToServer('courierburst', {unit: Players.GetLocalPlayer(), courier: currentCourier});}
-function deliverClicked() {GameEvents.SendCustomGameEventToServer('courierdeliver', {unit: Players.GetLocalPlayer(), courier: currentCourier});}
+function burstClicked() {GameEvents.SendCustomGameEventToServer('useability', {pid: Players.GetLocalPlayer(), unit: currentCourier, ability: "courier_burst"});}
+function deliverClicked() {GameEvents.SendCustomGameEventToServer('useability', {pid: Players.GetLocalPlayer(), unit: currentCourier, ability: "courier_take_stash_and_transfer_items"});}
 var ItemDB = {587: "default", 10150: "dire", 10324: "portal", 10346: "mana_pool"};
 var currentUnit = Players.GetLocalPlayerPortraitUnit();
 var currentCourier = -1;
