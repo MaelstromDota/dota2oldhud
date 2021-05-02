@@ -125,10 +125,10 @@
     visibility: collapse;
 }
 #courier.Flying.Selected #courierStatus {
-    background-image: url("file://panorama/images/hud/courier_selected.png"); 
+    background-image: url("file://panorama/images/hud/flying_courier_selected.png"); 
 }
 #courier.Flying #courierStatus {
-    background-image: url("s2r://panorama/images/hud/courier_select_png.vtex");
+    background-image: url("file://panorama/images/hud/flying_courier_select.png");
     width: 25%;
 }
 #courier.Selected #courierStatus {
