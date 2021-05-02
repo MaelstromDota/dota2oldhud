@@ -33,6 +33,7 @@
 
                         <Label id="CooldownLabel" text="188" />
 
+                        <Panel id="AbilityManaMask"></Panel>
                         <Panel id="PassiveMask"></Panel>
                         <Panel id="AbilityPhaseMask"></Panel>
 

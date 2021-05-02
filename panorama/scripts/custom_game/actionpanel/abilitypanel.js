@@ -11,8 +11,9 @@ var AbilityState;
     AbilityState[AbilityState["Default"] = 0] = "Default";
     AbilityState[AbilityState["Active"] = 1] = "Active";
     AbilityState[AbilityState["AbilityPhase"] = 2] = "AbilityPhase";
-    AbilityState[AbilityState["Cooldown"] = 3] = "Cooldown";
-    AbilityState[AbilityState["Muted"] = 4] = "Muted";
+    AbilityState[AbilityState["NoMana"] = 3] = "NoMana";
+    AbilityState[AbilityState["Cooldown"] = 4] = "Cooldown";
+    AbilityState[AbilityState["Muted"] = 5] = "Muted";
 })(AbilityState || (AbilityState = {}));
 var AbilityPanel = (function () {
     /* Initialise this ability panel with an ability (like a constructor). */
@@ -257,18 +258,24 @@ var AbilityPanel = (function () {
         else if (!Abilities.IsCooldownReady(this.ability)) {
             state = AbilityState.Cooldown;
         }
+        else if (!Abilities.IsOwnersManaEnough(this.ability)) {
+            state = AbilityState.NoMana;
+        }
         var abilityImage = this.panel.FindChildTraverse("AbilityImage");
         var abilityPhaseMask = this.panel.FindChildTraverse("AbilityPhaseMask");
         var cooldownLabel = this.panel.FindChildTraverse("CooldownLabel");
         var cdShineMask = this.panel.FindChildTraverse("CDShineMask");
         var autocastMask = this.panel.FindChildTraverse("AutocastMask");
+        var manaMask = this.panel.FindChildTraverse("AbilityManaMask");
         if (state !== this.state) {
             if (state === AbilityState.Default) {
                 abilityImage.RemoveClass("Active");
                 abilityImage.RemoveClass("AbilityPhase");
                 abilityImage.RemoveClass("Cooldown");
+                abilityImage.RemoveClass("NoMana");
                 abilityPhaseMask.style.visibility = "collapse";
                 cooldownLabel.style.visibility = "collapse";
+                manaMask.style.visibility = "collapse";
                 if (this.state === AbilityState.Cooldown) {
                     cdShineMask.AddClass("CooldownEndShine");
                 }
@@ -277,21 +284,36 @@ var AbilityPanel = (function () {
                 abilityImage.AddClass("Active");
                 abilityImage.RemoveClass("AbilityPhase");
                 abilityImage.RemoveClass("Cooldown");
+                abilityImage.RemoveClass("NoMana");
                 abilityPhaseMask.style.visibility = "collapse";
+                manaMask.style.visibility = "collapse";
                 cooldownLabel.style.visibility = "collapse";
             }
             else if (state === AbilityState.AbilityPhase) {
                 abilityImage.RemoveClass("Active");
                 abilityImage.AddClass("AbilityPhase");
                 abilityImage.RemoveClass("Cooldown");
+                abilityImage.RemoveClass("NoMana");
                 abilityPhaseMask.style.visibility = "visible";
+                manaMask.style.visibility = "collapse";
                 cooldownLabel.style.visibility = "collapse";
+            }
+            else if (state == AbilityState.NoMana) {
+                abilityImage.RemoveClass("Active");
+                abilityImage.RemoveClass("AbilityPhase");
+                abilityImage.RemoveClass("Cooldown");
+                abilityImage.AddClass("NoMana")
+                abilityPhaseMask.style.visibility = "collapse";
+                cooldownLabel.style.visibility = "collapse";
+                manaMask.style.visibility = "visible";
             }
             else if (state === AbilityState.Cooldown) {
                 abilityImage.RemoveClass("Active");
                 abilityImage.RemoveClass("AbilityPhase");
                 abilityImage.AddClass("Cooldown");
+                abilityImage.AddClass("NoMana")
                 abilityPhaseMask.style.visibility = "collapse";
+                manaMask.style.visibility = "collapse";
                 cdShineMask.RemoveClass("CooldownEndShine");
                 this.startCooldown(Abilities.GetCooldownTimeRemaining(this.ability));
             }
