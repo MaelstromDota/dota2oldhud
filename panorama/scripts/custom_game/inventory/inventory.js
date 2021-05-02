@@ -61,5 +61,5 @@ for (var i = 0; i < 12; i++) {var parent_1 = $("#row0");
     items[i] = new ItemPanel(parent_1, i);}
 $("#deadCourierTimer").text = "N/A";
 function onGoldChanged() {$.Schedule(0.1, onGoldChanged)
-    $("#goldCount").text = Players.GetGold(Players.GetLocalPlayer()).toString();} //TODO: handle selecting allied units.
+    $("#goldCount").text = Players.GetGold(Entities.GetPlayerOwnerID(Players.GetLocalPlayerPortraitUnit())).toString();}
 onGoldChanged()

@@ -1,5 +1,5 @@
 function statsupdate(){
-	$.Schedule(0.1, statsupdate)
+	$.Schedule(0.03, statsupdate)
     var unit = Players.GetLocalPlayerPortraitUnit()
     $("#damagetext").text = Math.ceil((Entities.GetDamageMin(unit) + Entities.GetDamageMax(unit)) / 2)
     if (Math.ceil(Entities.GetDamageBonus(unit)) == 0) {$("#damagetextbonus").text = ''
