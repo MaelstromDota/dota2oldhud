@@ -1,62 +1,27 @@
-#ActionPanel {
-    padding-bottom: 0px;
-}
-
-/* Minimap border */
-#MinimapBorder
-{
+#ActionPanel {padding-bottom: 0px;}
+#MinimapBorder{
     width: 16.2%;
     height: 117%;
     margin-top: 1%;
     vertical-align: bottom;
     background-position: left bottom;
-    /* background-image: url(); */
     background-size: contain;
     background-repeat: no-repeat;
 }
-
-.AspectRatio4x3 #MinimapBorder
-{
+.AspectRatio4x3 #MinimapBorder{
     width: 20.5%;
     height: 117%;
     margin-top: -17%;
     vertical-align: bottom;
     background-position: left bottom;
-    /* background-image: url(); */
     background-size: contain;
     background-repeat: no-repeat;
 }
-
-/* Spacer */
-#MinimapSpacer
-{
-    width: 10%;
-    height: 100%;
-    margin-left: -23px;
-    z-index: -1;
-}
-
-.AspectRatio4x3 #MinimapSpacer
-{
-	visibility: collapse;
-}
-
-/* Portrait */
-#PortraitBorder
-{
-    height: width-percentage(92%);
-    margin-left: -3.8%;
-    width: 16.6%;
-    z-index: 5;
-}
-.AspectRatio4x3 #PortraitBorder
-{
-    margin-left: -3%;
-	height: 100%;
-}
-
-#HeroName
-{
+#MinimapSpacer {width: 10%; height: 100%; margin-left: -23px; z-index: -1;}
+.AspectRatio4x3 #MinimapSpacer {visibility: collapse;}
+#PortraitBorder {height: width-percentage(92%); margin-left: -3.8%; width: 16.6%; z-index: 5;}
+.AspectRatio4x3 #PortraitBorder {margin-left: -3%; height: 100%;}
+#HeroName{
     width: 45%;
     height: 28px;
     vertical-align: bottom;
@@ -66,24 +31,9 @@
     font-size: 17px;
     font-family: Goudy Trajan Medium;
 }
-
-.AspectRatio4x3 #HeroName
-{
-    width: 45%;
-    height: 88px;
-    margin-bottom: 50.5%;
-}
-
-#Portrait
-{
-    width: 8%;
-    height: 69%;
-    margin-left: -12%;
-    margin-right: 4%;
-}
-
-#LevelTextBox
-{
+.AspectRatio4x3 #HeroName{width: 45%; height: 88px; margin-bottom: 50.5%;}
+/* #Portrait{width: 8%; height: 69%; margin-left: -12%; margin-right: 4%;} */
+#LevelTextBox{
     width: 12%;
     height: 11%;
     background-image: url("s2r://panorama/images/hud/element_xp_orb_png.vtex");
@@ -92,18 +42,14 @@
     margin-left: 20.6%;
     z-index: 2;
 }
-
-#LevelNumber
-{
+#LevelNumber{
     color: #ffffff;
     font-size: 20px;
     vertical-align: center;
     horizontal-align: center;
     text-shadow: 0px 0px 2px 2.0 #ff00aa;
 }
-
-#XPBar
-{
+#XPBar{
     height: 4%;
     margin-bottom: 2%;
     vertical-align: bottom;
@@ -112,9 +58,7 @@
     background-size: 100% 100%;
     margin-left: 32%;
 }
-
-#XPLabel
-{
+#XPLabel{
     color: #ffffff;
     height: 5%;
     margin-bottom: 2.1%;
@@ -125,68 +69,39 @@
     font-size: 14px;
     text-shadow: 0px 0px 2px 2.0 #ff00aa;
 }
-
-/* Center panel */
-#center_left_wide
-{
+#center_left_wide{
     margin-left: -3.2%;
     width: 11.7% !important;
     height: 44% !important;
     background-size: 100% 100%;
     z-index: 1;
 }
-.AspectRatio4x3 #center_left_wide{
-    width: 15.3% !important;
-}
-#RightStatsBox
-{
-    margin-left: 0%;
-    width: 48.4%;
-}
-.BlackBox
-{
+.AspectRatio4x3 #center_left_wide{width: 15.3% !important;}
+#RightStatsBox{margin-left: 0%; width: 48.4%;}
+.BlackBox{
     width: 46%;
     height: 90%;
     margin-left: 6%;
     margin-bottom: 4%;
 }
-#center_right 
-{
+#center_right{
     width: 36% !important;
     height: 60% !important;
     background-size: 100% 100%;
     vertical-align: bottom;
 	margin-left: -11.5%;
 }
-
-/* Health/Mana bars */
-#HealthBar
-{
+#HealthBar{
     width: 34.7%;
     height: 9%;
     margin-top: 44%;
     margin-left: -36%;
-    /* z-index: 5; */
     border-radius: 10px;
     flow-children: right;
 }
-
-.AspectRatio4x3 #HealthBar
-{
-    width: 38.2%;
-    margin-left: -38.5%;
-}
-
-#hpbartext
-{
-	margin: 137px -716px 0px;
-}
-
-.AspectRatio4x3 #hpbartext
-{
-	margin: 155px -606px 0px;
-}
-
+.AspectRatio4x3 #HealthBar{width: 38.2%; margin-left: -38.5%;}
+#hpbartext{margin: 137px -716px 0px;}
+.AspectRatio4x3 #hpbartext{margin: 155px -606px 0px;}
 #HealthBarText{
 	color: white;
 	font-size: 19px;
@@ -197,9 +112,7 @@
 	margin-top: -1.5px;
 	margin-left: 350px;
 }
-
-#HealthBarInner
-{
+#HealthBarInner{
     width: 70%;
     height: 100%;
     background-color: gradient(linear, 0% 0%, 0% 100%, from(#83AA5A), color-stop(0.5, #156115), to(#003400));
@@ -208,27 +121,17 @@
     border-color: #043404;
     overflow: noclip;
 }
-
-#HealthBarLight
-{
+#HealthBarLight{
     width: height-percentage(1000%);
     height: 100%;
     background-color: gradient( radial, 0% 50%, 0% 0%, 50% 40%, from( #00ff00ff ), to( #00ff0000 ) );
     opacity: 0.5;
 }
-
 @keyframes 'glowAnim' {
-    0% {
-        opacity: 0.7;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0.7;
-    }
+    0% {opacity: 0.7;}
+    50% {opacity: 1;}
+    100% {opacity: 0.7;}
 }
-
 #HealthBarGlow {
     width: 5%;
     margin-left: -5%;
@@ -243,9 +146,7 @@
     hue-rotation: -100deg;
     brightness: 2.5;
 }
-
-#ManaBar
-{
+#ManaBar{
     width: 34.7%;
     height: 5%;
     margin-top: 53%;
@@ -253,13 +154,7 @@
     border-radius: 3px;
     flow-children: right;
 }
-
-.AspectRatio4x3 #ManaBar
-{
-    width: 38.2%;
-    margin-left: -38.2%;
-}
-
+.AspectRatio4x3 #ManaBar {width: 38.2%; margin-left: -38.2%;}
 #ManaBarText{
 	color: white;
 	font-size: 15px;
@@ -272,22 +167,8 @@
 	margin-top: 20px;
 	margin-left: 350px;
 }
-
-#ManaBarInner
-{
-    height: 100%;
-    width: 50%;
-    background-color: gradient(linear, 0% 0%, 0% 100%, from(#7395BD), color-stop(0.3, #34609F), color-stop(0.31, #0D448C), to(#294D84));
-}
-
-#ManaBarLight
-{
-    width: height-percentage(1000%);
-    height: 100%;
-    background-color: gradient( radial, 0% 50%, 0% 0%, 60% 80%, from( #3B9DFFFF ), to( #3B9DFF00 ) );
-    opacity: 0.6;
-}
-
+#ManaBarInner {height: 100%; width: 50%; background-color: gradient(linear, 0% 0%, 0% 100%, from(#7395BD), color-stop(0.3, #34609F), color-stop(0.31, #0D448C), to(#294D84));}
+#ManaBarLight {width: height-percentage(1000%); height: 100%; background-color: gradient( radial, 0% 50%, 0% 0%, 60% 80%, from( #3B9DFFFF ), to( #3B9DFF00 ) ); opacity: 0.6;}
 #ManaBarGlow {
     width: 5%;
     margin-left: -5%;
@@ -301,12 +182,14 @@
     animation-iteration-count: infinite;
     brightness: 2.5;
 }
+.AbilityLayout1 .Ability {width: 17.8%; height: 125%; padding-top: 5px; padding-left: 9px;}
+.AbilityLayout2 .Ability {width: 17.8%; height: 125%; padding-top: 5px; padding-left: 9px;}
+.AbilityLayout3 .Ability {width: 17.8%; height: 125%; padding-top: 5px; padding-left: 9px;}
 .AbilityLayout4 .Ability {width: 17.8%; height: 125%; padding-top: 5px; padding-left: 9px;}
 .AbilityLayout5 .Ability {width: 22%; height: 100%;}
 .AbilityLayout6 .Ability {width: 12.4%; height: 100%; padding-top: 9px;}
 .AbilityLayout14 .Ability {width: 15%; height: 100%; padding-top: 8px;}
-#AbilitiesContainer
-{
+#AbilitiesContainer {
     height: 60%;
     width: 90%;
     padding-left: 2%;
@@ -316,18 +199,8 @@
 	padding-top: -16px;
     margin-left: 360px;
 }
-
-#AbilitiesContainer.AbilityLayout5 {
-    padding-left: 0%;
-    padding-right: 0%;
-    margin-left: 350px;
-}
-
-#AbilitiesContainer.AbilityLayout6 {
-    padding-left: 0%;
-    padding-right: 0%;
-    margin-left: 395px;
-}
+#AbilitiesContainer.AbilityLayout5 {padding-left: 0%; padding-right: 0%; margin-left: 350px;}
+#AbilitiesContainer.AbilityLayout6 {padding-left: 0%; padding-right: 0%; margin-left: 395px;}
 DOTAPortrait{horizontal-align: center; vertical-align: bottom; width: 8%; height: 69%; z-index: 3; margin-left: -1120px; margin-right: 965px;}
 .StatsClass{width: 890px; height: 200px; z-index: 1; vertical-align: bottom;}
 #damageicon{position: 672px 68px 0px; width: 140px; height: 55px;}
