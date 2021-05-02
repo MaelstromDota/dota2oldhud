@@ -32,7 +32,7 @@ GameEvents.Subscribe("entity_killed", onEntityKilled);
 function onHeroDeath(event) {$("#kda-value").SetDialogVariableInt("kills", Players.GetKills(Players.GetLocalPlayer()));
     $("#kda-value").SetDialogVariableInt("deaths", Players.GetDeaths(Players.GetLocalPlayer()));
     $("#kda-value").SetDialogVariableInt("assists", Players.GetAssists(Players.GetLocalPlayer()));}
-GameEvents.Subscribe("dota_player_kill", onHeroDeath);
+GameEvents.Subscribe("entity_killed", onHeroDeath);
 function onCourierDeathTimeUpdate() {var time = courierDeathTime--;
     $("#deadCourierTimer").text = Math.floor(time / 60) + ":" + ("00" + (time % 60)).slice(-2);
     if (courierDeathTime < 1)
