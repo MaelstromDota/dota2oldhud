@@ -1,4 +1,4 @@
-function econHover(origin) {$.DispatchEvent("DOTAShowTextTooltipStyled", $(origin), "Select Courier", "EconTooltip");}
+function econHover(origin) {$.DispatchEvent("DOTAShowTextTooltipStyled", $(origin), "#dota_settings_selectcourier", "EconTooltip");}
 function econHoverEnd(origin) {$.DispatchEvent("DOTAHideTextTooltip");}
 function statusClicked() {GameUI.SelectUnit(currentCourier, false);}
 function burstClicked() {GameEvents.SendCustomGameEventToServer('useability', {pid: Players.GetLocalPlayer(), unit: currentCourier, ability: "courier_burst"});}

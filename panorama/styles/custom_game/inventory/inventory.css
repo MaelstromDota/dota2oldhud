@@ -135,7 +135,7 @@
     background-image: url("file://panorama/images/hud/courier_selected.png");
 }
 #courierStatus {
-    background-image: url("s2r://panorama/images/hud/courier_select_png.vtex");
+    background-image: url("file://panorama/images/hud/courier_select.png");
     background-size: 100% 100%;
     width: 50%;
     height: 100%;
