@@ -143,7 +143,7 @@
         }
         $("#HealthBarInner").style.width = (Entities.GetHealth(currentUnit) / Entities.GetMaxHealth(currentUnit)) * 100 + "%";
 		$("#HealthBarText").text = (Entities.GetHealth(currentUnit) + '/' + Entities.GetMaxHealth(currentUnit)) + ' +' + Entities.GetHealthThinkRegen(currentUnit);
-        $("#LevelNumber").text = Players.GetLevel(Players.GetLocalPlayer());
+        $("#LevelNumber").text = Entities.GetLevel(currentUnit);
         $("#XPLabel").text = Entities.GetCurrentXP(currentUnit) + '/' + (Entities.GetNeededXPToLevel(currentUnit));
         if (Entities.IsHero(currentUnit)) {
             $("#XPBar").style.width = Entities.GetCurrentXP(currentUnit) / Entities.GetNeededXPToLevel(currentUnit) * 40 + "%";
@@ -157,7 +157,17 @@
             $("#ManaBarInner").style.width = '0%'
             $("#ManaBarText").text = ' 0 /  1 '
         }
+        if (Entities.IsEnemy(currentUnit)){
+            $("#HealthBarInner").style.backgroundColor = "gradient(linear, 0% 0%, 0% 100%, from(#aa5a5a), color-stop(0.5, #611515), to(#340000))"
+            $("#HealthBarInner").style.borderColor = "#340404"
+            $("#HealthBarLight").style.backgroundColor = "gradient( radial, 0% 50%, 0% 0%, 50% 40%, from( rgb(255, 0, 0) ), to( #ff000000 ) )"
+            $("#HealthBarGlow").style.hueRotation = "150deg"
+        }
         if (!Entities.IsEnemy(currentUnit)) {
+            $("#HealthBarInner").style.backgroundColor = "gradient(linear, 0% 0%, 0% 100%, from(#83AA5A), color-stop(0.5, #156115), to(#003400))"
+            $("#HealthBarInner").style.borderColor = "#043404"
+            $("#HealthBarLight").style.backgroundColor = "gradient( radial, 0% 50%, 0% 0%, 50% 40%, from( #00ff00ff ), to( #00ff0000 ) )"
+            $("#HealthBarGlow").style.hueRotation = "-100deg"
             var silenceS = getSilenceState(currentUnit);
             if (silenceS !== silenceState) {
                 silenceState = silenceS;
