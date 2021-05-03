@@ -203,6 +203,7 @@
 #AbilitiesContainer.AbilityLayout5 {padding-left: 0%; padding-right: 0%; margin-left: 350px;}
 #AbilitiesContainer.AbilityLayout6 {padding-left: 0%; padding-right: 0%; margin-left: 395px;}
 DOTAPortrait{horizontal-align: center; vertical-align: bottom; width: 8%; height: 69%; z-index: 3; margin-left: -1120px; margin-right: 965px;}
+#Stats{width: 1500px;}
 .StatsClass{width: 890px; height: 200px; z-index: 1; vertical-align: bottom;}
 #damageicon{position: 672px 68px 0px; width: 140px; height: 55px;}
 #damagetext{color: #ffffff; font-size: 16px; position: -22px 1.25px 0px; horizontal-align: center; vertical-align: center;}
