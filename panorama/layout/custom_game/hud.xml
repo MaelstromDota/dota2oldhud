@@ -4,27 +4,16 @@
         <include src="s2r://panorama/styles/hudstyles.vcss_c" />
         <include src="file://panorama/styles/custom_game/hud.css" />     
     </styles>
-
     <scripts>
         <include src="s2r://panorama/scripts/custom_game/hud.js" />
     </scripts>
     <Panel class="MainPanel" hittest="false">
         <Panel id="ZooHUD" class="ZooTab" hittest="false">
             <script>
-                /* Add the different components of the HUD */
-
-                // Action panel
                 Component("ActionPanel", "actionpanel/actionpanel.xml");
-
-                // Inventory
                 Component("Inventory", "inventory/inventory.xml");
-
-                // Shop
                 //Component("Shop", "shop/shop.xml");
-
-                // Topbar
                 //Component("Topbar", "topbar/topbar.xml");
-
             </script>
         </Panel>
     </Panel>

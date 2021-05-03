@@ -6,60 +6,44 @@
         <include src="file://panorama/styles/custom_game/actionpanel/abilitypanel.css" />     
         <include src="file://panorama/styles/custom_game/actionpanel/actionpanel.css" />     
     </styles>
-
     <scripts>
         <include src="s2r://panorama/scripts/custom_game/actionpanel/abilitypanel.js" />
         <include src="s2r://panorama/scripts/custom_game/actionpanel/actionpanel.js" />
     </scripts>
-
     <snippets>
         <snippet name="AbilityPanel">
             <Panel class="Ability">
                 <Panel id="AbilityFrame" class="AbilityFrame">
-                    <!-- Main ability button -->
                     <Panel class="spacer" />
                     <Button id="AbilityButton" hittest="true">
-
                         <DOTAAbilityImage id="AbilityImage" />
                         <Panel class="abilitycooldowncontainer">
                             <Panel id="cooldownswipe" />
                         </Panel>
-
                         <Panel id="AutocastPanel" />
                         <Panel id="AutocastMask">
                             <Panel id="AutocastMaskInner"></Panel>
                             <Panel id="AutocastMaskInner2"></Panel>
                         </Panel>
-
                         <Label id="CooldownLabel" text="188" />
-
                         <Panel id="AbilityManaMask"></Panel>
                         <Panel id="PassiveMask"></Panel>
                         <Panel id="AbilityPhaseMask"></Panel>
-
                         <Panel id="CDShineMask" />
-
                         <Panel id="SilencedMask"></Panel>
-
                         <Panel id="HoverHighlight"></Panel>
                         <Panel id="LearnOverlay"></Panel>
-
                         <Label id="ManaLabel" text="333"/>
                         <Label id="HotkeyLabel" text="W"/>
                     </Button>
-
-                    <!-- Ability level indicators -->
                     <Panel id="PipContainer">
-                        <!-- <Panel class="LeveledPip"/> or <Panel class="EmptyPip"/> Inserted by code here. -->
                     </Panel>
                 </Panel>
             </Panel>
         </snippet>
     </snippets>
-  
     <Panel class="hudpanel" hittest="false">
         <Image id="MinimapBorder" hittest="false" src="raw://resource/flash3/images/hud_skins/default/actionpanel/minimapborder.png" />
-        <!--<Panel class="hud" id="minimapimage"/>-->
         <Image id="MinimapSpacer" src="raw://resource/flash3/images/hud_skins/default/actionpanel/spacer_16_9.png" />
         <Image class="hud" id="PortraitBorder" hittest="true" src="raw://resource/flash3/images/hud_skins/default/actionpanel/portrait_wide.png">
             <Label id="HeroName" text="N/A" />
@@ -74,27 +58,20 @@
             <Button id="InspectButtonn" class="PortraitButtonn" onactivate="DOTAHUDInspect();" always-cache-composition-layer="true" />
             <Button id="HeroViewButtonn" class="PortraitButtonn" onactivate="DOTAHUDHeroViewClicked();" always-cache-composition-layer="true" />
         </DOTAPortrait>
-
-        <!-- Stat container -->
         <Image class="hud" id="center_left_wide" src="raw://resource/flash3/images/hud_skins/default/actionpanel/center_left_wide.png" hittest="true">
             <Panel class="BlackBox" id="LeftStatsBox"/>
             <Panel class="BlackBox" id="RightStatsBox"/>
         </Image>
-        <!-- Ability container -->
         <Image id="center_right" src="raw://resource/flash3/images/hud_skins/default/actionpanel/center_right.png" hittest="true">
             <Panel id="AbilitiesContainer">
-
             </Panel>
         </Image>
-
-        <!-- Health bar -->
 		<Panel id="HealthBar">
 			<Panel id="HealthBarInner">
 				<Panel id="HealthBarLight" />
 			</Panel>
 			<Panel id="HealthBarGlow" />
 		</Panel>
-		<!-- Mana bar -->
 		<Panel id="ManaBar">
 			<Panel id="ManaBarInner">
 				<Panel id="ManaBarLight" />
