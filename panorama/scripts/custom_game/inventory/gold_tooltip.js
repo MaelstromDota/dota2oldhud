@@ -23,7 +23,7 @@ function update() {
         $("#buybackCostExtra").SetDialogVariableInt("buyback_gold_needed", Math.abs(buybackSurplus));
         $("#buybackCostExtra").text = $.Localize("#DOTA_HUD_BuybackCost_Needed", $("#buybackCostExtra"));
     }
-	$.Schedule(0.01, update())
+	$.Schedule(0.1, update)
 }
 update();
 GameEvents.Subscribe("dota_money_changed", update);

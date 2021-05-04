@@ -155,32 +155,26 @@ var AbilityPanel = (function () {
     AbilityPanel.prototype.startCooldown = function (duration) {
         var totalDuration = Abilities.GetCooldownLength(this.ability);
         var cooldownPanel = this.panel.FindChildTraverse("cooldownswipe");
-
         cooldownPanel.style.opacity = "0.75";
+        cooldownPanel.style.transitionDuration = totalDuration + "s";
         cooldownPanel.style.clip = "radial(50% 50%, 0deg, 0deg)";
-        cooldownPanel.style.animationName = "SpellCooldown";
-        cooldownPanel.style.animationDuration = `${totalDuration}s`;
-        cooldownPanel.style.animationTimingFunction = `linear`;
-        cooldownPanel.style.animationIterationCount = 1;
-        
+        $.Schedule(duration, function () {
+            cooldownPanel.style.opacity = "0";
+            cooldownPanel.style.clip = "radial(50% 50%, 0deg, -360deg)";
+        });
         var cooldownLabel = this.panel.FindChildTraverse("CooldownLabel");
         cooldownLabel.text = String(Math.ceil(duration));
         cooldownLabel.style.visibility = "visible";
-        $.Schedule(0.1, this.updateCooldown.bind(this));
+        $.Schedule(duration % 1.0, this.updateCooldown.bind(this));
     };
     AbilityPanel.prototype.updateCooldown = function () {
-        var cooldownPanel = this.panel.FindChildTraverse("cooldownswipe");
-
         if (Abilities.IsCooldownReady(this.ability)) {
             this.panel.FindChildTraverse("CooldownLabel").style.visibility = "collapse";
-            cooldownPanel.style.opacity = "0";
-            cooldownPanel.style.animationDuration = '0s';
-            cooldownPanel.style.clip = "radial(50% 50%, 0deg, -360deg)";
             return;
         }
         var cooldown = Abilities.GetCooldownTimeRemaining(this.ability);
         this.panel.FindChildTraverse("CooldownLabel").text = String(Math.ceil(cooldown));
-        $.Schedule(0.1, this.updateCooldown.bind(this));
+        $.Schedule(1.0, this.updateCooldown.bind(this));
     };
     AbilityPanel.prototype.setSilenceState = function (state) {
         var silenceMask = this.panel.FindChildTraverse("SilencedMask");

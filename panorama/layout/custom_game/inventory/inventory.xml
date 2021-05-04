@@ -39,6 +39,7 @@
                 <Panel id="courierStatus" onactivate="statusClicked()" onmouseover="econHover('#courierStatus')" onmouseout="econHoverEnd()"/>
                 <Panel id="courierBurst" onactivate="burstClicked()" />
                 <Panel id="courierDelivery" onactivate="deliverClicked()" onmouseover="DOTAShowTextTooltip('#DOTA_Courier_Deliver_Items')" onmouseout="DOTAHideTextTooltip()"/>
+                <Label id="CourierBurstCooldown" hittest="false"/>
             </Panel>
             <Panel id="stats" hittest="false">
                 <Label id="kda" text="#DOTA_Inventory_KDA" />
