@@ -5,13 +5,12 @@ function burstClicked() {GameEvents.SendCustomGameEventToServer('useability', {p
 function deliverClicked() {GameEvents.SendCustomGameEventToServer('useability', {pid: Players.GetLocalPlayer(), unit: currentCourier, ability: "courier_take_stash_and_transfer_items"});}
 function burstCooldown() {
     $.Schedule(0.1, burstCooldown);
-    // if (Entities.HasFlyMovementCapability(currentCourier)){
-        var cooldown = Entities.GetAbility(currentCourier, 3)
-        $.Msg(cooldown)
-        // var cooldown = Math.ceil(Abilities.GetCooldownTimeRemaining(Entities.GetAbility(currentCourier, 3)))
-        $("#CourierBurstCooldown").text = toString(cooldown)
+    if (Entities.HasFlyMovementCapability(currentCourier)){
+        GameEvents.SendCustomGameEventToServer('getburstcooldown', {unit: currentCourier})
+        var cooldown = Math.ceil(CustomNetTables.GetTableValue("courier_burst_cooldown", currentCourier).cooldown)
+        $("#CourierBurstCooldown").text = cooldown.toString()
         if (cooldown < 1) {$("#CourierBurstCooldown").style.visibility = 'collapse'} else {$("#CourierBurstCooldown").style.visibility = 'visible'}
-    // }
+    }
 }
 var ItemDB = {587: "default", 10150: "dire", 10324: "portal", 10346: "mana_pool"};
 var currentUnit = Players.GetLocalPlayerPortraitUnit();
@@ -25,12 +24,17 @@ function onSteamInventoryChanged(event) {var skinName = GameUI.CustomUIConfig().
         onInventoryChanged(event);
         if (Players.GetLocalPlayerPortraitUnit() == currentCourier) {$("#courier").AddClass("Selected");} else {$("#courier").RemoveClass("Selected");}
     if (Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()) != Players.GetLocalPlayerPortraitUnit()) {$("#stats").SetHasClass("Hidden", true);} else {$("#stats").SetHasClass("Hidden", false);}
-    currentUnit = Players.GetQueryUnit(Players.GetLocalPlayer());}
-    function onInventoryItemChanged(event) {if (Abilities.GetAbilityName(event.entityIndex) == "item_flying_courier") {flyingCourierCheck();}
-    onInventoryChanged(null);}
-    function onInventoryChanged(event) {for (var _i = 0, items_1 = items; _i < items_1.length; _i++) {var item = items_1[_i];
-        item.update();}}
-        function onShopChanged(event) {if (event.shopmask > 0) {$("#shop").AddClass("ShopActive");} else {$("#shop").RemoveClass("ShopActive");}}
+    currentUnit = Players.GetQueryUnit(Players.GetLocalPlayer());
+}
+function onInventoryItemChanged(event) {
+    if (Abilities.GetAbilityName(event.entityIndex) == "item_flying_courier") {flyingCourierCheck();}
+    onInventoryChanged(null);
+}
+function onInventoryChanged(event) {
+    for (var _i = 0, items_1 = items; _i < items_1.length; _i++) {var item = items_1[_i];
+    item.update();}
+}
+function onShopChanged(event) {if (event.shopmask > 0) {$("#shop").AddClass("ShopActive");} else {$("#shop").RemoveClass("ShopActive");}}
 GameEvents.Subscribe("inventory_updated", onSteamInventoryChanged);
 GameEvents.Subscribe("dota_inventory_changed", onInventoryChanged);
 GameEvents.Subscribe("dota_inventory_item_changed", onInventoryItemChanged);
