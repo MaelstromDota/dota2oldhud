@@ -1,57 +1,43 @@
-.inventory
-{
+.inventory{
     z-index: 7;
     vertical-align: bottom;
     horizontal-align: right;
     width: 30%;
     height: 27%;
 }
-#hittest
-{
+#hittest{
     vertical-align: bottom;
     horizontal-align: right;
     width: 97.5%;
     height: 57%;
 }
-#background
-{
-    /* Remember to add 4:3 aspect ratio system in later */
+#background{
     background-image: url("file://{images}/hud/default/inventory/background_wide.png");
     background-size: 100% 100%;
     margin-left: 19%;
     width: 81%;
     height: 100%;
 }
-.AspectRatio4x3 #background
-{
+.AspectRatio4x3 #background{
     margin-left: 0%;
     width: 100%;
     height: 100%;
 }
-#items
-{
-	margin-left: 0%;
-}
-.AspectRatio4x3 #items
-{
-	margin-left: -3%;
-}
-#spacer
-{
+#items{margin-left: 0%;}
+.AspectRatio4x3 #items{margin-left: -3%;}
+#spacer{
     margin-left:1%;
     width: 20%;
     height: 83%;
     horizontal-align: left;
     vertical-align: bottom;
 }
-.AspectRatio4x3 #spacer
-{
+.AspectRatio4x3 #spacer{
    margin-left:-13%;
    width:73.1px;
    visibility: collapse;
 }
-#rocks
-{
+#rocks{
     /* Remember to add aspect ratio system in later */
     margin-left: -5%;
     width: 40%;
@@ -60,19 +46,13 @@
     vertical-align: bottom;
     z-index: 1;
 }
-#stats {
-    width: 100%;
-    height: 100%;
-}
-#stats.Hidden {
-    opacity: 0.0;
-}
+#stats {width: 100%; height: 100%;}
+#stats.Hidden {opacity: 0.0;}
 #kda {
     margin-left: 56.4%;
     margin-bottom: 6.2%;
     vertical-align: bottom;
     horizontal-align: left;
-
     font-size: 15px;
     color: #666666;
 }
@@ -81,7 +61,6 @@
     margin-bottom: 2%;
     vertical-align: bottom;
     horizontal-align: left;
-
     font-size: 15px;
     color: #666666;
 }
@@ -90,7 +69,6 @@
     margin-bottom: 6.2%;
     vertical-align: bottom;
     horizontal-align: left;
-
     font-size: 14px;
     color: offWhite;
 }
@@ -111,29 +89,18 @@
     vertical-align: bottom;
     horizontal-align: right;   
 }
-#noCourier
-{
+#noCourier{
     margin-right: 5%;
     margin-top: 10%;
     vertical-align: center;
     horizontal-align: center;
-    
     color: #773333;
     font-size: 16px;
 }
-#courier.Courier #noCourier {
-    visibility: collapse;
-}
-#courier.Flying.Selected #courierStatus {
-    background-image: url("file://panorama/images/hud/flying_courier_selected.png"); 
-}
-#courier.Flying #courierStatus {
-    background-image: url("file://panorama/images/hud/flying_courier_select.png");
-    width: 25%;
-}
-#courier.Selected #courierStatus {
-    background-image: url("file://panorama/images/hud/courier_selected.png");
-}
+#courier.Courier #noCourier {visibility: collapse;}
+#courier.Flying.Selected #courierStatus {background-image: url("file://panorama/images/hud/flying_courier_selected.png"); }
+#courier.Flying #courierStatus {background-image: url("file://panorama/images/hud/flying_courier_select.png"); width: 25%;}
+#courier.Selected #courierStatus {background-image: url("file://panorama/images/hud/courier_selected.png");}
 #courierStatus {
     background-image: url("file://panorama/images/hud/courier_select.png");
     background-size: 100% 100%;
@@ -141,12 +108,8 @@
     height: 100%;
     visibility: collapse;
 }
-#courier.Courier.Dead #courierStatus {
-    visibility: collapse;
-}
-#courier.Courier #courierStatus {
-    visibility: visible;
-}
+#courier.Courier.Dead #courierStatus {visibility: collapse;}
+#courier.Courier #courierStatus {visibility: visible;}
 #courierDelivery {
     visibility: collapse;
     background-image: url("file://panorama/images/hud/courier_deliver.png");
@@ -155,27 +118,18 @@
     height: 100%;
     horizontal-align: right;
 }
-#courier.Courier.Dead #courierDelivery {
-    visibility: collapse;
-}
-#courier.Courier #courierDelivery {
-    visibility: visible;
-}
-#courier.Flying.Dead #courierBurst {
-    visibility: collapse;
-}
+#courier.Courier.Dead #courierDelivery {visibility: collapse;}
+#courier.Courier #courierDelivery {visibility: visible;}
+#courier.Flying.Dead #courierBurst {visibility: collapse;}
 #courier.Flying #courierBurst {
     visibility: visible;
     width: 25%;
     height: 100%;
     margin-left: 25%;
-    /* horizonatal-align: left; */
     background-image: url("file://panorama/images/hud/courier_burst.png");
     background-size: 100% 100%;
 }
-#courierBurst {
-    visibility: collapse;
-}
+#courierBurst {visibility: collapse;}
 #CourierBurstCooldown {
     visibility: visible;
     margin-left: -15px;
@@ -185,9 +139,7 @@
     color: white;
     text-align: center;
 }
-#courier.Dead #deadCourier {
-    visibility: visible;
-}
+#courier.Dead #deadCourier {visibility: visible;}
 #deadCourier {
     width: 100%;
     height: 100%;
@@ -212,13 +164,11 @@
     color: #773333;
     margin-right: 5%;
 }
-#glyph
-{
+#glyph{
     vertical-align: bottom;
     horizontal-align: right;        
 }
-#gold
-{
+#gold{
     width: 22%;
     height: 10%;
     margin-right: 22%;
@@ -227,14 +177,12 @@
     horizontal-align: right;
     tooltip-position: top left;
 }
-#goldImage
-{
+#goldImage{
     width: 30%;
     height: 100%;
     horizontal-align: left;
 }
-#goldCount
-{
+#goldCount{
     width: 70%;
     height: 100%;
     font-size: 21px;
@@ -246,8 +194,7 @@
     horizontal-align: right;
     text-align: center;
 }
-#shop
-{
+#shop{
     background-image: url("s2r://panorama/images/hud/hudv2_shopbutton.png");
     background-size: 100% 100%;
     width: 21%;
@@ -257,12 +204,8 @@
     vertical-align: bottom;
     horizontal-align: right;
 }
-#shop.ShopActive
-{
-    background-image: url("s2r://panorama/images/hud/hudv2_shopbutton_lit.png");
-}
-#shopLabel
-{
+#shop.ShopActive {background-image: url("s2r://panorama/images/hud/hudv2_shopbutton_lit.png");}
+#shopLabel{
     width: 75%;
     height: 75%;
     horizontal-align: center;
