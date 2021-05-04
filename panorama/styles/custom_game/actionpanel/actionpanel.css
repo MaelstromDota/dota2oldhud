@@ -21,6 +21,7 @@
 .AspectRatio4x3 #MinimapSpacer {visibility: collapse;}
 #PortraitBorder {height: width-percentage(92%); margin-left: -3.8%; width: 16.6%; z-index: 5;}
 .AspectRatio4x3 #PortraitBorder {margin-left: -3%; height: 100%;}
+.hud:hover{background-color: #ffffff00;wash-color: #ffffff00;}
 #HeroName{
     width: 45%;
     height: 28px;
