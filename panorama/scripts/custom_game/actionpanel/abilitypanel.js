@@ -230,19 +230,15 @@ var AbilityPanel = (function () {
             else if (state == AbilityState.NoMana) {
                 abilityImage.RemoveClass("Active");
                 abilityImage.RemoveClass("AbilityPhase");
-                abilityImage.RemoveClass("Cooldown");
                 abilityImage.AddClass("NoMana")
                 abilityPhaseMask.style.visibility = "collapse";
-                cooldownLabel.style.visibility = "collapse";
                 manaMask.style.visibility = "visible";
             }
             else if (state === AbilityState.Cooldown) {
                 abilityImage.RemoveClass("Active");
                 abilityImage.RemoveClass("AbilityPhase");
                 abilityImage.AddClass("Cooldown");
-                abilityImage.AddClass("NoMana")
                 abilityPhaseMask.style.visibility = "collapse";
-                manaMask.style.visibility = "collapse";
                 cdShineMask.RemoveClass("CooldownEndShine");
                 this.startCooldown(Abilities.GetCooldownTimeRemaining(this.ability));
             }

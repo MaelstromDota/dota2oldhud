@@ -1,6 +1,6 @@
 function statsupdate(){
 	$.Schedule(0.03, statsupdate)
-    var unit = Players.GetLocalPlayerPortraitUnit()
+    let unit = Players.GetLocalPlayerPortraitUnit()
     $("#damagetext").text = Math.ceil((Entities.GetDamageMin(unit) + Entities.GetDamageMax(unit)) / 2)
     if (Math.ceil(Entities.GetDamageBonus(unit)) == 0) {$("#damagetextbonus").text = ''
     $("#damagetext").style.position = "-10px 1.25px 0px"} else {$("#damagetextbonus").text = '+ ' + Math.ceil(Entities.GetDamageBonus(unit))
@@ -20,6 +20,14 @@ function statsupdate(){
         $("#agiicon").style.border = "0px none #ffffff"
         $("#inticon").style.border = "0px none #ffffff"
         if (CustomNetTables.GetTableValue("stats", unit).att == 0){$("#stricon").style.border = "1px solid #ffbe07"} else if (CustomNetTables.GetTableValue("stats", unit).att == 1){$("#agiicon").style.border = "1px solid #ffbe07"} else if (CustomNetTables.GetTableValue("stats", unit).att == 2){$("#inticon").style.border = "1px solid #ffbe07"}
+    }
+    let units = Players.GetSelectedEntities(Players.GetLocalPlayer())
+    if (units.length > 1) {
+        $("#Stats").style.visibility = "collapse"
+        $("#StatsBonus").style.visibility = "collapse"
+    } else {
+        $("#Stats").style.visibility = "visible"
+        $("#StatsBonus").style.visibility = "visible"
     }
 }
 statsupdate()

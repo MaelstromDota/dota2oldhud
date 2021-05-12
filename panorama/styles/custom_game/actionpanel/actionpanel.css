@@ -204,22 +204,3 @@
 #AbilitiesContainer.AbilityLayout5 {padding-left: 0%; padding-right: 0%; margin-left: 350px;}
 #AbilitiesContainer.AbilityLayout6 {padding-left: 0%; padding-right: 0%; margin-left: 395px;}
 DOTAPortrait{horizontal-align: center; vertical-align: bottom; width: 8%; height: 69%; z-index: 3; margin-left: -1120px; margin-right: 965px;}
-#Stats{width: 1500px;}
-.StatsClass{width: 890px; height: 200px; z-index: 1; vertical-align: bottom;}
-#damageicon{position: 672px 68px 0px; width: 140px; height: 55px;}
-#damagetext{color: #ffffff; font-size: 16px; position: -22px 1.25px 0px; horizontal-align: center; vertical-align: center;}
-#damagetextbonus{color: #00ff15; font-size: 16px; position: 60px 18.9px 0px;}
-#armoricon{position: 675px 115px 0px; width: 55px; height: 50px;}
-#armortext{color: #ffffff; font-size: 12px; position: 259px 162px 0px; horizontal-align: center;}
-#armortextbonus{color: #00ff15; font-size: 12px; position: 259px 175px 0px; horizontal-align: center;}
-#speedicon{position: 715px 118px 0px; width: 65px; height: 45px;}
-#speedtext{color: #ffffff; font-size: 12px; position: 305px 162px 0px; horizontal-align: center;}
-#stricon{position: 785px 83px 0px; width: 32px; height: 32px; border-radius: 50% / 50%;}
-#strtext{color: #ffffff; font-size: 14px; position: -42px 90.5px 0px; horizontal-align: right;}
-#strtextbonus{color: #00ff15; font-size: 14px; position: 848px 90px 0px;}
-#agiicon{position: 785px 118px 0px; width: 32px; height: 32px; border-radius: 50% / 50%;}
-#agitext{color: #ffffff; font-size: 14px; position: -42px 127.5px 0px; horizontal-align: right;}
-#agitextbonus{color: #00ff15; font-size: 14px; position: 848px 127px 0px;}
-#inticon{position: 785px 153px 0px; width: 32px; height: 32px; border-radius: 50% / 50%;}
-#inttext{color: #ffffff; font-size: 14px; position: -42px 164.5px 0px; horizontal-align: right;}
-#inttextbonus{color: #00ff15; font-size: 14px; position: 849px 164px 0px;}

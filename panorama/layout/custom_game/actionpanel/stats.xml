@@ -1,12 +1,20 @@
 <root>
     <styles>
         <include src="file://{resources}/styles/custom_game/actionpanel/actionpanel.css" />
+        <include src="file://{resources}/styles/custom_game/actionpanel/stats.css" />
         <include src="file://{resources}/styles/dotastyles.vcss_c" />
 		<include src="file://{resources}/styles/custom_ui.vcss_c" />
     </styles>
     <scripts>
         <include src="file://{resources}/scripts/custom_game/actionpanel/stats.js" />
     </scripts>
+    <snippets>
+        <snippet name="MiniPortrait">
+            <Panel class="MiniUnit">
+                <DOTAPortrait/>
+            </Panel>
+        </snippet>
+    </snippets>
     <Panel class="StatsClass">
         <Panel id="Stats">
             <Image id="damageicon" src="s2r://panorama/images/hud/hudv2_icondamage_png.vtex" onmouseover="ShowLeftStats()" onmouseout="HideLeftStats()">
@@ -31,6 +39,7 @@
             <Label id="inttextbonus" text="+ N/A" />
         </Panel>
         <Panel id="SelectedUnits">
+            <DOTAScenePanel class="hud" id="Portrait" unit="npc_dota_hero_zuus"/>
         </Panel>
     </Panel>
 </root>
