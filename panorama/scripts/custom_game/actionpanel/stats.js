@@ -12,9 +12,9 @@ function ClickPortrait(portrait){
             };
         };
     } else {
-        GameUI.SelectUnit(lastUnit[parseInt(portrait)], false)
-    }
-}
+        GameUI.SelectUnit(lastUnit[parseInt(portrait)], false);
+    };
+};
 function statsupdate(){
     $.Schedule(0.1, statsupdate);
     let unit = Players.GetLocalPlayerPortraitUnit();

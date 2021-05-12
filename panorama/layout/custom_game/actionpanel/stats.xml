@@ -42,7 +42,7 @@
             <DOTAScenePanel class="hud" id="Portrait8" unit="npc_dota_hero_techies" onactivate="ClickPortrait('8')"/>
             <DOTAScenePanel class="hud" id="Portrait9" unit="npc_dota_hero_techies" onactivate="ClickPortrait('9')"/>
             <DOTAScenePanel class="hud" id="Portrait10" unit="npc_dota_hero_techies" onactivate="ClickPortrait('10')"/>
-            <DOTAScenePanel class="hud" id="Portrait11" unit="npc_dota_hero_techies" onactivate="ClickPortrait('11)"/>
+            <DOTAScenePanel class="hud" id="Portrait11" unit="npc_dota_hero_techies" onactivate="ClickPortrait('11')"/>
             <DOTAScenePanel class="hud" id="Portrait12" unit="npc_dota_hero_techies" onactivate="ClickPortrait('12')"/>
         </Panel>
     </Panel>
