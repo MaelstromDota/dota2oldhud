@@ -32,7 +32,18 @@
             <Label id="inttextbonus" text="+ N/A" />
         </Panel>
         <Panel id="SelectedUnits">
-            <DOTAScenePanel class="hud" id="Portrait" unit="npc_dota_hero_techies"/>
+            <DOTAScenePanel class="hud" id="Portrait1" unit="npc_dota_hero_techies"/>
+            <DOTAScenePanel class="hud" id="Portrait2" unit="npc_dota_hero_techies"/>
+            <DOTAScenePanel class="hud" id="Portrait3" unit="npc_dota_hero_techies"/>
+            <DOTAScenePanel class="hud" id="Portrait4" unit="npc_dota_hero_techies"/>
+            <DOTAScenePanel class="hud" id="Portrait5" unit="npc_dota_hero_techies"/>
+            <DOTAScenePanel class="hud" id="Portrait6" unit="npc_dota_hero_techies"/>
+            <DOTAScenePanel class="hud" id="Portrait7" unit="npc_dota_hero_techies"/>
+            <DOTAScenePanel class="hud" id="Portrait8" unit="npc_dota_hero_techies"/>
+            <DOTAScenePanel class="hud" id="Portrait9" unit="npc_dota_hero_techies"/>
+            <DOTAScenePanel class="hud" id="Portrait10" unit="npc_dota_hero_techies"/>
+            <DOTAScenePanel class="hud" id="Portrait11" unit="npc_dota_hero_techies"/>
+            <DOTAScenePanel class="hud" id="Portrait12" unit="npc_dota_hero_techies"/>
         </Panel>
     </Panel>
 </root>
