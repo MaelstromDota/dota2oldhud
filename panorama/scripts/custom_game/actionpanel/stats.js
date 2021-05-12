@@ -1,5 +1,6 @@
 var lastUnit = [];
 function ClickPortrait(portrait){
+    let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
     if (GameUI.IsShiftDown()) {
         var selected_entities = Players.GetSelectedEntities(Players.GetLocalPlayer());
         selected_entities.splice(parseInt(portrait)-1, 1);
@@ -11,8 +12,12 @@ function ClickPortrait(portrait){
                 GameUI.SelectUnit(selected_entities[i], true);
             };
         };
-    } else {
+    } else if (Abilities.GetLocalPlayerActiveAbility() == -1) {
         GameUI.SelectUnit(lastUnit[parseInt(portrait)], false);
+    } else {
+        let ability = Abilities.GetLocalPlayerActiveAbility()
+        Abilities.ExecuteAbility(Entities.GetAbilityByName(localplayer, "attribute_bonus_datadriven"), localplayer, true);
+        Game.PrepareUnitOrders({OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION, AbilityIndex: ability, Position: Entities.GetAbsOrigin(lastUnit[portrait])});
     };
 };
 function statsupdate(){
