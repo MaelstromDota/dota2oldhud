@@ -1,4 +1,4 @@
-var lastUnit1, lastUnit2, lastUnit3, lastUnit4, lastUnit5, lastUnit6, lastUnit7, lastUnit8, lastUnit9, lastUnit10, lastUnit11, lastUnit12;
+var lastUnit = [];
 function statsupdate(){
     $.Schedule(0.03, statsupdate)
     let unit = Players.GetLocalPlayerPortraitUnit()
@@ -27,9 +27,11 @@ function statsupdate(){
         $("#Stats").style.visibility = "collapse"
         $("#StatsBonus").style.visibility = "collapse"
         $("#SelectedUnits").style.visibility = "visible"
-        if (lastUnit1 != units[1]) {
-            $("#Portrait1").SetUnit(Entities.GetUnitName(units[1]), Entities.GetUnitName(units[1]), true)
-            lastUnit1 = units[1]
+        for (let i=1; i < units.length; i++) {
+            if (units[i] != undefined && lastUnit[i] != units[i]) {
+                $(`#Portrait${i}`).SetUnit(Entities.GetUnitName(units[i]), Entities.GetUnitName(units[i]), true)
+                lastUnit[i] = units[i]
+            };
         }
     } else {
         $("#Stats").style.visibility = "visible"
