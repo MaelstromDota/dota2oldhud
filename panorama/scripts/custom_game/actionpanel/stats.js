@@ -1,28 +1,22 @@
 var lastUnit = [];
 function ClickPortrait(portrait){
-    GameUI.SelectUnit(lastUnit[parseInt(portrait)], false)
-    // var remove_entities = lastunit[portrait-1]
-    // var selected_entities = Players.GetSelectedEntities(Players.GetLocalPlayer());
-    // for (var i in remove_entities) {
-    //     var index = selected_entities.indexOf(remove_entities[i])
-    //     if (index > -1)
-    //         selected_entities.splice(index, 1)
-    // };
-    // if (selected_entities.length == 0){
-    //     var playerID = Players.GetLocalPlayer()
-    //     var heroIndex = Players.GetPlayerHeroEntityIndex(playerID)
-    //     GameUI.SelectUnit(heroIndex, false)
-    //     return
-    // }
-    // for (var i in selected_entities) {
-    //     if (i==0)
-    //         GameUI.SelectUnit(selected_entities[i], false)
-    //     else
-    //         GameUI.SelectUnit(selected_entities[i], true)
-    // };
+    if (GameUI.IsShiftDown()) {
+        var selected_entities = Players.GetSelectedEntities(Players.GetLocalPlayer());
+        selected_entities.splice(parseInt(portrait)-1, 1);
+        GameUI.SelectUnit(selected_entities[0], false);
+        for (let i=1; i < selected_entities.length; i++) {
+            if (selected_entities.length==1) {
+                GameUI.SelectUnit(selected_entities[i], false);
+            } else {
+                GameUI.SelectUnit(selected_entities[i], true);
+            };
+        };
+    } else {
+        GameUI.SelectUnit(lastUnit[parseInt(portrait)], false)
+    }
 }
 function statsupdate(){
-    $.Schedule(0.03, statsupdate);
+    $.Schedule(0.1, statsupdate);
     let unit = Players.GetLocalPlayerPortraitUnit();
     GameEvents.SendCustomGameEventToServer('recalulatestats', {unit: unit});
     $("#damagetext").text = Math.ceil((Entities.GetDamageMin(unit) + Entities.GetDamageMax(unit)) / 2);
