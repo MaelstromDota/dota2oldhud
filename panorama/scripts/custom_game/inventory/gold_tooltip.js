@@ -26,4 +26,3 @@ function update() {
 	$.Schedule(0.1, update)
 }
 update();
-GameEvents.Subscribe("dota_money_changed", update);

@@ -2,8 +2,8 @@
     <styles>
         <include src="file://{resources}/styles/custom_game/actionpanel/actionpanel.css" />
         <include src="file://{resources}/styles/custom_game/actionpanel/stats.css" />
-        <include src="file://{resources}/styles/dotastyles.vcss_c" />
-		<include src="file://{resources}/styles/custom_ui.vcss_c" />
+        <include src="s2r://panorama/styles/dotastyles.vcss" />
+		<include src="s2r://panorama/styles/custom_ui.vcss" />
     </styles>
     <scripts>
         <include src="file://{resources}/scripts/custom_game/actionpanel/stats.js" />
@@ -32,18 +32,18 @@
             <Label id="inttextbonus" text="+ N/A" />
         </Panel>
         <Panel id="SelectedUnits">
-            <DOTAScenePanel class="hud" id="Portrait1" unit="npc_dota_hero_techies"/>
-            <DOTAScenePanel class="hud" id="Portrait2" unit="npc_dota_hero_techies"/>
-            <DOTAScenePanel class="hud" id="Portrait3" unit="npc_dota_hero_techies"/>
-            <DOTAScenePanel class="hud" id="Portrait4" unit="npc_dota_hero_techies"/>
-            <DOTAScenePanel class="hud" id="Portrait5" unit="npc_dota_hero_techies"/>
-            <DOTAScenePanel class="hud" id="Portrait6" unit="npc_dota_hero_techies"/>
-            <DOTAScenePanel class="hud" id="Portrait7" unit="npc_dota_hero_techies"/>
-            <DOTAScenePanel class="hud" id="Portrait8" unit="npc_dota_hero_techies"/>
-            <DOTAScenePanel class="hud" id="Portrait9" unit="npc_dota_hero_techies"/>
-            <DOTAScenePanel class="hud" id="Portrait10" unit="npc_dota_hero_techies"/>
-            <DOTAScenePanel class="hud" id="Portrait11" unit="npc_dota_hero_techies"/>
-            <DOTAScenePanel class="hud" id="Portrait12" unit="npc_dota_hero_techies"/>
+            <DOTAScenePanel class="hud" id="Portrait1" unit="npc_dota_hero_techies" onactivate="ClickPortrait('1')"/>
+            <DOTAScenePanel class="hud" id="Portrait2" unit="npc_dota_hero_techies" onactivate="ClickPortrait('2')"/>
+            <DOTAScenePanel class="hud" id="Portrait3" unit="npc_dota_hero_techies" onactivate="ClickPortrait('3')"/>
+            <DOTAScenePanel class="hud" id="Portrait4" unit="npc_dota_hero_techies" onactivate="ClickPortrait('4')"/>
+            <DOTAScenePanel class="hud" id="Portrait5" unit="npc_dota_hero_techies" onactivate="ClickPortrait('5')"/>
+            <DOTAScenePanel class="hud" id="Portrait6" unit="npc_dota_hero_techies" onactivate="ClickPortrait('6')"/>
+            <DOTAScenePanel class="hud" id="Portrait7" unit="npc_dota_hero_techies" onactivate="ClickPortrait('7')"/>
+            <DOTAScenePanel class="hud" id="Portrait8" unit="npc_dota_hero_techies" onactivate="ClickPortrait('8')"/>
+            <DOTAScenePanel class="hud" id="Portrait9" unit="npc_dota_hero_techies" onactivate="ClickPortrait('9')"/>
+            <DOTAScenePanel class="hud" id="Portrait10" unit="npc_dota_hero_techies" onactivate="ClickPortrait('10')"/>
+            <DOTAScenePanel class="hud" id="Portrait11" unit="npc_dota_hero_techies" onactivate="ClickPortrait('11)"/>
+            <DOTAScenePanel class="hud" id="Portrait12" unit="npc_dota_hero_techies" onactivate="ClickPortrait('12')"/>
         </Panel>
     </Panel>
 </root>

@@ -1,4 +1,26 @@
 var lastUnit = [];
+function ClickPortrait(portrait){
+    GameUI.SelectUnit(lastUnit[parseInt(portrait)], false)
+    // var remove_entities = lastunit[portrait-1]
+    // var selected_entities = Players.GetSelectedEntities(Players.GetLocalPlayer());
+    // for (var i in remove_entities) {
+    //     var index = selected_entities.indexOf(remove_entities[i])
+    //     if (index > -1)
+    //         selected_entities.splice(index, 1)
+    // };
+    // if (selected_entities.length == 0){
+    //     var playerID = Players.GetLocalPlayer()
+    //     var heroIndex = Players.GetPlayerHeroEntityIndex(playerID)
+    //     GameUI.SelectUnit(heroIndex, false)
+    //     return
+    // }
+    // for (var i in selected_entities) {
+    //     if (i==0)
+    //         GameUI.SelectUnit(selected_entities[i], false)
+    //     else
+    //         GameUI.SelectUnit(selected_entities[i], true)
+    // };
+}
 function statsupdate(){
     $.Schedule(0.03, statsupdate);
     let unit = Players.GetLocalPlayerPortraitUnit();
