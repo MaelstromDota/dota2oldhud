@@ -18,11 +18,15 @@ function ClickPortrait(portrait){
     } else if (Abilities.GetLocalPlayerActiveAbility() == -1) {
         GameUI.SelectUnit(lastUnit[parseInt(portrait)], false);
     } else {
+        GameEvents.Subscribe("UseAbility", UseAbility);
         let ability = Abilities.GetLocalPlayerActiveAbility()
         Abilities.ExecuteAbility(Entities.GetAbilityByName(localplayer, "attribute_bonus_datadriven"), localplayer, true);
-        Game.PrepareUnitOrders({OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION, AbilityIndex: ability, Position: Entities.GetAbsOrigin(lastUnit[portrait])});
+        GameEvents.SendCustomGameEventToServer('getabilitybehavior', {ability: ability, target: lastUnit[portrait], player: Game.GetLocalPlayer()})
     };
 };
+function UseAbility(behavior,target,ability){
+    Game.PrepareUnitOrders({OrderType: behavior, AbilityIndex: ability, Position: Entities.GetAbsOrigin(target), TargetIndex: target})
+}
 function statsupdate(){
     let statsleft = $.GetContextPanel().GetParent().FindChildTraverse("LeftStatsBox");
     let statsright = $.GetContextPanel().GetParent().FindChildTraverse("RightStatsBox");
