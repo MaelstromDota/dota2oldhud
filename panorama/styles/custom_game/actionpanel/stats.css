@@ -18,15 +18,15 @@
 #inttext{color: #ffffff; font-size: 14px; position: -42px 164.5px 0px; horizontal-align: right;}
 #inttextbonus{color: #00ff15; font-size: 14px; position: 849px 164px 0px;}
 #SelectedUnits{width: 220px; height: 125px; horizontal-align: right; vertical-align: bottom;}
-#Portrait1{width: 20%; height: 30%;}
-#Portrait2{width: 20%; height: 30%; margin-left: 20%;}
-#Portrait3{width: 20%; height: 30%; margin-left: 40%;}
-#Portrait4{width: 20%; height: 30%; margin-left: 60%;}
-#Portrait5{width: 20%; height: 30%; margin-left: 80%;}
-#Portrait6{width: 20%; height: 30%; margin-left: 100%;}
-#Portrait7{width: 20%; height: 30%; margin-top: 52%;}
-#Portrait8{width: 20%; height: 30%; margin-left: 20%; margin-top: 52%;}
-#Portrait9{width: 20%; height: 30%; margin-left: 40%; margin-top: 52%;}
-#Portrait10{width: 20%; height: 30%; margin-left: 60%; margin-top: 52%;}
-#Portrait11{width: 20%; height: 30%; margin-left: 80%; margin-top: 52%;}
-#Portrait12{width: 20%; height: 30%; margin-left: 100%; margin-top: 52%;}
+#Portrait1{width: 20%; height: 30%; border-radius: 2px;}
+#Portrait2{width: 20%; height: 30%; margin-left: 20%; border-radius: 2px;}
+#Portrait3{width: 20%; height: 30%; margin-left: 40%; border-radius: 2px;}
+#Portrait4{width: 20%; height: 30%; margin-left: 60%; border-radius: 2px;}
+#Portrait5{width: 20%; height: 30%; margin-left: 80%; border-radius: 2px;}
+#Portrait6{width: 20%; height: 30%; margin-left: 100%; border-radius: 2px;}
+#Portrait7{width: 20%; height: 30%; margin-top: 52%; border-radius: 2px;}
+#Portrait8{width: 20%; height: 30%; margin-left: 20%; margin-top: 52%; border-radius: 2px;}
+#Portrait9{width: 20%; height: 30%; margin-left: 40%; margin-top: 52%; border-radius: 2px;}
+#Portrait10{width: 20%; height: 30%; margin-left: 60%; margin-top: 52%; border-radius: 2px;}
+#Portrait11{width: 20%; height: 30%; margin-left: 80%; margin-top: 52%; border-radius: 2px;}
+#Portrait12{width: 20%; height: 30%; margin-left: 100%; margin-top: 52%; border-radius: 2px;}
