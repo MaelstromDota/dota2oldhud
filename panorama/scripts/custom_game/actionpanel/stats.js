@@ -24,7 +24,8 @@ function ClickPortrait(portrait){
     };
 };
 function statsupdate(){
-    $.Schedule(0.1, statsupdate);
+    let statsleft = $.GetContextPanel().GetParent().FindChildTraverse("LeftStatsBox");
+    let statsright = $.GetContextPanel().GetParent().FindChildTraverse("RightStatsBox");
     let unit = Players.GetLocalPlayerPortraitUnit();
     GameEvents.SendCustomGameEventToServer('recalulatestats', {unit: unit});
     $("#damagetext").text = Math.ceil((Entities.GetDamageMin(unit) + Entities.GetDamageMax(unit)) / 2);
@@ -49,17 +50,26 @@ function statsupdate(){
     let units = Players.GetSelectedEntities(Players.GetLocalPlayer());
     function compareNumeric(a, b) {if (a > b) return 1; if (a == b) return 0; if (a < b) return -1;};
     units.sort(compareNumeric);
+    for (let i=0; i < units.length -1; i++) {
+        if (!Entities.IsAlive(units[i])) {
+            units.splice[i,1]
+        }
+    }
     if (lastUnits[1] != units) {
         lastUnits[1] = units;
         if (units.length > 1) {
             $("#Stats").style.visibility = "collapse";
             $("#StatsBonus").style.visibility = "collapse";
             $("#SelectedUnits").style.visibility = "visible";
-            for (let i=1; i < 10; i++) {
+            statsleft.style.backgroundColor = "#00000000";
+            statsright.style.backgroundColor = "#00000000";
+            for (let i=1; i < 11; i++) {
                 if (units[i-1] != undefined && lastUnit[i] != units[i-1] || units[i-1] != undefined && $(`#Portrait${i}`).style.visibility != "visible") {
-                    $(`#Portrait${i}`).SetUnit(Entities.GetUnitName(units[i-1]), Entities.GetUnitName(units[i-1]), true);
-                    $(`#Portrait${i}`).style.visibility = "visible";
-                    lastUnit[i] = units[i-1];
+                    if ($(`#Portrait${i}`) != undefined) {
+                        $(`#Portrait${i}`).SetUnit(Entities.GetUnitName(units[i-1]), Entities.GetUnitName(units[i-1]), true);
+                        $(`#Portrait${i}`).style.visibility = "visible";
+                        lastUnit[i] = units[i-1];
+                    }
                 };
                 if (units[i-1] == undefined) {$(`#Portrait${i}`).style.visibility = "collapse";};
             };
@@ -72,6 +82,9 @@ function statsupdate(){
         $("#Stats").style.visibility = "visible";
         $("#StatsBonus").style.visibility = "visible";
         $("#SelectedUnits").style.visibility = "collapse";
+        statsleft.style.backgroundColor = "black";
+        statsright.style.backgroundColor = "black";
     };
+    $.Schedule(Game.GetGameFrameTime(), statsupdate);
 };
 statsupdate();

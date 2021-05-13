@@ -73,9 +73,9 @@
 #center_left_wide{
     margin-left: -3.2%;
     width: 13.2% !important;
-    height: 44% !important;
+    height: 60% !important;
     background-size: 100% 100%;
-    z-index: 1;
+    z-index: 0;
 }
 .AspectRatio4x3 #center_left_wide{width: 15.3% !important;}
 #RightStatsBox{margin-left: 0%; width: 48.4%;}
@@ -84,13 +84,14 @@
     height: 90%;
     margin-left: 6%;
     margin-bottom: 4%;
+    background-color: black;
 }
 #center_right{
-    width: 36% !important;
+    width: 36.2% !important;
     height: 60% !important;
     background-size: 100% 100%;
     vertical-align: bottom;
-	margin-left: -11.5%;
+	margin-left: -12%;
 }
 #HealthBar{
     width: 34.7%;
@@ -100,7 +101,7 @@
     border-radius: 10px;
     flow-children: right;
 }
-.AspectRatio4x3 #HealthBar{width: 38.2%; margin-left: -37%;}
+.AspectRatio4x3 #HealthBar{width: 38.2%; margin-left: -38.5%;}
 #hpbartext{margin: 137px -716px 0px;}
 .AspectRatio4x3 #hpbartext{margin: 155px -606px 0px;}
 #HealthBarText{
@@ -188,7 +189,7 @@
 .AbilityLayout3 .Ability {width: 17.8%; height: 125%; padding-top: 5px; padding-left: 9px;}
 .AbilityLayout4 .Ability {width: 17.8%; height: 125%; padding-top: 5px; padding-left: 9px;}
 .AbilityLayout5 .Ability {width: 22%; height: 100%;}
-.AbilityLayout6 .Ability {width: 12.4%; height: 100%; padding-top: 9px;}
+.AbilityLayout6 .Ability {width: 12.4%; height: 100%; padding-top: 9px; margin-left: -1px;}
 .AbilityLayout14 .Ability {width: 15%; height: 100%; padding-top: 8px;}
 .AbilityLayout15 .Ability {width: 12.4%; height: 100%; padding-top: 9px;}
 #AbilitiesContainer {
@@ -202,5 +203,5 @@
     margin-left: 360px;
 }
 #AbilitiesContainer.AbilityLayout5 {padding-left: 0%; padding-right: 0%; margin-left: 350px;}
-#AbilitiesContainer.AbilityLayout6 {padding-left: 0%; padding-right: 0%; margin-left: 395px;}
+#AbilitiesContainer.AbilityLayout6 {padding-left: 0%; padding-right: 0%; margin-left: 415px;}
 DOTAPortrait{horizontal-align: center; vertical-align: bottom; width: 8%; height: 69%; z-index: 3; margin-left: -1120px; margin-right: 965px;}
