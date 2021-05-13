@@ -49,8 +49,8 @@ function statsupdate(){
     let units = Players.GetSelectedEntities(Players.GetLocalPlayer());
     function compareNumeric(a, b) {if (a > b) return 1; if (a == b) return 0; if (a < b) return -1;};
     units.sort(compareNumeric);
-    if (lastUnits[1] != units[1]) {
-        lastUnits[1] = units[1];
+    if (lastUnits[1] != units) {
+        lastUnits[1] = units;
         if (units.length > 1) {
             $("#Stats").style.visibility = "collapse";
             $("#StatsBonus").style.visibility = "collapse";
@@ -60,7 +60,8 @@ function statsupdate(){
                     $(`#Portrait${i}`).SetUnit(Entities.GetUnitName(units[i-1]), Entities.GetUnitName(units[i-1]), true);
                     $(`#Portrait${i}`).style.visibility = "visible";
                     lastUnit[i] = units[i-1];
-                } else if (units[i-1] == undefined && $(`#Portrait${i}`).style.visibility != "collapse") {$(`#Portrait${i}`).style.visibility = "collapse";};
+                };
+                if (units[i-1] == undefined) {$(`#Portrait${i}`).style.visibility = "collapse";};
             };
         };
     };
