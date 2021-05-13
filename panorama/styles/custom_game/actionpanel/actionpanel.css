@@ -17,7 +17,7 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
-#MinimapSpacer {width: 10%; height: 100%; margin-left: -23px; z-index: -1;}
+#MinimapSpacer {width: 9%; height: 100%; margin-left: -23px; z-index: -1;}
 .AspectRatio4x3 #MinimapSpacer {visibility: collapse;}
 #PortraitBorder {height: width-percentage(92%); margin-left: -3.8%; width: 16.6%; z-index: 5;}
 .AspectRatio4x3 #PortraitBorder {margin-left: -3%; height: 100%;}
@@ -72,7 +72,7 @@
 }
 #center_left_wide{
     margin-left: -3.2%;
-    width: 11.7% !important;
+    width: 13.2% !important;
     height: 44% !important;
     background-size: 100% 100%;
     z-index: 1;
@@ -100,7 +100,7 @@
     border-radius: 10px;
     flow-children: right;
 }
-.AspectRatio4x3 #HealthBar{width: 38.2%; margin-left: -38.5%;}
+.AspectRatio4x3 #HealthBar{width: 38.2%; margin-left: -37%;}
 #hpbartext{margin: 137px -716px 0px;}
 .AspectRatio4x3 #hpbartext{margin: 155px -606px 0px;}
 #HealthBarText{

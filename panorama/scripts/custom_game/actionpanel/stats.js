@@ -55,7 +55,7 @@ function statsupdate(){
             $("#Stats").style.visibility = "collapse";
             $("#StatsBonus").style.visibility = "collapse";
             $("#SelectedUnits").style.visibility = "visible";
-            for (let i=1; i < 12; i++) {
+            for (let i=1; i < 10; i++) {
                 if (units[i-1] != undefined && lastUnit[i] != units[i-1] || units[i-1] != undefined && $(`#Portrait${i}`).style.visibility != "visible") {
                     $(`#Portrait${i}`).SetUnit(Entities.GetUnitName(units[i-1]), Entities.GetUnitName(units[i-1]), true);
                     $(`#Portrait${i}`).style.visibility = "visible";
@@ -65,8 +65,8 @@ function statsupdate(){
             };
         };
     };
-    for (let i=1; i < 12; i++) {
-        if (units[i-1] == unit) {$(`#Portrait${i}`).style.border = "1px solid #ffbe07";} else {$(`#Portrait${i}`).style.border = "0px none #ffffff";};
+    for (let i=1; i < 10; i++) {
+        if (units[i-1] == unit) {$(`#Portrait${i}`).style.border = "1px solid #24ff07";} else {$(`#Portrait${i}`).style.border = "0px none #ffffff";};
     };
     if (units.length < 2) {
         $("#Stats").style.visibility = "visible";
