@@ -4,6 +4,8 @@ function ClickPortrait(portrait){
     let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
     if (GameUI.IsShiftDown()) {
         var selected_entities = Players.GetSelectedEntities(Players.GetLocalPlayer());
+        function compareNumeric(a, b) {if (a > b) return 1; if (a == b) return 0; if (a < b) return -1;};
+        selected_entities.sort(compareNumeric);
         selected_entities.splice(parseInt(portrait)-1, 1);
         GameUI.SelectUnit(selected_entities[0], false);
         for (let i=1; i < selected_entities.length; i++) {
@@ -45,12 +47,11 @@ function statsupdate(){
         if (CustomNetTables.GetTableValue("stats", unit).att == 0){$("#stricon").style.border = "1px solid #ffbe07"} else if (CustomNetTables.GetTableValue("stats", unit).att == 1){$("#agiicon").style.border = "1px solid #ffbe07"} else if (CustomNetTables.GetTableValue("stats", unit).att == 2){$("#inticon").style.border = "1px solid #ffbe07"};
     };
     let units = Players.GetSelectedEntities(Players.GetLocalPlayer());
-    let units2 = Players.GetSelectedEntities(Players.GetLocalPlayer());
     function compareNumeric(a, b) {if (a > b) return 1; if (a == b) return 0; if (a < b) return -1;};
-    units2.sort(compareNumeric);
-    if (units.length > 1) {
-        if (lastUnits != units2) {
-            lastUnits = units2;
+    units.sort(compareNumeric);
+    if (lastUnits[1] != units[1]) {
+        lastUnits[1] = units[1];
+        if (units.length > 1) {
             $("#Stats").style.visibility = "collapse";
             $("#StatsBonus").style.visibility = "collapse";
             $("#SelectedUnits").style.visibility = "visible";
@@ -62,10 +63,11 @@ function statsupdate(){
                 } else if (units[i-1] == undefined && $(`#Portrait${i}`).style.visibility != "collapse") {$(`#Portrait${i}`).style.visibility = "collapse";};
             };
         };
-        for (let i=1; i < 12; i++) {
-            if (units[i-1] == unit) {$(`#Portrait${i}`).style.border = "1px solid #ffbe07";} else {$(`#Portrait${i}`).style.border = "0px none #ffffff";};
-        };
-    } else {
+    };
+    for (let i=1; i < 12; i++) {
+        if (units[i-1] == unit) {$(`#Portrait${i}`).style.border = "1px solid #ffbe07";} else {$(`#Portrait${i}`).style.border = "0px none #ffffff";};
+    };
+    if (units.length < 2) {
         $("#Stats").style.visibility = "visible";
         $("#StatsBonus").style.visibility = "visible";
         $("#SelectedUnits").style.visibility = "collapse";

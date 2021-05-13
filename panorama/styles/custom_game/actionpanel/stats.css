@@ -18,8 +18,8 @@
 #inttext{color: #ffffff; font-size: 14px; position: -42px 164.5px 0px; horizontal-align: right;}
 #inttextbonus{color: #00ff15; font-size: 14px; position: 849px 164px 0px;}
 #SelectedUnits{width: 220px; height: 125px; horizontal-align: right; vertical-align: bottom;}
-#Portrait1{width: 20%; height: 30%; border-radius: 2px;}
-#Portrait2{width: 20%; height: 30%; margin-left: 20%; border-radius: 2px;}
+#Portrait1{width: 20%; height: 30%; border-radius: 0px;}
+#Portrait2{width: 20%; height: 30%; margin-left: 20%; border-radius: 0px;}
 #Portrait3{width: 20%; height: 30%; margin-left: 40%; border-radius: 2px;}
 #Portrait4{width: 20%; height: 30%; margin-left: 60%; border-radius: 2px;}
 #Portrait5{width: 20%; height: 30%; margin-left: 80%; border-radius: 2px;}
