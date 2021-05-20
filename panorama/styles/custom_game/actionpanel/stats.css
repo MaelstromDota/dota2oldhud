@@ -18,13 +18,13 @@
 #inttext{color: #ffffff; font-size: 14px; position: -42px 164.5px 0px; horizontal-align: right;}
 #inttextbonus{color: #00ff15; font-size: 14px; position: 849px 164px 0px;}
 #SelectedUnits{width: 220px; height: 125px; horizontal-align: right; vertical-align: bottom;}
-.PortraitMulti{width: 20%; height: 30%; border-radius: 0px; margin-left: 1px; margin-top: 3px;}
-.PortraitMultiTop{width: 20%; height: 30%; border-radius: 0px; margin-left: 1px; margin-top: 45%;}
-#Portrait2{margin-left: 20%;}
-#Portrait3{margin-left: 40%;}
-#Portrait4{margin-left: 60%;}
-#Portrait5{margin-left: 80%;}
-#Portrait7{margin-left: 20%;}
-#Portrait8{margin-left: 40%;}
-#Portrait9{margin-left: 60%;}
-#Portrait10{margin-left: 80%;}
+.PortraitMulti{width: 20%; height: 30%; border-radius: 0px; margin-left: -9px; margin-top: 3px;}
+.PortraitMultiTop{width: 20%; height: 30%; border-radius: 0px; margin-left: -9px; margin-top: 45%;}
+#Portrait2{margin-left: 17%;}
+#Portrait3{margin-left: 39%;}
+#Portrait4{margin-left: 61%;}
+#Portrait5{margin-left: 83%;}
+#Portrait7{margin-left: 17%;}
+#Portrait8{margin-left: 39%;}
+#Portrait9{margin-left: 61%;}
+#Portrait10{margin-left: 83%;}
