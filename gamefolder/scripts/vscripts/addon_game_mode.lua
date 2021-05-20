@@ -11,6 +11,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener("recalulatestats", Dynamic_Wrap(CAddonTemplateGameMode, "RecalculateStats"))
 	CustomGameEventManager:RegisterListener("useability", Dynamic_Wrap(CAddonTemplateGameMode, "UIUseAbility"))
 	CustomGameEventManager:RegisterListener("getburstcooldown", Dynamic_Wrap(CAddonTemplateGameMode, "GetCourierBurstCooldown"))
+	CustomGameEventManager:RegisterListener("getabilitybehavior", Dynamic_Wrap(CAddonTemplateGameMode, "GetAbilityBehavior"))
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 end
 function CAddonTemplateGameMode:OnThink()
@@ -52,13 +53,20 @@ function CAddonTemplateGameMode:RecalculateStats(keys)
 	end
 	CustomNetTables:SetTableValue("stats", tostring(keys.unit), {str = str, strbonus = strbonus, agi = agi, agibonus = agibonus, int = int, intbonus = intbonus, att = primaryattribute})
 end
+function CAddonTemplateGameMode:GetAbilityBehavior(keys)
+	local ability = EntIndexToHScript(keys.ability)
+	local player = PlayerResource:GetPlayer(keys.player)
+	local behavior = ability:GetBehaviorInt()
+	if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then behavior = DOTA_UNIT_ORDER_CAST_POSITION
+	elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then behavior = DOTA_UNIT_ORDER_CAST_POSITION end
+	CustomGameEventManager:Send_ServerToPlayer(player, "UseAbility", {behavior = behavior, ability = keys.ability, target = keys.target})
+end
 function CAddonTemplateGameMode:OnNPCSpawned(keys)
 	local npc = EntIndexToHScript(keys.entindex)
 	if npc:IsRealHero() and npc.spawned == nil then
 		npc.spawned = true
 		npc:AddAbility("attribute_bonus_datadriven")
 		npc:FindAbilityByName("attribute_bonus_datadriven"):SetLevel(1)
-		print(npc:FindAbilityByName("attribute_bonus_datadriven") ~= nil)
 		for i=0,15,1 do
 			if npc:GetAbilityByIndex(i) ~= nil then
 				if string.find(npc:GetAbilityByIndex(i):GetAbilityName(),"special_bonus") ~= nil then

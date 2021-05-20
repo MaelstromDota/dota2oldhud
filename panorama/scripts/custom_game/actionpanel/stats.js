@@ -1,5 +1,6 @@
 var lastUnit = [];
 var lastUnits = [];
+var lasttick = [];
 function ClickPortrait(portrait){
     let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
     if (GameUI.IsShiftDown()) {
@@ -19,13 +20,19 @@ function ClickPortrait(portrait){
         GameUI.SelectUnit(lastUnit[parseInt(portrait)], false);
     } else {
         GameEvents.Subscribe("UseAbility", UseAbility);
-        let ability = Abilities.GetLocalPlayerActiveAbility()
+        let ability = Abilities.GetLocalPlayerActiveAbility();
         Abilities.ExecuteAbility(Entities.GetAbilityByName(localplayer, "attribute_bonus_datadriven"), localplayer, true);
-        GameEvents.SendCustomGameEventToServer('getabilitybehavior', {ability: ability, target: lastUnit[portrait], player: Game.GetLocalPlayer()})
+        GameEvents.SendCustomGameEventToServer('getabilitybehavior', {ability: ability, target: lastUnit[portrait], player: Players.GetLocalPlayer()})
     };
 };
-function UseAbility(behavior,target,ability){
-    Game.PrepareUnitOrders({OrderType: behavior, AbilityIndex: ability, Position: Entities.GetAbsOrigin(target), TargetIndex: target})
+function UseAbility(table){
+    let behavior = table["behavior"];
+    let ability = table["ability"];
+    let target = table["target"];
+    if (lasttick[1] != Game.GetGameTime()) {
+        lasttick[1] = Game.GetGameTime();
+        Game.PrepareUnitOrders({OrderType: behavior, AbilityIndex: ability, Position: Entities.GetAbsOrigin(target), TargetIndex: target});
+    }
 }
 function statsupdate(){
     let statsleft = $.GetContextPanel().GetParent().FindChildTraverse("LeftStatsBox");
