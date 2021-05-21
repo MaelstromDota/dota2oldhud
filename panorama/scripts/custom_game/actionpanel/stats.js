@@ -1,8 +1,17 @@
 var lastUnit = [];
 var last = [];
 var page = [];
+function PageMove(page){
+    let units = Players.GetSelectedEntities(Players.GetLocalPlayer());
+    function compareNumeric(a, b) {if (a > b) return 1; if (a == b) return 0; if (a < b) return -1;};
+    units.sort(compareNumeric);
+    for (let i=0; i < units.length -1; i++) {
+        if (!Entities.IsAlive(units[i])) {units.splice[i,1];};
+    };
+    RenderPage(units,page);
+};
 function ClickPortrait(portrait){
-    let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
+    let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
     if (GameUI.IsShiftDown()) {
         var selected_entities = Players.GetSelectedEntities(Players.GetLocalPlayer());
         function compareNumeric(a, b) {if (a > b) return 1; if (a == b) return 0; if (a < b) return -1;};
@@ -10,11 +19,7 @@ function ClickPortrait(portrait){
         selected_entities.splice(parseInt(portrait)-1, 1);
         GameUI.SelectUnit(selected_entities[0], false);
         for (let i=1; i < selected_entities.length; i++) {
-            if (selected_entities.length==1) {
-                GameUI.SelectUnit(selected_entities[i], false);
-            } else {
-                GameUI.SelectUnit(selected_entities[i], true);
-            };
+            if (selected_entities.length==1) {GameUI.SelectUnit(selected_entities[i], false);} else {GameUI.SelectUnit(selected_entities[i], true);};
         };
     } else if (Abilities.GetLocalPlayerActiveAbility() == -1) {
         GameUI.SelectUnit(lastUnit[parseInt(portrait)], false);
@@ -22,7 +27,7 @@ function ClickPortrait(portrait){
         GameEvents.Subscribe("UseAbility", UseAbility);
         let ability = Abilities.GetLocalPlayerActiveAbility();
         Abilities.ExecuteAbility(Entities.GetAbilityByName(localplayer, "attribute_bonus_datadriven"), localplayer, true);
-        GameEvents.SendCustomGameEventToServer('getabilitybehavior', {ability: ability, target: lastUnit[portrait], player: Players.GetLocalPlayer()})
+        GameEvents.SendCustomGameEventToServer('getabilitybehavior', {ability: ability, target: lastUnit[portrait], player: Players.GetLocalPlayer()});
     };
 };
 function UseAbility(table){
@@ -32,7 +37,32 @@ function UseAbility(table){
     if (last[2] != Game.GetGameTime()) {
         last[2] = Game.GetGameTime();
         Game.PrepareUnitOrders({OrderType: behavior, AbilityIndex: ability, Position: Entities.GetAbsOrigin(target), TargetIndex: target});
-    }
+    };
+};
+function RenderPage(units, page){
+    let statsleft = $.GetContextPanel().GetParent().FindChildTraverse("LeftStatsBox");
+    let statsright = $.GetContextPanel().GetParent().FindChildTraverse("RightStatsBox");
+    let i_value = page * 10;
+    if (i_value == 10) {i_value = 1;};
+    let i_max_value = page * 11;
+    if (last[1] != units) {
+        last[1] = units;
+        $("#Stats").style.visibility = "collapse";
+        $("#StatsBonus").style.visibility = "collapse";
+        $("#SelectedUnits").style.visibility = "visible";
+        statsleft.style.backgroundColor = "#00000000";
+        statsright.style.backgroundColor = "#00000000";
+        for (let i=i_value; i < i_max_value; i++) {
+            if (units[i-1] != undefined && lastUnit[i] != units[i-1] || units[i-1] != undefined && $(`#Portrait${i}${i}`).style.visibility != "visible") {
+                if ($(`#Portrait${i}${i}`) != undefined) {
+                    $(`#Portrait${i}`).SetUnit(Entities.GetUnitName(units[i-1]), Entities.GetUnitName(units[i-1]), true);
+                    $(`#Portrait${i}${i}`).style.visibility = "visible";
+                    lastUnit[i] = units[i-1];
+                };
+            };
+            if (units[i-1] == undefined && $(`#Portrait${i}${i}`) != undefined) {$(`#Portrait${i}${i}`).style.visibility = "collapse";};
+        };
+    };
 }
 function statsupdate(){
     let statsleft = $.GetContextPanel().GetParent().FindChildTraverse("LeftStatsBox");
@@ -66,37 +96,23 @@ function statsupdate(){
             units.splice[i,1]
         }
     }
-    if (last[1] != units) {
-        last[1] = units;
-        if (units.length > 1) {
-            $("#Stats").style.visibility = "collapse";
-            $("#StatsBonus").style.visibility = "collapse";
-            $("#SelectedUnits").style.visibility = "visible";
-            statsleft.style.backgroundColor = "#00000000";
-            statsright.style.backgroundColor = "#00000000";
-            for (let i=1; i < 11; i++) {
-                if (units[i-1] != undefined && lastUnit[i] != units[i-1] || units[i-1] != undefined && $(`#Portrait${i}${i}`).style.visibility != "visible") {
-                    if ($(`#Portrait${i}${i}`) != undefined) {
-                        $(`#Portrait${i}`).SetUnit(Entities.GetUnitName(units[i-1]), Entities.GetUnitName(units[i-1]), true);
-                        $(`#Portrait${i}${i}`).style.visibility = "visible";
-                        lastUnit[i] = units[i-1];
-                    }
-                };
-                if (units[i-1] == undefined && $(`#Portrait${i}${i}`) != undefined) {$(`#Portrait${i}${i}`).style.visibility = "collapse";};
-            };
-        };
-    };
-    $.Msg(`${Math.floor(units.length / 10)} pages now!`)
-    for (let i=1; i < 11; i++) {
-        if (units[i-1] == unit && $(`#PortraitBorder${i}`) != undefined) {$(`#PortraitBorder${i}`).style.visibility = "visible";} else if ($(`#PortraitBorder${i}`) != undefined) {$(`#PortraitBorder${i}`).style.visibility = "collapse";};
-        // hp bar code
-    };
     if (units.length < 2) {
         $("#Stats").style.visibility = "visible";
         $("#StatsBonus").style.visibility = "visible";
         $("#SelectedUnits").style.visibility = "collapse";
         statsleft.style.backgroundColor = "black";
         statsright.style.backgroundColor = "black";
+    } else {
+        let currentpage = 1;
+        for (let i=0; i < units.length -1; i++) {
+            if (unit == units[i]) {currentpage = Math.floor(i / 10) + 1; break};
+        };
+        if (currentpage < 1) {currentpage = 1} else if (currentpage > 5) {currentpage = 5};
+        if (last[1] != units) {RenderPage(units,currentpage);}
+        let i_value = currentpage === 1 ? 1: currentpage * 10 - 10;
+        for (let i=i_value; i < currentpage * 11; i++) {
+            if (units[i-1] == unit) {$(`#PortraitBorder${i}`).style.visibility = "visible";} else {$(`#PortraitBorder${i}`).style.visibility = "collapse";};
+        };
     };
     $.Schedule(Game.GetGameFrameTime(), statsupdate);
 };
