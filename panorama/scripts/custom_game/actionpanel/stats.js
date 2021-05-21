@@ -8,7 +8,7 @@ function PageMove(page){
     for (let i=0; i < units.length -1; i++) {
         if (!Entities.IsAlive(units[i])) {units.splice[i,1];};
     };
-    RenderPage(units,page);
+    RenderPage(units,parseInt(page));
 };
 function ClickPortrait(portrait){
     let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
@@ -42,11 +42,10 @@ function UseAbility(table){
 function RenderPage(units, page){
     let statsleft = $.GetContextPanel().GetParent().FindChildTraverse("LeftStatsBox");
     let statsright = $.GetContextPanel().GetParent().FindChildTraverse("RightStatsBox");
-    let i_value = page * 10;
-    if (i_value == 10) {i_value = 1;};
+    let i_value = page === 1 ? 1 : page * 10;
     let i_max_value = page * 11;
-    if (last[1] != units) {
-        last[1] = units;
+    // if (last[1] != units) {
+    //     last[1] = units;
         $("#Stats").style.visibility = "collapse";
         $("#StatsBonus").style.visibility = "collapse";
         $("#SelectedUnits").style.visibility = "visible";
@@ -62,7 +61,7 @@ function RenderPage(units, page){
             };
             if (units[i-1] == undefined && $(`#Portrait${i}${i}`) != undefined) {$(`#Portrait${i}${i}`).style.visibility = "collapse";};
         };
-    };
+    // };
 }
 function statsupdate(){
     let statsleft = $.GetContextPanel().GetParent().FindChildTraverse("LeftStatsBox");
@@ -103,6 +102,10 @@ function statsupdate(){
         statsleft.style.backgroundColor = "black";
         statsright.style.backgroundColor = "black";
     } else {
+        let pages = Math.floor(units.length / 10) + 1 < 6 ? Math.floor(units.length / 10) + 1 : 5;
+        for (let i=1; i < 6; i++) {
+            if ($(`#group${i}`) != undefined && i <= pages && pages != 1) {$(`#group${i}`).style.visibility = 'visible';} else if ($(`#group${i}`) != undefined) {$(`#group${i}`).style.visibility = 'collapse';};
+        };
         let currentpage = 1;
         for (let i=0; i < units.length -1; i++) {
             if (unit == units[i]) {currentpage = Math.floor(i / 10) + 1; break};
@@ -111,7 +114,7 @@ function statsupdate(){
         if (last[1] != units) {RenderPage(units,currentpage);}
         let i_value = currentpage === 1 ? 1: currentpage * 10 - 10;
         for (let i=i_value; i < currentpage * 11; i++) {
-            if (units[i-1] == unit) {$(`#PortraitBorder${i}`).style.visibility = "visible";} else {$(`#PortraitBorder${i}`).style.visibility = "collapse";};
+            // if (units[i-1] == unit) {$(`#PortraitBorder${i}`).style.visibility = "visible";} else {$(`#PortraitBorder${i}`).style.visibility = "collapse";};
         };
     };
     $.Schedule(Game.GetGameFrameTime(), statsupdate);

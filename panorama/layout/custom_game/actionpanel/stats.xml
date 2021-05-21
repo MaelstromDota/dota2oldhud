@@ -94,6 +94,11 @@
                 <Panel class="HealthBar" id="HPBar10" />
                 <Panel class="ManaBar" id="MPBar10" />
             </Panel>
+            <Image id="group1" class="pagebutton" src="file://{images}/hud/group_button_selected.png" onactivate="PageMove('1')" />
+            <Image id="group2" class="pagebutton" src="file://{images}/hud/group_button.png" onactivate="PageMove('2')" />
+            <Image id="group3" class="pagebutton" src="file://{images}/hud/group_button.png" onactivate="PageMove('3')" />
+            <Image id="group4" class="pagebutton" src="file://{images}/hud/group_button.png" onactivate="PageMove('4')" />
+            <Image id="group5" class="pagebutton" src="file://{images}/hud/group_button.png" onactivate="PageMove('5')" />
         </Panel>
     </Panel>
 </root>
