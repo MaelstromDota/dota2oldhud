@@ -86,7 +86,7 @@ function statsupdate(){
             };
         };
     };
-    for (let i=1; i < 10; i++) {
+    for (let i=1; i < 11; i++) {
         if (units[i-1] == unit && $(`#PortraitBorder${i}`) != undefined) {$(`#PortraitBorder${i}`).style.visibility = "visible";} else if ($(`#PortraitBorder${i}`) != undefined) {$(`#PortraitBorder${i}`).style.visibility = "collapse";};
         // hp bar code
     };

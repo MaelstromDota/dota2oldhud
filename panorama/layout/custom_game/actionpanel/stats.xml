@@ -62,6 +62,36 @@
                 <Panel class="HealthBar" id="HPBar5" />
                 <Panel class="ManaBar" id="MPBar5" />
             </Panel>
+            <Panel id="Portrait66" class="PortraitBottom">
+                <Image id="PortraitBorder6" class="Border" src="file://{images}/hud/border.png" />
+                <DOTAScenePanel class="PortraitMultiBottom" id="Portrait6" onactivate="ClickPortrait('6')"/>
+                <Panel class="HealthBar" id="HPBar6" />
+                <Panel class="ManaBar" id="MPBar6" />
+            </Panel>
+            <Panel id="Portrait77" class="PortraitBottom">
+                <Image id="PortraitBorder7" class="Border" src="file://{images}/hud/border.png" />
+                <DOTAScenePanel class="PortraitMultiBottom" id="Portrait7" onactivate="ClickPortrait('7')"/>
+                <Panel class="HealthBar" id="HPBar7" />
+                <Panel class="ManaBar" id="MPBar7" />
+            </Panel>
+            <Panel id="Portrait88" class="PortraitBottom">
+                <Image id="PortraitBorder8" class="Border" src="file://{images}/hud/border.png" />
+                <DOTAScenePanel class="PortraitMultiBottom" id="Portrait8" onactivate="ClickPortrait('8')"/>
+                <Panel class="HealthBar" id="HPBar8" />
+                <Panel class="ManaBar" id="MPBar8" />
+            </Panel>
+            <Panel id="Portrait99" class="PortraitBottom">
+                <Image id="PortraitBorder9" class="Border" src="file://{images}/hud/border.png" />
+                <DOTAScenePanel class="PortraitMultiBottom" id="Portrait9" onactivate="ClickPortrait('9')"/>
+                <Panel class="HealthBar" id="HPBar9" />
+                <Panel class="ManaBar" id="MPBar9" />
+            </Panel>
+            <Panel id="Portrait1010" class="PortraitBottom">
+                <Image id="PortraitBorder10" class="Border" src="file://{images}/hud/border.png" />
+                <DOTAScenePanel class="PortraitMultiBottom" id="Portrait10" onactivate="ClickPortrait('10')"/>
+                <Panel class="HealthBar" id="HPBar10" />
+                <Panel class="ManaBar" id="MPBar10" />
+            </Panel>
         </Panel>
     </Panel>
 </root>
