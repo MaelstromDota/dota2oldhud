@@ -1,6 +1,6 @@
 var lastUnit = [];
-var lastUnits = [];
-var lasttick = [];
+var last = [];
+var page = [];
 function ClickPortrait(portrait){
     let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
     if (GameUI.IsShiftDown()) {
@@ -29,8 +29,8 @@ function UseAbility(table){
     let behavior = table["behavior"];
     let ability = table["ability"];
     let target = table["target"];
-    if (lasttick[1] != Game.GetGameTime()) {
-        lasttick[1] = Game.GetGameTime();
+    if (last[2] != Game.GetGameTime()) {
+        last[2] = Game.GetGameTime();
         Game.PrepareUnitOrders({OrderType: behavior, AbilityIndex: ability, Position: Entities.GetAbsOrigin(target), TargetIndex: target});
     }
 }
@@ -66,8 +66,8 @@ function statsupdate(){
             units.splice[i,1]
         }
     }
-    if (lastUnits[1] != units) {
-        lastUnits[1] = units;
+    if (last[1] != units) {
+        last[1] = units;
         if (units.length > 1) {
             $("#Stats").style.visibility = "collapse";
             $("#StatsBonus").style.visibility = "collapse";
@@ -86,6 +86,7 @@ function statsupdate(){
             };
         };
     };
+    $.Msg(`${Math.floor(units.length / 10)} pages now!`)
     for (let i=1; i < 11; i++) {
         if (units[i-1] == unit && $(`#PortraitBorder${i}`) != undefined) {$(`#PortraitBorder${i}`).style.visibility = "visible";} else if ($(`#PortraitBorder${i}`) != undefined) {$(`#PortraitBorder${i}`).style.visibility = "collapse";};
         // hp bar code
