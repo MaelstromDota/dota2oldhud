@@ -1,6 +1,7 @@
 var lastUnit = [];
 var last = [];
 var page = [];
+var render = [];
 function ClickPortrait(portrait){
     let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
     if (GameUI.IsShiftDown()) {
@@ -44,12 +45,10 @@ function RenderPage(units, page){
     let statsright = $.GetContextPanel().GetParent().FindChildTraverse("RightStatsBox");
     let i_value = page === 1 ? 0 : page * 10 - 9;
     let i_max_value = page * 11 - page + 1;
-    $.Msg(i_value)
-    let render = [];
-    if (last[1] != units) {
-        last[1] = units;
+    if (render["units"] != units) {
+        render = [];
+        render["units"] = units;
         for (let i=i_value; i < i_max_value; i++){if (units[i] != undefined) {render.push(units[i])};};
-        $.Msg(render)
         $("#Stats").style.visibility = "collapse";
         $("#StatsBonus").style.visibility = "collapse";
         $("#SelectedUnits").style.visibility = "visible";
@@ -115,7 +114,7 @@ function statsupdate(){
             if (unit == units[i]) {currentpage = Math.floor(i / 10) + 1; break};
         };
         if (currentpage < 1) {currentpage = 1} else if (currentpage > 5) {currentpage = 5};
-        if (last[1] != units) {RenderPage(units,currentpage);}
+        if (render["units"] != units) {RenderPage(units,currentpage);}
         let i_value = currentpage === 1 ? 1: currentpage * 10 - 10;
         for (let i=i_value; i < currentpage * 11; i++) {
             // if (units[i-1] == unit) {$(`#PortraitBorder${i}`).style.visibility = "visible";} else {$(`#PortraitBorder${i}`).style.visibility = "collapse";};
