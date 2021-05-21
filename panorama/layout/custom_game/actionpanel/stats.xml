@@ -19,11 +19,13 @@
             <Label id="armortextbonus" text="+ N/A" />
             <Image id="speedicon" src="file://{images}/hud/icon_speed.png"/>
             <Label id="speedtext" text="N/A" />
-            <Image id="stricon" src="file://{images}/hud/icon_str.png"/>
+            <Image id="stricon" src="s2r://panorama/images/hud/pip_str_png.vtex"/>
             <Label id="strtext" text="N/A" />
-            <Image id="agiicon" src="file://{images}/hud/icon_agi.png"/>
+            <Image id="agiicon" src="s2r://panorama/images/hud/pip_agi_png.vtex"/>
+            <!-- <Image id="agiicon" src="file://{images}/hud/icon_agi.png"/> -->
             <Label id="agitext" text="N/A" />
-            <Image id="inticon" src="file://{images}/hud/icon_int.png"/>
+            <!-- <Image id="inticon" src="file://{images}/hud/icon_int.png"/> -->
+            <Image id="inticon" src="s2r://panorama/images/hud/pip_int_png.vtex"/>
             <Label id="inttext" text="N/A" />
         </Panel>
         <Panel id="StatsBonus">
