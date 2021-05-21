@@ -32,16 +32,36 @@
             <Label id="inttextbonus" text="+ N/A" />
         </Panel>
         <Panel id="SelectedUnits">
-            <DOTAScenePanel class="PortraitMulti" id="Portrait1" onactivate="ClickPortrait('1')"/>
-            <DOTAScenePanel class="PortraitMulti" id="Portrait2" onactivate="ClickPortrait('2')"/>
-            <DOTAScenePanel class="PortraitMulti" id="Portrait3" onactivate="ClickPortrait('3')"/>
-            <DOTAScenePanel class="PortraitMulti" id="Portrait4" onactivate="ClickPortrait('4')"/>
-            <DOTAScenePanel class="PortraitMulti" id="Portrait5" onactivate="ClickPortrait('5')"/>
-            <DOTAScenePanel class="PortraitMultiTop" id="Portrait6" onactivate="ClickPortrait('6')"/>
-            <DOTAScenePanel class="PortraitMultiTop" id="Portrait7" onactivate="ClickPortrait('7')"/>
-            <DOTAScenePanel class="PortraitMultiTop" id="Portrait8" onactivate="ClickPortrait('8')"/>
-            <DOTAScenePanel class="PortraitMultiTop" id="Portrait9" onactivate="ClickPortrait('9')"/>
-            <DOTAScenePanel class="PortraitMultiTop" id="Portrait10" onactivate="ClickPortrait('10')"/>
+            <Panel id="Portrait11" class="Portrait">
+                <Image id="PortraitBorder1" class="Border" src="file://{images}/hud/border.png" />
+                <DOTAScenePanel class="PortraitMulti" id="Portrait1" onactivate="ClickPortrait('1')"/>
+                <Panel class="HealthBar" id="HPBar1" />
+                <Panel class="ManaBar" id="MPBar1" />
+            </Panel>
+            <Panel id="Portrait22" class="Portrait">
+                <Image id="PortraitBorder2" class="Border" src="file://{images}/hud/border.png" />
+                <DOTAScenePanel class="PortraitMulti" id="Portrait2" onactivate="ClickPortrait('2')"/>
+                <Panel class="HealthBar" id="HPBar2" />
+                <Panel class="ManaBar" id="MPBar2" />
+            </Panel>
+            <Panel id="Portrait33" class="Portrait">
+                <Image id="PortraitBorder3" class="Border" src="file://{images}/hud/border.png" />
+                <DOTAScenePanel class="PortraitMulti" id="Portrait3" onactivate="ClickPortrait('3')"/>
+                <Panel class="HealthBar" id="HPBar3" />
+                <Panel class="ManaBar" id="MPBar3" />
+            </Panel>
+            <Panel id="Portrait44" class="Portrait">
+                <Image id="PortraitBorder4" class="Border" src="file://{images}/hud/border.png" />
+                <DOTAScenePanel class="PortraitMulti" id="Portrait4" onactivate="ClickPortrait('4')"/>
+                <Panel class="HealthBar" id="HPBar4" />
+                <Panel class="ManaBar" id="MPBar4" />
+            </Panel>
+            <Panel id="Portrait55" class="Portrait">
+                <Image id="PortraitBorder5" class="Border" src="file://{images}/hud/border.png" />
+                <DOTAScenePanel class="PortraitMulti" id="Portrait5" onactivate="ClickPortrait('5')"/>
+                <Panel class="HealthBar" id="HPBar5" />
+                <Panel class="ManaBar" id="MPBar5" />
+            </Panel>
         </Panel>
     </Panel>
 </root>

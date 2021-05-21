@@ -75,19 +75,20 @@ function statsupdate(){
             statsleft.style.backgroundColor = "#00000000";
             statsright.style.backgroundColor = "#00000000";
             for (let i=1; i < 11; i++) {
-                if (units[i-1] != undefined && lastUnit[i] != units[i-1] || units[i-1] != undefined && $(`#Portrait${i}`).style.visibility != "visible") {
-                    if ($(`#Portrait${i}`) != undefined) {
+                if (units[i-1] != undefined && lastUnit[i] != units[i-1] || units[i-1] != undefined && $(`#Portrait${i}${i}`).style.visibility != "visible") {
+                    if ($(`#Portrait${i}${i}`) != undefined) {
                         $(`#Portrait${i}`).SetUnit(Entities.GetUnitName(units[i-1]), Entities.GetUnitName(units[i-1]), true);
-                        $(`#Portrait${i}`).style.visibility = "visible";
+                        $(`#Portrait${i}${i}`).style.visibility = "visible";
                         lastUnit[i] = units[i-1];
                     }
                 };
-                if (units[i-1] == undefined) {$(`#Portrait${i}`).style.visibility = "collapse";};
+                if (units[i-1] == undefined && $(`#Portrait${i}${i}`) != undefined) {$(`#Portrait${i}${i}`).style.visibility = "collapse";};
             };
         };
     };
     for (let i=1; i < 10; i++) {
-        if (units[i-1] == unit) {$(`#Portrait${i}`).style.border = "1px solid #24ff07";} else {$(`#Portrait${i}`).style.border = "0px none #ffffff";};
+        if (units[i-1] == unit && $(`#PortraitBorder${i}`) != undefined) {$(`#PortraitBorder${i}`).style.visibility = "visible";} else if ($(`#PortraitBorder${i}`) != undefined) {$(`#PortraitBorder${i}`).style.visibility = "collapse";};
+        // hp bar code
     };
     if (units.length < 2) {
         $("#Stats").style.visibility = "visible";
