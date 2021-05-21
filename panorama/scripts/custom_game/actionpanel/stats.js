@@ -1,15 +1,6 @@
 var lastUnit = [];
 var last = [];
 var page = [];
-function PageMove(page){
-    let units = Players.GetSelectedEntities(Players.GetLocalPlayer());
-    function compareNumeric(a, b) {if (a > b) return 1; if (a == b) return 0; if (a < b) return -1;};
-    units.sort(compareNumeric);
-    for (let i=0; i < units.length -1; i++) {
-        if (!Entities.IsAlive(units[i])) {units.splice[i,1];};
-    };
-    RenderPage(units,parseInt(page));
-};
 function ClickPortrait(portrait){
     let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
     if (GameUI.IsShiftDown()) {
@@ -39,29 +30,42 @@ function UseAbility(table){
         Game.PrepareUnitOrders({OrderType: behavior, AbilityIndex: ability, Position: Entities.GetAbsOrigin(target), TargetIndex: target});
     };
 };
+function PageMove(page){
+    let units = Players.GetSelectedEntities(Players.GetLocalPlayer());
+    function compareNumeric(a, b) {if (a > b) return 1; if (a == b) return 0; if (a < b) return -1;};
+    units.sort(compareNumeric);
+    for (let i=0; i < units.length -1; i++) {
+        if (!Entities.IsAlive(units[i])) {units.splice[i,1];};
+    };
+    RenderPage(units,parseInt(page));
+};
 function RenderPage(units, page){
     let statsleft = $.GetContextPanel().GetParent().FindChildTraverse("LeftStatsBox");
     let statsright = $.GetContextPanel().GetParent().FindChildTraverse("RightStatsBox");
-    let i_value = page === 1 ? 1 : page * 10;
-    let i_max_value = page * 11;
-    // if (last[1] != units) {
-    //     last[1] = units;
+    let i_value = page === 1 ? 0 : page * 10 - 9;
+    let i_max_value = page * 11 - page + 1;
+    $.Msg(i_value)
+    let render = [];
+    if (last[1] != units) {
+        last[1] = units;
+        for (let i=i_value; i < i_max_value; i++){if (units[i] != undefined) {render.push(units[i])};};
+        $.Msg(render)
         $("#Stats").style.visibility = "collapse";
         $("#StatsBonus").style.visibility = "collapse";
         $("#SelectedUnits").style.visibility = "visible";
         statsleft.style.backgroundColor = "#00000000";
         statsright.style.backgroundColor = "#00000000";
-        for (let i=i_value; i < i_max_value; i++) {
-            if (units[i-1] != undefined && lastUnit[i] != units[i-1] || units[i-1] != undefined && $(`#Portrait${i}${i}`).style.visibility != "visible") {
+        for (let i=0; i < 11; i++) {
+            if (render[i-1] != undefined && lastUnit[i] != render[i-1] || render[i-1] != undefined && $(`#Portrait${i}${i}`).style.visibility != "visible") {
                 if ($(`#Portrait${i}${i}`) != undefined) {
-                    $(`#Portrait${i}`).SetUnit(Entities.GetUnitName(units[i-1]), Entities.GetUnitName(units[i-1]), true);
+                    $(`#Portrait${i}`).SetUnit(Entities.GetUnitName(render[i-1]), Entities.GetUnitName(render[i-1]), true);
                     $(`#Portrait${i}${i}`).style.visibility = "visible";
-                    lastUnit[i] = units[i-1];
+                    lastUnit[i] = render[i-1];
                 };
             };
-            if (units[i-1] == undefined && $(`#Portrait${i}${i}`) != undefined) {$(`#Portrait${i}${i}`).style.visibility = "collapse";};
+            if (render[i-1] == undefined && $(`#Portrait${i}${i}`) != undefined) {$(`#Portrait${i}${i}`).style.visibility = "collapse";};
         };
-    // };
+    };
 }
 function statsupdate(){
     let statsleft = $.GetContextPanel().GetParent().FindChildTraverse("LeftStatsBox");
