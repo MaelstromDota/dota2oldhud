@@ -1,7 +1,7 @@
 #Stats{width: 1500px;}
 .StatsClass{width: 900px; height: 200px; z-index: 1; vertical-align: bottom;}
-#damageicon{position: 660px 68px 0px; width: 140px; height: 55px;}
-#damagetext{color: #ffffff; font-size: 16px; position: -22px 1.25px 0px; horizontal-align: center; vertical-align: center;}
+#damageicon{position: 655px 68px 0px; width: 155px; height: 55px;}
+#damagetext{color: #ffffff; font-size: 16px; position: -28px 1.25px 0px; horizontal-align: center; vertical-align: center;}
 #damagetextbonus{color: #00ff15; font-size: 16px; position: 60px 18.9px 0px;}
 #armoricon{position: 665px 115px 0px; width: 55px; height: 50px;}
 #armortext{color: #ffffff; font-size: 12px; position: 243px 162px 0px; horizontal-align: center;}

@@ -79,7 +79,7 @@ function statsupdate(){
     $("#damagetext").text = Math.ceil((Entities.GetDamageMin(unit) + Entities.GetDamageMax(unit)) / 2);
     if (Math.ceil(Entities.GetDamageBonus(unit)) == 0) {$("#damagetextbonus").text = '';
     $("#damagetext").style.position = "-10px 1.25px 0px"} else {$("#damagetextbonus").text = `+ ${Math.ceil(Entities.GetDamageBonus(unit))}`;
-    $("#damagetext").style.position = "-22px 1.25px 0px";};
+    $("#damagetext").style.position = "-28px 1.25px 0px";};
     $("#armortext").text = Math.ceil(Entities.GetPhysicalArmorValue(unit) - Entities.GetBonusPhysicalArmor(unit))
     if (Math.ceil(Entities.GetBonusPhysicalArmor(unit)) == 0) {$("#armortextbonus").text = '';} else {$("#armortextbonus").text = `+ ${Math.ceil(Entities.GetBonusPhysicalArmor(unit))}`;};
     $("#speedtext").text = Math.ceil(Entities.GetIdealSpeed(unit));
@@ -115,7 +115,7 @@ function statsupdate(){
         if (currentpage < 1) {currentpage = 1} else if (currentpage > 5) {currentpage = 5};
         let i_value = currentpage === 1 ? 1: currentpage * 10 - 10;
         for (let i=1; i < 11; i++) {
-            if (units[i-(i_value*i)] == unit) {$(`#PortraitBorder${i}`).style.visibility = "visible";} else {$(`#PortraitBorder${i}`).style.visibility = "collapse";};
+            if (units[i-(i_value)] != undefined && units[i-(i_value)] == unit) {$(`#PortraitBorder${i}`).style.visibility = "visible";} else {$(`#PortraitBorder${i}`).style.visibility = "collapse";};
         };
     };
     $.Schedule(Game.GetGameFrameTime(), statsupdate);
