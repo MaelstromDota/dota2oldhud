@@ -88,16 +88,14 @@ function statsupdate(){
         $("#stricon").style.border = "0px none #ffffff";
         $("#agiicon").style.border = "0px none #ffffff";
         $("#inticon").style.border = "0px none #ffffff";
-        if (CustomNetTables.GetTableValue("stats", unit).att == 0){$("#stricon").style.border = "1px solid #ffbe07"} else if (CustomNetTables.GetTableValue("stats", unit).att == 1){$("#agiicon").style.border = "1px solid #ffbe07"} else if (CustomNetTables.GetTableValue("stats", unit).att == 2){$("#inticon").style.border = "1px solid #ffbe07"};
+        if (CustomNetTables.GetTableValue("stats", unit).att == 0){$("#stricon").style.border = "1px solid #ffbe07";} else if (CustomNetTables.GetTableValue("stats", unit).att == 1){$("#agiicon").style.border = "1px solid #ffbe07";} else if (CustomNetTables.GetTableValue("stats", unit).att == 2){$("#inticon").style.border = "1px solid #ffbe07";};
     };
     let units = Players.GetSelectedEntities(Players.GetLocalPlayer());
     function compareNumeric(a, b) {if (a > b) return 1; if (a == b) return 0; if (a < b) return -1;};
     units.sort(compareNumeric);
     for (let i=0; i < units.length -1; i++) {
-        if (!Entities.IsAlive(units[i])) {
-            units.splice[i,1]
-        }
-    }
+        if (!Entities.IsAlive(units[i])) {units.splice[i,1];};
+    };
     if (units.length < 2) {
         $("#Stats").style.visibility = "visible";
         $("#StatsBonus").style.visibility = "visible";
@@ -105,21 +103,41 @@ function statsupdate(){
         statsleft.style.backgroundColor = "black";
         statsright.style.backgroundColor = "black";
     } else {
-        let pages = Math.floor(units.length / 10) + 1 < 6 ? Math.floor(units.length / 10) + 1 : 5;
-        for (let i=1; i < 6; i++) {
-            if ($(`#group${i}`) != undefined && i <= pages && pages != 1) {$(`#group${i}`).style.visibility = 'visible';} else if ($(`#group${i}`) != undefined) {$(`#group${i}`).style.visibility = 'collapse';};
-        };
         let currentpage = 1;
         for (let i=0; i < units.length -1; i++) {
-            if (unit == units[i]) {currentpage = Math.floor(i / 10) + 1; break};
+            if (unit == units[i]) {currentpage = Math.ceil(i / 10) + 1; break};
         };
         if (currentpage < 1) {currentpage = 1} else if (currentpage > 5) {currentpage = 5};
-        if (render["units"] != units) {RenderPage(units,currentpage);}
         let i_value = currentpage === 1 ? 1: currentpage * 10 - 10;
-        for (let i=i_value; i < currentpage * 11; i++) {
-            // if (units[i-1] == unit) {$(`#PortraitBorder${i}`).style.visibility = "visible";} else {$(`#PortraitBorder${i}`).style.visibility = "collapse";};
+        for (let i=1; i < 11; i++) {
+            if (units[i-(i_value*i)] == unit) {$(`#PortraitBorder${i}`).style.visibility = "visible";} else {$(`#PortraitBorder${i}`).style.visibility = "collapse";};
         };
     };
     $.Schedule(Game.GetGameFrameTime(), statsupdate);
 };
+function OnSelectionUpdated(){
+    let unit = Players.GetLocalPlayerPortraitUnit();
+    let units = Players.GetSelectedEntities(Players.GetLocalPlayer());
+    function compareNumeric(a, b) {if (a > b) return 1; if (a == b) return 0; if (a < b) return -1;};
+    units.sort(compareNumeric);
+    for (let i=0; i < units.length -1; i++) {
+        if (!Entities.IsAlive(units[i])) {
+            units.splice[i,1];
+        };
+    };
+    if (units.length > 1) {
+        let pages = Math.ceil(units.length / 10) < 2 ? 1 : Math.ceil(units.length / 10);
+        if (pages > 5) {pages = 5;};
+        for (let i=1; i < 6; i++) {
+            if ($(`#group${i}`) != undefined && i <= pages && pages != 1) {$(`#group${i}`).style.visibility = 'visible';} else if ($(`#group${i}`) != undefined) {$(`#group${i}`).style.visibility = 'collapse';};
+        };
+        let currentpage = 1;
+        for (let i=0; i < units.length; i++) {
+            if (unit == units[i]) {currentpage = Math.ceil(i / 10); break};
+        };
+        if (currentpage < 1) {currentpage = 1;} else if (currentpage > 5) {currentpage = 5;};
+        if (render["units"] != units) {RenderPage(units,currentpage);};
+    };
+}
+GameEvents.Subscribe("dota_player_update_selected_unit", OnSelectionUpdated);
 statsupdate();
