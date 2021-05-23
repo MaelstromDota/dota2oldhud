@@ -48,7 +48,9 @@ function RenderPage(units, page){
     if (render["units"] != units) {
         render = [];
         render["units"] = units;
-        for (let i=i_value; i < i_max_value; i++){if (units[i] != undefined) {render.push(units[i])};};
+        for (let i=i_value; i < i_max_value; i++) {
+            if (units[i] != undefined) {render.push(units[i]);};
+        };
         $("#Stats").style.visibility = "collapse";
         $("#StatsBonus").style.visibility = "collapse";
         $("#SelectedUnits").style.visibility = "visible";
@@ -64,6 +66,9 @@ function RenderPage(units, page){
             };
             if (render[i-1] == undefined && $(`#Portrait${i}${i}`) != undefined) {$(`#Portrait${i}${i}`).style.visibility = "collapse";};
         };
+        for (let i=1; i<=5;i++){
+            if (page == i) {$(`#group${i}`).SetImage("file://{images}/hud/group_button_selected.png");} else {$(`#group${i}`).SetImage("file://{images}/hud/group_button.png");};
+        }
     };
 }
 function statsupdate(){
@@ -121,21 +126,19 @@ function OnSelectionUpdated(){
     function compareNumeric(a, b) {if (a > b) return 1; if (a == b) return 0; if (a < b) return -1;};
     units.sort(compareNumeric);
     for (let i=0; i < units.length -1; i++) {
-        if (!Entities.IsAlive(units[i])) {
-            units.splice[i,1];
-        };
+        if (!Entities.IsAlive(units[i])) {units.splice[i,1];};
     };
     if (units.length > 1) {
         let pages = Math.ceil(units.length / 10) < 2 ? 1 : Math.ceil(units.length / 10);
         if (pages > 5) {pages = 5;};
-        for (let i=1; i < 6; i++) {
-            if ($(`#group${i}`) != undefined && i <= pages && pages != 1) {$(`#group${i}`).style.visibility = 'visible';} else if ($(`#group${i}`) != undefined) {$(`#group${i}`).style.visibility = 'collapse';};
-        };
         let currentpage = 1;
         for (let i=0; i < units.length; i++) {
             if (unit == units[i]) {currentpage = Math.ceil(i / 10); break};
         };
         if (currentpage < 1) {currentpage = 1;} else if (currentpage > 5) {currentpage = 5;};
+        for (let i=1; i < 6; i++) {
+            if ($(`#group${i}`) != undefined && i <= pages && pages != 1) {$(`#group${i}`).style.visibility = 'visible';} else if ($(`#group${i}`) != undefined) {$(`#group${i}`).style.visibility = 'collapse';};
+        };
         if (render["units"] != units) {RenderPage(units,currentpage);};
     };
 }

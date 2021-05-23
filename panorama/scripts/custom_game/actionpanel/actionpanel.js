@@ -57,7 +57,7 @@
         lastUnit = unit;
     }
     function onUpdateQueryUnit(event) {
-        var unit = Players.GetLocalPlayerPortraitUnit();//Players.GetQueryUnit(Players.GetLocalPlayer());
+        var unit = Players.GetLocalPlayerPortraitUnit();
         if (unit !== -1) {            
             SetActionPanel(unit);
             lastUnit = unit;
@@ -74,11 +74,11 @@
     function onSteamInventoryChanged(event) {
         var skinName = GameUI.CustomUIConfig().itemdef[event.itemdef];
         if (skinName !== undefined) {
-            $("#MinimapBorder").SetImage("raw://resource/flash3/images/hud_skins/" + skinName + "/actionpanel/minimapborder.png");
-            $("#MinimapSpacer").SetImage("raw://resource/flash3/images/hud_skins/" + skinName + "/actionpanel/spacer_16_9.png");
-            $("#PortraitBorder").SetImage("raw://resource/flash3/images/hud_skins/" + skinName + "/actionpanel/portrait_wide.png");
-            $("#center_left_wide").SetImage("raw://resource/flash3/images/hud_skins/" + skinName + "/actionpanel/center_left_wide.png");
-            $("#center_right").SetImage("raw://resource/flash3/images/hud_skins/" + skinName + "/actionpanel/center_right.png");
+            $("#MinimapBorder").SetImage(`raw://resource/flash3/images/hud_skins/${skinName}/actionpanel/minimapborder.png`);
+            $("#MinimapSpacer").SetImage(`raw://resource/flash3/images/hud_skins/${skinName}/actionpanel/spacer_16_9.png`);
+            $("#PortraitBorder").SetImage(`raw://resource/flash3/images/hud_skins/${skinName}/actionpanel/portrait_wide.png`);
+            $("#center_left_wide").SetImage(`raw://resource/flash3/images/hud_skins/${skinName}/actionpanel/center_left_wide.png`);
+            $("#center_right").SetImage(`raw://resource/flash3/images/hud_skins/${skinName}/actionpanel/center_right.png`);
         }
     }
     function updateVisibleAbilities() {
@@ -141,18 +141,18 @@
                 abilities[ab].setLearnMode(learnMode);
             }
         }
-        $("#HealthBarInner").style.width = (Entities.GetHealth(currentUnit) / Entities.GetMaxHealth(currentUnit)) * 100 + "%";
-		$("#HealthBarText").text = (Entities.GetHealth(currentUnit) + '/' + Entities.GetMaxHealth(currentUnit)) + ' +' + Entities.GetHealthThinkRegen(currentUnit);
+        $("#HealthBarInner").style.width = `${(Entities.GetHealth(currentUnit) / Entities.GetMaxHealth(currentUnit)) * 100}%`;
+		$("#HealthBarText").text = `${Entities.GetHealth(currentUnit)} / ${Entities.GetMaxHealth(currentUnit)} +${Entities.GetHealthThinkRegen(currentUnit)}`;
         $("#LevelNumber").text = Entities.GetLevel(currentUnit);
-        $("#XPLabel").text = Entities.GetCurrentXP(currentUnit) + '/' + (Entities.GetNeededXPToLevel(currentUnit));
+        $("#XPLabel").text = Entities.GetLevel(currentUnit) == 30 || Entities.GetLevel(currentUnit) == 25 ? `${Entities.GetCurrentXP(currentUnit)} / ${Entities.GetCurrentXP(currentUnit)}` : `${Entities.GetCurrentXP(currentUnit)} / ${(Entities.GetNeededXPToLevel(currentUnit))}`;
         if (Entities.IsHero(currentUnit)) {
-            $("#XPBar").style.width = Entities.GetCurrentXP(currentUnit) / Entities.GetNeededXPToLevel(currentUnit) * 40 + "%";
+            $("#XPBar").style.width = Entities.GetLevel(currentUnit) == 30 || Entities.GetLevel(currentUnit) == 25 ? "41%" : `${Entities.GetCurrentXP(currentUnit) / Entities.GetNeededXPToLevel(currentUnit) * 41}%`;
         } else {
             $("#XPBar").style.width = "0%";
         }
         if (Entities.GetMaxMana(currentUnit) != 0) {
-            $("#ManaBarInner").style.width = (Entities.GetMana(currentUnit) / Entities.GetMaxMana(currentUnit)) * 100 + "%";
-            $("#ManaBarText").text = (Entities.GetMana(currentUnit) + '/' + Entities.GetMaxMana(currentUnit)) + ' +' + Entities.GetManaThinkRegen(currentUnit).toFixed(1);
+            $("#ManaBarInner").style.width = `${(Entities.GetMana(currentUnit) / Entities.GetMaxMana(currentUnit)) * 100}%`;
+            $("#ManaBarText").text = `${Entities.GetMana(currentUnit)} / ${Entities.GetMaxMana(currentUnit)} +${Entities.GetManaThinkRegen(currentUnit).toFixed(1)}`;
         } else {
             $("#ManaBarInner").style.width = '0%'
             $("#ManaBarText").text = ' 0 /  1 '

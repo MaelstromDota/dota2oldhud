@@ -48,7 +48,7 @@
     font-size: 20px;
     vertical-align: center;
     horizontal-align: center;
-    text-shadow: 0px 0px 2px 2.0 #ff00aa;
+    text-shadow: 0px 0px 2px 2.0 #272600;
 }
 #XPBar{
     height: 4%;
@@ -62,13 +62,13 @@
 #XPLabel{
     color: #ffffff;
     height: 5%;
-    margin-bottom: 2.1%;
+    margin-bottom: 2.5%;
     vertical-align: bottom;
     width: 41%;
     margin-left: 31%;
     text-align: center;
     font-size: 14px;
-    text-shadow: 0px 0px 2px 2.0 #ff00aa;
+    text-shadow: 0px 0px 2px 2.0 #504f02;
 }
 #center_left_wide{
     margin-left: -3.2%;
