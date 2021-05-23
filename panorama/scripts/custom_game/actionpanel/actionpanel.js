@@ -141,6 +141,9 @@
                 abilities[ab].setLearnMode(learnMode);
             }
         }
+        // TODO:
+        // new health/mana regen label
+        // health/mana regen label collapse when health/mana full
         $("#HealthBarInner").style.width = `${(Entities.GetHealth(currentUnit) / Entities.GetMaxHealth(currentUnit)) * 100}%`;
 		$("#HealthBarText").text = `${Entities.GetHealth(currentUnit)} / ${Entities.GetMaxHealth(currentUnit)} +${Entities.GetHealthThinkRegen(currentUnit)}`;
         $("#LevelNumber").text = Entities.GetLevel(currentUnit);
