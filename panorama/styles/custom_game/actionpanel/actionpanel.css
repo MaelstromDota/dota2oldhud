@@ -187,8 +187,8 @@
 .AbilityLayout1 .Ability {width: 17.8%; height: 125%; padding-top: 5px; padding-left: 9px;}
 .AbilityLayout2 .Ability {width: 17.8%; height: 125%; padding-top: 5px; padding-left: 9px;}
 .AbilityLayout3 .Ability {width: 17.8%; height: 125%; padding-top: 5px; padding-left: 9px;}
-.AbilityLayout4 .Ability {width: 17.8%; height: 125%; padding-top: 5px; padding-left: 9px;}
-.AbilityLayout5 .Ability {width: 14.7%; height: 100%; padding-top: 10px;}
+.AbilityLayout4 .Ability {width: 16.8%; height: 125%; padding-top: 0px; padding-left: 9px;}
+.AbilityLayout5 .Ability {width: 14.7%; height: 100%; padding-top: 5px;}
 .AbilityLayout6 .Ability {width: 12.4%; height: 100%; padding-top: 9px; margin-left: -1px;}
 .AbilityLayout14 .Ability {width: 15%; height: 100%; padding-top: 8px;}
 .AbilityLayout15 .Ability {width: 12.4%; height: 100%; padding-top: 9px;}
@@ -199,8 +199,8 @@
     padding-right: 4%;
     vertical-align: bottom;
     overflow: noclip;
-	padding-top: -16px;
-    margin-left: 360px;
+	padding-top: -8px;
+    margin-left: 403.5px;
 }
 #AbilitiesContainer.AbilityLayout5 {padding-left: 0%; padding-right: 0%; margin-left: 395px;}
 #AbilitiesContainer.AbilityLayout6 {padding-left: 0%; padding-right: 0%; margin-left: 415px;}

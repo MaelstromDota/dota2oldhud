@@ -119,7 +119,7 @@
             if (ability === -1) {
                 break;
             }
-            if (!Abilities.IsAttributeBonus(ability) && !Abilities.IsHidden(ability)) {
+            if (!Abilities.IsAttributeBonus(ability) && !Abilities.IsHidden(ability) && Abilities.IsOnCastbar(ability)) {
                 count++;
             }
         }
