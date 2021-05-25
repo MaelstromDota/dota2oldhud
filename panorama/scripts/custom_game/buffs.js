@@ -1,4 +1,5 @@
 let pContainer = $("#Buffs");
+let cooldown = [];
 function Main(){
 	let unit = Players.GetLocalPlayerPortraitUnit();
 	let buffs = [];
@@ -14,13 +15,19 @@ function Main(){
 			pPanel = $.CreatePanel("Panel", pContainer, "");
 			pPanel.BLoadLayoutSnippet("Buff");
 		};
+		if (Buffs.GetElapsedTime(unit, buffs[i]) < 0.5) {cooldown[buffs[i]]=false;};
 		pPanel.style.marginLeft = `${42 * ii}px`;
-		let border = pPanel.FindChildTraverse("border")
-		border.style.clip = "radial(50% 50%, 0deg, -360deg)";
-        border.style.animationName = "BuffTimer";
-        border.style.animationDuration = `${Buffs.GetDuration(unit, buffs[i])}s`;
-        border.style.animationTimingFunction = `linear`;
-        border.style.animationIterationCount = 1;
+		let border = pPanel.FindChildTraverse("border");
+		if (cooldown[buffs[i]] == false) {
+			let animation = Buffs.GetElapsedTime(unit, buffs[i]) < 0.5 ? Buffs.GetDuration(unit, buffs[i]) : Buffs.GetRemainingTime(unit, buffs[i]);
+			cooldown[buffs[i]] = true;
+			border.style.clip = "radial(50% 50%, 0deg, -360deg)";
+			border.style.animationName = "BuffTimer";
+			border.style.animationDuration = `${animation}s`;
+			border.style.animationTimingFunction = `linear`;
+			border.style.animationIterationCount = 1;
+		};
+		if (Buffs.IsDebuff(unit,buffs[i])) {border.SetImage("file://{images}/hud/border_debuff.png")}
 		pPanel.FindChildTraverse("image").SetImage(`s2r://panorama/images/spellicons/${Buffs.GetTexture(unit,buffs[i])}_png.vtex`)
 	};
 	for (let i = buffs.length; i < pContainer.GetChildCount(); i++) {
