@@ -1,0 +1,23 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/custom_game/buffs.css" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/scripts/custom_game/buffs.js" />
+    </scripts>
+    <snippets>
+        <snippet name="Buff">
+            <Panel class="Buff" hittest="false">
+                <Panel id="buffid">
+                    <Image class="border" src="file://{images}/hud/border_nobuff.png" />
+                    <Image id="border" class="border" src="file://{images}/hud/border_buff.png" />
+                    <Image id="image" class="imageclass" src="s2r://panorama/images/spellicons/pudge_rot_png.vtex"/>
+                </Panel>
+            </Panel>
+        </snippet>
+    </snippets>
+    <Panel class="BuffsClass">
+        <Panel id="Buffs">
+        </Panel>
+    </Panel>
+</root>

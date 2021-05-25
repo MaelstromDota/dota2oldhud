@@ -1,0 +1,10 @@
+.BuffsClass{width: 35%; height: 45px; vertical-align: bottom; position: 655px -170px 0px;}
+#border{transform:rotateY(180deg);}
+.border{height: 42px; width: 42px;}
+.imageclass{height: 32px; width: 32px; margin-left: 4px; margin-top: 4px;}
+.Buff{flow-children: right; width: 40px; height: 40px;}
+@keyframes 'BuffTimer'
+{
+	0%{clip: radial(50% 50%, 0deg, 360deg);}
+    100%{clip: radial(50% 50%, 0deg, 0deg);}
+}

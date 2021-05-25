@@ -24,6 +24,7 @@
     <Panel>
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/actionpanel/stats.xml" />
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hud.xml" />
+        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/buffs.xml" />
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/test.xml" />
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/buttons/glyph.xml" />
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/buttons/shopbutton.xml" />
