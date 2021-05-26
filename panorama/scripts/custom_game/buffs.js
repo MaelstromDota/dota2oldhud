@@ -30,7 +30,9 @@ function Main(){
 		let stackstext = pPanel.FindChildTraverse("stacks");
 		if (stacks < 1) {stackstext.style.visibility = 'collapse';} else {stackstext.style.visibility = 'visible'; stackstext.text = stacks;};
 		if (Buffs.IsDebuff(unit,buffs[i])) {border.SetImage("file://{images}/hud/border_debuff.png");};
-		pPanel.FindChildTraverse("image").SetImage(`s2r://panorama/images/spellicons/${Buffs.GetTexture(unit,buffs[i])}_png.vtex`);
+		let path = Abilities.IsItem(Buffs.GetAbility(unit, buffs[i])) ? 'items' : 'spellicons';
+		let icon = path == 'items' ? Buffs.GetTexture(unit,buffs[i]).substring(5, Buffs.GetTexture(unit,buffs[i]).length) : Buffs.GetTexture(unit,buffs[i]);
+		pPanel.FindChildTraverse("image").SetImage(`s2r://panorama/images/${path}/${icon}_png.vtex`);
 	};
 	for (let i = buffs.length; i < pContainer.GetChildCount(); i++) {
 		let pPanel = pContainer.GetChild(i);

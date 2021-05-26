@@ -55,20 +55,20 @@ function onCourierDeathTimeUpdate() {
     $.Schedule(1, onCourierDeathTimeUpdate);
 }
 function onCourierDeath(event) {
-    $("#courier").AddClass("Dead");
-    if ($("#courier").BHasClass("Flying")) {courierDeathTime = 60 * 3;} else {courierDeathTime = 60 * 2;}
-    $.Schedule(1, onCourierDeathTimeUpdate);
+    if (event.entindex == currentCourier && Entities.GetTeamNumber(event.entindex) == Players.GetTeam(Players.GetLocalPlayer())) {
+        $("#courier").AddClass("Dead");
+        if ($("#courier").BHasClass("Flying")) {courierDeathTime = 60 * 3;} else {courierDeathTime = 60 * 2;}
+        $.Schedule(1, onCourierDeathTimeUpdate);
+    };
 }
 GameEvents.Subscribe("dota_courier_lost", onCourierDeath);
 function onCourierRespawn(event) {$("#courier").RemoveClass("Dead");}
 GameEvents.Subscribe("dota_courier_respawned", onCourierRespawn);
 function onCourierSpawn(event) {
-    if (Entities.GetClassname(event.entindex) == "npc_dota_courier") {
-        if (Entities.GetTeamNumber(event.entindex) == Players.GetTeam(Players.GetLocalPlayer())) {
-            $("#courier").AddClass("Courier");
-            currentCourier = event.entindex;
-            flyingCourierCheck();
-        }
+    if (event.entindex == currentCourier && Entities.GetTeamNumber(event.entindex) == Players.GetTeam(Players.GetLocalPlayer())) {
+        $("#courier").AddClass("Courier");
+        currentCourier = event.entindex;
+        flyingCourierCheck();
     }
 }
 GameEvents.Subscribe("npc_spawned", onCourierSpawn);
@@ -82,7 +82,7 @@ onEntityKilled(null);
 onHeroDeath(null);
 var items = [];
 for (var i = 0; i < 12; i++) {var parent_1 = $("#row0");
-if (i > 5) {continue;} else if (i > 2) {parent_1 = $("#row1");} // TODO: make
+if (i > 5) {continue;} else if (i > 2) {parent_1 = $("#row1");}
 items[i] = new ItemPanel(parent_1, i);}
 $("#deadCourierTimer").text = "N/A";
 function onGoldChanged() {
