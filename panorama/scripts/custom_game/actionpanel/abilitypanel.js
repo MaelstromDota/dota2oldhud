@@ -145,7 +145,7 @@ var AbilityPanel = (function () {
         $.DispatchEvent("DOTAHideAbilityTooltip", abilityButton);
     };
     AbilityPanel.prototype.onLeftClick = function () {
-        if (this.learning) {Abilities.AttemptToUpgrade(this.ability);} else {Abilities.ExecuteAbility(this.ability, this.ownerUnit, false);}
+        if (GameUI.IsAltDown()){Abilities.PingAbility(this.ability);} else if (this.learning) {Abilities.AttemptToUpgrade(this.ability);} else {Abilities.ExecuteAbility(this.ability, this.ownerUnit, false);}
     };
     AbilityPanel.prototype.onRightClick = function () {
         if (Abilities.IsAutocast(this.ability)) {
