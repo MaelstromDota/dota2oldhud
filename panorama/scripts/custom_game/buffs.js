@@ -1,5 +1,4 @@
 let pContainer = $("#Buffs");
-let cooldown = [];
 function Main(){
 	let unit = Players.GetLocalPlayerPortraitUnit();
 	let buffs = [];
@@ -13,8 +12,10 @@ function Main(){
 		if (pPanel == null || pPanel == undefined) {
 			pPanel = $.CreatePanel("Panel", pContainer, "");
 			pPanel.BLoadLayoutSnippet("Buff");
+			let dpanel = pPanel.FindChildTraverse("buffid");
+			dpanel.SetPanelEvent("onmouseover", function(){$.DispatchEvent("DOTAShowBuffTooltip", dpanel, unit, buffs[i], false);})
+			dpanel.SetPanelEvent("onmouseout", function(){$.DispatchEvent("DOTAHideBuffTooltip", dpanel);})
 		};
-		if (Buffs.GetElapsedTime(unit, buffs[i]) < 0.5) {cooldown[buffs[i]]=false;};
 		pPanel.style.marginLeft = `${42 * i}px`;
 		let border = pPanel.FindChildTraverse("border");
 		let elapsed = Buffs.GetElapsedTime(unit, buffs[i]);
