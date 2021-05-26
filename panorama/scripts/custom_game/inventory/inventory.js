@@ -65,7 +65,7 @@ GameEvents.Subscribe("dota_courier_lost", onCourierDeath);
 function onCourierRespawn(event) {$("#courier").RemoveClass("Dead");}
 GameEvents.Subscribe("dota_courier_respawned", onCourierRespawn);
 function onCourierSpawn(event) {
-    if (event.entindex == currentCourier && Entities.GetTeamNumber(event.entindex) == Players.GetTeam(Players.GetLocalPlayer())) {
+    if (Entities.GetClassname(event.entindex) == "npc_dota_courier" && Entities.GetTeamNumber(event.entindex) == Players.GetTeam(Players.GetLocalPlayer())) {
         $("#courier").AddClass("Courier");
         currentCourier = event.entindex;
         flyingCourierCheck();
