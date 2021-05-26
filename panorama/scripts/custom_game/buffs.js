@@ -9,16 +9,15 @@ function Main(){
 		};
 	};
 	for (let i=0; i < buffs.length; i++){
-		let ii = i;
 		var pPanel = pContainer.GetChild(i);
 		if (pPanel == null || pPanel == undefined) {
 			pPanel = $.CreatePanel("Panel", pContainer, "");
 			pPanel.BLoadLayoutSnippet("Buff");
 		};
 		if (Buffs.GetElapsedTime(unit, buffs[i]) < 0.5) {cooldown[buffs[i]]=false;};
-		pPanel.style.marginLeft = `${42 * ii}px`;
+		pPanel.style.marginLeft = `${42 * i}px`;
 		let border = pPanel.FindChildTraverse("border");
-		if (cooldown[buffs[i]] == false) {
+		if (cooldown[buffs[i]] != true) {
 			let animation = Buffs.GetElapsedTime(unit, buffs[i]) < 0.5 ? Buffs.GetDuration(unit, buffs[i]) : Buffs.GetRemainingTime(unit, buffs[i]);
 			cooldown[buffs[i]] = true;
 			border.style.clip = "radial(50% 50%, 0deg, -360deg)";
