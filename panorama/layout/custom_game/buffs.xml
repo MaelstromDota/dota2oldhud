@@ -1,5 +1,7 @@
 <root>
     <styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+        <include src="s2r://panorama/styles/hudstyles.vcss_c" />
         <include src="file://{resources}/styles/custom_game/buffs.css" />
     </styles>
     <scripts>
@@ -12,6 +14,7 @@
                     <Image class="border" src="file://{images}/hud/border_nobuff.png" />
                     <Image id="border" class="border" src="file://{images}/hud/border_buff.png" />
                     <Image id="image" class="imageclass" src="s2r://panorama/images/spellicons/pudge_rot_png.vtex"/>
+                    <Label id="stacks" />
                 </Panel>
             </Panel>
         </snippet>

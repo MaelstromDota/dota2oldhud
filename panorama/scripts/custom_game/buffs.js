@@ -20,6 +20,9 @@ function Main(){
 		let border = pPanel.FindChildTraverse("border");
 		let elapsed = Buffs.GetElapsedTime(unit, buffs[i]);
 		border.style.clip = `radial(50% 50%, 0deg, ${360 - elapsed * 18}deg)`;
+		let stackstext = pPanel.FindChildTraverse("stacks");
+		let stacks = Buffs.GetStackCount(unit, buffs[i]);
+		if (stacks < 1) {stackstext.style.visibility = 'collapse';} else {stackstext.style.visibility = 'visible'; stackstext.text = stacks;};
 		if (Buffs.IsDebuff(unit,buffs[i])) {border.SetImage("file://{images}/hud/border_debuff.png")}
 		pPanel.FindChildTraverse("image").SetImage(`s2r://panorama/images/spellicons/${Buffs.GetTexture(unit,buffs[i])}_png.vtex`)
 	};
