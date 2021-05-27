@@ -112,6 +112,7 @@ var ItemPanel = (function () {
             this.keybind = Abilities.GetKeybind(this.item);
             this.panel.FindChildTraverse("hotkey").text = this.keybind;
         }
+        // this.panel.SetHasClass("Muted", Entities.IsMuted(this.unit));
         this.panel.SetHasClass("Muted", Items.IsMuted(this.item));
         this.panel.SetHasClass("Primary", Items.ShouldDisplayCharges(this.item));
         this.panel.SetHasClass("Secondary", Items.ShowSecondaryCharges(this.item));
