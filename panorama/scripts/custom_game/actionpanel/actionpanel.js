@@ -144,9 +144,9 @@
         // TODO:
         // new health/mana regen label
         // health/mana regen label collapse when health/mana full
+        // alt + click
         $("#HealthBarInner").style.width = `${(Entities.GetHealth(currentUnit) / Entities.GetMaxHealth(currentUnit)) * 100}%`;
-		// $("#HealthBarText").text = `${Entities.GetHealth(currentUnit)} / ${Entities.GetMaxHealth(currentUnit)} +${Entities.GetHealthThinkRegen(currentUnit)}`;
-        $("#HealthBarText").text = Entities.GetHealth(currentUnit) == Entities.GetMaxHealth(currentUnit) ? `${Entities.GetHealth(currentUnit)} / ${Entities.GetMaxHealth(currentUnit)}` : `${Entities.GetHealth(currentUnit)} / ${Entities.GetMaxHealth(currentUnit)} +${Entities.GetHealthThinkRegen(currentUnit)}` ;
+		$("#HealthBarText").text = `${Entities.GetHealth(currentUnit)} / ${Entities.GetMaxHealth(currentUnit)} +${Entities.GetHealthThinkRegen(currentUnit)}`;
         $("#LevelNumber").text = Entities.GetLevel(currentUnit);
         $("#XPLabel").text = Entities.GetLevel(currentUnit) == 30 || Entities.GetLevel(currentUnit) == 25 ? `${Entities.GetCurrentXP(currentUnit)} / ${Entities.GetCurrentXP(currentUnit)}` : `${Entities.GetCurrentXP(currentUnit)} / ${(Entities.GetNeededXPToLevel(currentUnit))}`;
         if (Entities.IsHero(currentUnit)) {
