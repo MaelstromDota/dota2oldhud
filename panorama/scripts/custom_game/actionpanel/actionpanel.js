@@ -142,11 +142,10 @@
             }
         }
         // TODO:
-        // new health/mana regen label
-        // health/mana regen label collapse when health/mana full
         // alt + click
         $("#HealthBarInner").style.width = `${(Entities.GetHealth(currentUnit) / Entities.GetMaxHealth(currentUnit)) * 100}%`;
-		$("#HealthBarText").text = `${Entities.GetHealth(currentUnit)} / ${Entities.GetMaxHealth(currentUnit)} +${Entities.GetHealthThinkRegen(currentUnit)}`;
+		$("#HealthBarText").text = `${Entities.GetHealth(currentUnit)} / ${Entities.GetMaxHealth(currentUnit)}`;
+        if (Entities.GetHealth(currentUnit) == Entities.GetMaxHealth(currentUnit)) {$("#HealthRegText").style.visibility = 'collapse';} else {$("#HealthRegText").text = `+${Entities.GetHealthThinkRegen(currentUnit).toFixed(1)}`; $("#HealthRegText").style.visibility = 'visible';}
         $("#LevelNumber").text = Entities.GetLevel(currentUnit);
         $("#XPLabel").text = Entities.GetLevel(currentUnit) == 30 || Entities.GetLevel(currentUnit) == 25 ? `${Entities.GetCurrentXP(currentUnit)} / ${Entities.GetCurrentXP(currentUnit)}` : `${Entities.GetCurrentXP(currentUnit)} / ${(Entities.GetNeededXPToLevel(currentUnit))}`;
         if (Entities.IsHero(currentUnit)) {
@@ -156,10 +155,12 @@
         }
         if (Entities.GetMaxMana(currentUnit) != 0) {
             $("#ManaBarInner").style.width = `${(Entities.GetMana(currentUnit) / Entities.GetMaxMana(currentUnit)) * 100}%`;
-            $("#ManaBarText").text = `${Entities.GetMana(currentUnit)} / ${Entities.GetMaxMana(currentUnit)} +${Entities.GetManaThinkRegen(currentUnit).toFixed(1)}`;
+            $("#ManaBarText").text = `${Entities.GetMana(currentUnit)} / ${Entities.GetMaxMana(currentUnit)}`;
+            if (Entities.GetMana(currentUnit) == Entities.GetMaxMana(currentUnit)) {$("#ManaRegText").style.visibility = 'collapse';} else {$("#ManaRegText").text = `+${Entities.GetManaThinkRegen(currentUnit).toFixed(1)}`; $("#ManaRegText").style.visibility = 'visible';};
         } else {
             $("#ManaBarInner").style.width = '0%'
             $("#ManaBarText").text = ' 0 /  1 '
+            $("#ManaRegText").text = '+0';
         }
         if (Entities.IsEnemy(currentUnit)){
             $("#HealthBarInner").style.backgroundColor = "gradient(linear, 0% 0%, 0% 100%, from(#aa5a5a), color-stop(0.5, #611515), to(#340000))"

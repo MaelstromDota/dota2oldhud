@@ -80,7 +80,9 @@
 		</Panel>
 		<Panel id='hpbartext'>
 			<Label id="ManaBarText" text="0/0" />
+			<Label id="ManaRegText" text="+0" />
 			<Label id="HealthBarText" text="0/0" />
+			<Label id="HealthRegText" text="+0" />
 		</Panel>
     </Panel>
 </root>

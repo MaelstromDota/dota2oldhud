@@ -28,11 +28,12 @@ function Main(){
 		pPanel.style.marginLeft = `${48 * i}px`;
 		let border = pPanel.FindChildTraverse("border");
 		let elapsed = Buffs.GetElapsedTime(unit, buffs[i]);
-		border.style.clip = `radial(50% 50%, 0deg, ${360 - elapsed * 18}deg)`;
+		let duration = Buffs.GetDuration(unit, buffs[i]);
+		border.style.clip = `radial(50% 50%, 0deg, ${360 - elapsed/duration*360}deg)`;
 		let stackstext = pPanel.FindChildTraverse("stacks");
 		if (stacks < 1) {stackstext.style.visibility = 'collapse';} else {stackstext.style.visibility = 'visible'; stackstext.text = stacks;};
 		if (Buffs.IsDebuff(unit,buffs[i])) {border.SetImage("file://{images}/hud/border_debuff.png");} else {border.SetImage("file://{images}/hud/border_buff.png")};
-		let path = Abilities.IsItem(Buffs.GetAbility(unit, buffs[i])) ? 'items' : 'spellicons';
+		let path = Abilities.IsItem(Buffs.GetAbility(unit, buffs[i])) || Buffs.GetAbility(unit, buffs[i]) == -1 ? 'items' : 'spellicons';
 		let icon = path == 'items' ? Buffs.GetTexture(unit,buffs[i]).substring(5, Buffs.GetTexture(unit,buffs[i]).length) : Buffs.GetTexture(unit,buffs[i]);
 		pPanel.FindChildTraverse("image").SetImage(`s2r://panorama/images/${path}/${icon}_png.vtex`);
 	};

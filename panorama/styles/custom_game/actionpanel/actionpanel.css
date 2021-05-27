@@ -102,7 +102,7 @@
     flow-children: right;
 }
 .AspectRatio4x3 #HealthBar{width: 38.2%; margin-left: -38.5%;}
-#hpbartext{margin: 137px -716px 0px;}
+#hpbartext{width: 675px; height: 40px; margin-left: -672px; margin-top: 135px;}
 .AspectRatio4x3 #hpbartext{margin: 155px -606px 0px;}
 #HealthBarText{
 	color: white;
@@ -111,8 +111,19 @@
 	text-shadow: 1px 1px 0px 2.0 #000000;
 	overflow: noclip;
 	font-weight: bold;
-	margin-top: -1.5px;
-	margin-left: 350px;
+    text-align: center;
+    horizontal-align: center;
+}
+#HealthRegText{
+	color: white;
+	font-size: 15px;
+	font-family: monospaceNumbersFont;
+	text-shadow: 1px 1px 0px 2.0 #000000;
+	overflow: noclip;
+	font-weight: bold;
+    text-align: right;
+    horizontal-align: right;
+    position: -8px 2px 0px;
 }
 #HealthBarInner{
     width: 70%;
@@ -164,10 +175,20 @@
 	text-shadow: 1px 1px 0px 2.0 #000000;
 	overflow: noclip;
 	font-weight: bold;
-	horizontal-align: center;
-	vertical-align: center;
-	margin-top: 20px;
-	margin-left: 350px;
+	position: 0px 23px 0px;
+    text-align: center;
+    horizontal-align: center;
+}
+#ManaRegText{
+	color: white;
+	font-size: 15px;
+	font-family: monospaceNumbersFont;
+	text-shadow: 1px 1px 0px 2.0 #000000;
+	overflow: noclip;
+	font-weight: bold;
+    text-align: right;
+    horizontal-align: right;
+    position: -8px 23px 0px;
 }
 #ManaBarInner {height: 100%; width: 50%; background-color: gradient(linear, 0% 0%, 0% 100%, from(#7395BD), color-stop(0.3, #34609F), color-stop(0.31, #0D448C), to(#294D84));}
 #ManaBarLight {width: height-percentage(1000%); height: 100%; background-color: gradient( radial, 0% 50%, 0% 0%, 60% 80%, from( #3B9DFFFF ), to( #3B9DFF00 ) ); opacity: 0.6;}
