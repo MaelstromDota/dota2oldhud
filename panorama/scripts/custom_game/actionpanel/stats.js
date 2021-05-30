@@ -116,6 +116,8 @@ function statsupdate(){
         let i_value = currentpage === 1 ? 1: currentpage * 10 - 10;
         for (let i=1; i < 11; i++) {
             if (units[i-(i_value)] != undefined && units[i-(i_value)] == unit) {$(`#PortraitBorder${i}`).style.visibility = "visible";} else {$(`#PortraitBorder${i}`).style.visibility = "collapse";};
+            if (i!=11 && units[i-(i_value)] != undefined) {$(`#HPBar${i}`).style.width = `${(Entities.GetHealth(units[i-i_value]) / Entities.GetMaxHealth(units[i-i_value])) * 100 -15}%`;};
+            if (Entities.GetMaxMana(units[i-(i_value)]) != 0 && i!=11 && units[i-(i_value)] != undefined) {$(`#MPBar${i}`).style.width = `${(Entities.GetMana(units[i-i_value]) / Entities.GetMaxMana(units[i-i_value])) * 100 -15}%`;} else if (Entities.GetMaxMana(units[i-(i_value)]) == 0 && i!=11 && units[i-(i_value)] != undefined) {$(`#MPBar${i}`).style.width = '85%';};
         };
     };
     $.Schedule(Game.GetGameFrameTime(), statsupdate);
