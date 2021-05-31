@@ -1,0 +1,14 @@
+#ZooHUD{
+	width: 1920px;
+	height: 1080px;
+    /* padding-bottom: 300px; */
+    padding-right: 0px;
+    /* opacity: 0.2; */
+}
+.hudpanel:hover{pre-transform-scale2d: 1;}
+.hudpanel{
+    width: 100% !important;
+    height: 28% !important;
+    overflow: noclip;
+    pre-transform-scale2d: 1;
+}

@@ -1,0 +1,6 @@
+.BuffsClass{width: 35%; height: 45px; vertical-align: bottom; position: 655px -170px 0px; z-index: 2;}
+#border{transform:rotateY(180deg);}
+.border{height: 42px; width: 42px; z-index: 1;}
+.imageclass{height: 32px; width: 32px; margin-left: 4px; margin-top: 4px;}
+.Buff{flow-children: right; width: 40px; height: 40px; z-index: 3;}
+#stacks{text-align: right; width: 40px; height: 40px; position: -7px 13px 0px; font-size: 20px; color: #ffffff; text-shadow: 0px 0px 8px 4.0 #000000;}

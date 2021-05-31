@@ -1,0 +1,40 @@
+#Stats{width: 1500px;}
+.StatsClass{width: 900px; height: 150px; z-index: 1; vertical-align: bottom;}
+#damageicon{position: 655px 18px 0px; width: 155px; height: 55px;}
+#damagetext{color: #ffffff; font-size: 16px; position: -28px 1.25px 0px; horizontal-align: center; vertical-align: center;}
+#damagetextbonus{color: #00ff15; font-size: 16px; position: 60px 18.9px 0px;}
+#armoricon{position: 665px 65px 0px; width: 55px; height: 50px;}
+#armortext{color: #ffffff; font-size: 12px; position: 243px 112px 0px; horizontal-align: center;}
+#armortextbonus{color: #00ff15; font-size: 12px; position: 242px 125px 0px; horizontal-align: center;}
+#speedicon{position: 710px 68px 0px; width: 65px; height: 45px;}
+#speedtext{color: #ffffff; font-size: 12px; position: 295px 112px 0px; horizontal-align: center;}
+#stricon{position: 785px 33px 0px; width: 32px; height: 32px; border-radius: 50% / 50%;}
+#strtext{color: #ffffff; font-size: 14px; position: -52px 40.5px 0px; horizontal-align: right;}
+#strtextbonus{color: #00ff15; font-size: 14px; position: 848px 40px 0px;}
+#agiicon{position: 785px 68px 0px; width: 32px; height: 32px; border-radius: 50% / 50%;}
+#agitext{color: #ffffff; font-size: 14px; position: -52px 77.5px 0px; horizontal-align: right;}
+#agitextbonus{color: #00ff15; font-size: 14px; position: 848px 77px 0px;}
+#inticon{position: 785px 103px 0px; width: 32px; height: 32px; border-radius: 50% / 50%;}
+#inttext{color: #ffffff; font-size: 14px; position: -52px 114.5px 0px; horizontal-align: right;}
+#inttextbonus{color: #00ff15; font-size: 14px; position: 849px 114px 0px;}
+#SelectedUnits{z-index: 3; width: 250px; height: 125px; horizontal-align: right; vertical-align: bottom;}
+.Portrait{position: 22px 5px 0px; width: 16%; height: 38%;}
+.PortraitBottom{position: 22px 55px 0px; width: 16%; height: 38%;}
+.Border{width: 100%; height: 100%;}
+.PortraitMulti{width: 87%; height: 63%; margin-left: 7%; margin-top: 5.5%; transition-delay:  0s;}
+.PortraitMultiBottom{width: 87%; height: 63%; margin-left: 3.2px; margin-top: 5.5%;}
+#Portrait22{margin-left: 17%;}
+#Portrait33{margin-left: 33%;}
+#Portrait44{margin-left: 50%;}
+#Portrait55{margin-left: 67%;}
+#Portrait77{margin-left: 17%;}
+#Portrait88{margin-left: 33%;}
+#Portrait99{margin-left: 50%;}
+#Portrait1010{margin-left: 67%;}
+.HealthBar{width: 87%; height: 12%; margin-top: 70%; margin-left: 6.5%; flow-children: right; background-color: gradient(linear, 0% 0%, 0% 100%, from(#4cc452), color-stop(0.5, #4cc452), to(#003400)); overflow: noclip;}
+.ManaBar{width: 87%; height: 10%; margin-top: 80%; margin-left: 6.5%; flow-children: right; background-color: gradient(linear, 0% 0%, 0% 100%, from(#7395bd96), color-stop(0.3, #34609F), color-stop(0.31, #0D448C), to(#294D84));}
+.pagebutton{width: 8%; height: 11%; vertical-align: bottom; position: 17% -5.5% 0px;}
+#group2{position: 27% -5.5% 0%;}
+#group3{position: 37% -5.5% 0%;}
+#group4{position: 47% -5.5% 0%;}
+#group5{position: 57% -5.5% 0%;}

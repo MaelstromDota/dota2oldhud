@@ -1,0 +1,9 @@
+<root>
+    <styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+        <include src="file://panorama/styles/custom_game/map.css" />
+    </styles>
+    <Panel class="MapClass">
+        <DOTAMinimap id="MapID" />
+    </Panel>
+</root>

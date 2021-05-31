@@ -61,4 +61,3 @@ function Update() {
 	pContainer.RemoveAndDeleteChildren();
 	Update();
 })();
-GameEvents.Subscribe("dota_player_update_selected_unit", function(){pContainer.RemoveAndDeleteChildren(); Update();});

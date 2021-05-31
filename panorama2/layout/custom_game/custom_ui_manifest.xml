@@ -1,0 +1,35 @@
+<root>
+	<scripts>
+		<include src="s2r://panorama/scripts/custom_game/removetrash.vjs_c" /> 
+	</scripts>
+    <script>
+        var newUI = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("HUDElements");
+		newUI.FindChildTraverse("StatBranch").AddClass("NonHero");
+        newUI.FindChildTraverse("StatBranch").FindChildTraverse("StatBranchGraphics").FindChildTraverse("StatBranchChannel").style.visibility = "collapse";
+        newUI.FindChildTraverse("StatBranch").SetPanelEvent("onmouseover", function(){});
+        newUI.FindChildTraverse("StatBranch").SetPanelEvent("onactivate", function(){});
+		newUI.FindChildTraverse("StatBranch").style.visibility = "collapse";
+		newUI.FindChildTraverse('level_stats_frame').style.visibility = 'collapse';		
+		newUI.FindChildTraverse('StatBranchDrawer').style.visibility = 'collapse';
+		newUI.FindChildTraverse('GlyphScanContainer').style.visibility = 'collapse';
+		newUI.FindChildTraverse('inventory_tpscroll_slot').style.visibility = 'collapse';
+		newUI.FindChildTraverse('inventory_tpscroll_container').style.visibility = 'collapse';
+		newUI.FindChildTraverse('inventory_neutral_slot_container').style.visibility = 'collapse';
+		//newUI.FindChildTraverse('TPIndicator').style.visibility = 'collapse';
+		newUI.FindChildTraverse('right_flare').style.visibility = 'collapse';
+		newUI.FindChildTraverse('inventory_backpack_list').style.visibility = 'collapse';
+		newUI.FindChildTraverse('AghsStatusShard').style.visibility = 'collapse';
+		newUI.FindChildTraverse('GridNeutralsTab').style.visibility = 'collapse';
+	</script>
+    <Panel>
+        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/actionpanel/stats.xml" />
+        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hud.xml" />
+        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/buttons/glyph.xml" />
+        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/buttons/shopbutton.xml" />
+        <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/map.xml" /> -->
+        <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/buttons/portrait.xml" /> -->
+        <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/buttons/quickbuy.xml" /> -->
+    </Panel>
+</root>
+
+
