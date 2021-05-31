@@ -28,7 +28,7 @@ function Main(){
 				if (GameUI.IsAltDown()){
 					if (localplayer == unit || Entities.IsEnemy(unit)) {Players.BuffClicked(unit, buff, true);};
 				};
-			})
+			});
 		};
 		pPanel.style.marginLeft = `${48 * i}px`;
 		let border = pPanel.FindChildTraverse("border");
