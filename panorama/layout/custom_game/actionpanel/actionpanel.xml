@@ -9,6 +9,7 @@
     <scripts>
         <include src="s2r://panorama/scripts/custom_game/actionpanel/abilitypanel.js" />
         <include src="s2r://panorama/scripts/custom_game/actionpanel/actionpanel.js" />
+        <include src="s2r://panorama/scripts/custom_game/actionpanel/lvlup.js" />
     </scripts>
     <snippets>
         <snippet name="AbilityPanel">
@@ -46,6 +47,12 @@
         <Image id="MinimapBorder" hittest="false" src="raw://resource/flash3/images/hud_skins/default/actionpanel/minimapborder.png" />
         <Image id="MinimapSpacer" src="raw://resource/flash3/images/hud_skins/default/actionpanel/spacer_16_9.png" />
         <Image class="hud" id="PortraitBorder" hittest="true" src="raw://resource/flash3/images/hud_skins/default/actionpanel/portrait_wide.png">
+            <Panel id="LevelUpButton" class="LevelUpButton" >
+                <Panel id="LVLUPDecore" class="LVLUPDecore" onactivate="OnLVLButtonPressed()" oncancel="HideUpgradableAbilities(false)">
+                    <Label id="LVLUPText" class="LVLUPText" text="Уровень + " />
+                    <Panel id="LVLUPIcon" class="LVLUPIcon" onload="OnPanelLoaded()" />
+                </Panel>
+            </Panel>
             <Label id="HeroName" text="N/A" />
             <Panel id="LevelTextBox">
                 <Label id="LevelNumber" text="N/A" />
@@ -63,8 +70,8 @@
             <Panel class="BlackBox" id="RightStatsBox"/>
         </Image>
         <Image id="center_right" src="raw://resource/flash3/images/hud_skins/default/actionpanel/center_right.png" hittest="true">
-            <Panel id="AbilitiesContainer">
-            </Panel>
+            <Panel id="AbilitiesContainer" />
+            <Panel id="LVLUPButtonsContainer" />
         </Image>
 		<Panel id="HealthBar">
 			<Panel id="HealthBarInner">
