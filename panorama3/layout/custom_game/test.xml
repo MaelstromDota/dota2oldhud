@@ -1,8 +1,0 @@
-<root>
-    <styles>
-        <include src="file://{resources}/styles/custom_game/test.css" />
-    </styles>
-    <!-- <Panel class="test">
-        <Image id="test" src="file://{resources}/images/test.png" />
-    </Panel> -->
-</root>
