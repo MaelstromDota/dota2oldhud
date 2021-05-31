@@ -21,8 +21,7 @@ function Main(){
 			pPanel.BLoadLayoutSnippet("Buff");
 			let iPanel = pPanel.FindChildTraverse("buffid");
 			buff = buffs[i];
-			iPanel.SetPanelEvent("onmouseover", function(){
-				$.DispatchEvent("DOTAShowBuffTooltip", iPanel, unit, buff, Entities.IsEnemy(unit));})
+			iPanel.SetPanelEvent("onmouseover", function(){$.DispatchEvent("DOTAShowBuffTooltip", iPanel, unit, buff, Entities.IsEnemy(unit));})
 			iPanel.SetPanelEvent("onmouseout", function(){$.DispatchEvent("DOTAHideBuffTooltip", iPanel);})
 			iPanel.SetPanelEvent("onactivate", function(){
 				if (GameUI.IsAltDown()){
@@ -54,7 +53,7 @@ function Main(){
 	return;
 };
 function Update() {
-	$.Schedule(0.03, Update);
+	$.Schedule(Game.GetGameFrameTime(), Update);
 	Main();
 };
 (function () {

@@ -40,6 +40,7 @@ function PointCheker() {
         $('#LevelUpButton').style.opacity = 0;
         HideUpgradableAbilities();
     };
+    $.Schedule(0.5, PointCheker);
 };
 function VisibleLvlUpBacklighting(AbilityUp) {
     let AllAbilities = $('#AbilitiesContainer').Children();
@@ -73,7 +74,6 @@ function UpdateSelectedUnit() {
         LearnActive = false;
         HideUpgradableAbilities();
     };
-    PointCheker();
 };
 GameEvents.Subscribe("dota_player_learned_ability", PointCheker );
 GameEvents.Subscribe("dota_player_gained_level", PointCheker );

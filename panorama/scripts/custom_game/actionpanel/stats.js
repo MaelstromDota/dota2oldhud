@@ -90,10 +90,9 @@ function statsupdate(){
         if (CustomNetTables.GetTableValue("stats", unit).agibonus == 0) {$("#agitextbonus").text = '';} else {$("#agitextbonus").text = `+ ${CustomNetTables.GetTableValue("stats", unit).agibonus}`;};
         $("#inttext").text = CustomNetTables.GetTableValue("stats", unit).int;
         if (CustomNetTables.GetTableValue("stats", unit).intbonus == 0) {$("#inttextbonus").text = '';} else {$("#inttextbonus").text = `+ ${CustomNetTables.GetTableValue("stats", unit).intbonus}`;};
-        $("#stricon").style.border = "0px none #ffffff";
-        $("#agiicon").style.border = "0px none #ffffff";
-        $("#inticon").style.border = "0px none #ffffff";
-        if (CustomNetTables.GetTableValue("stats", unit).att == 0){$("#stricon").style.border = "1px solid #ffbe07";} else if (CustomNetTables.GetTableValue("stats", unit).att == 1){$("#agiicon").style.border = "1px solid #ffbe07";} else if (CustomNetTables.GetTableValue("stats", unit).att == 2){$("#inticon").style.border = "1px solid #ffbe07";};
+        $("#attmain").style.visibility = 'collapse';
+        if (CustomNetTables.GetTableValue("stats", unit).att != 3 && CustomNetTables.GetTableValue("stats", unit).att != -1) {$("#attmain").style.visibility = 'visible';}
+        if (CustomNetTables.GetTableValue("stats", unit).att == 0){$("#attmain").style.position = "785.5px 33.5px 0px";} else if (CustomNetTables.GetTableValue("stats", unit).att == 1){$("#attmain").style.position = "785.5px 68.5px 0px";} else if (CustomNetTables.GetTableValue("stats", unit).att == 2){$("#attmain").style.position = "785.5px 103.5px 0px";};
     };
     let units = Players.GetSelectedEntities(Players.GetLocalPlayer());
     function compareNumeric(a, b) {if (a > b) return 1; if (a == b) return 0; if (a < b) return -1;};

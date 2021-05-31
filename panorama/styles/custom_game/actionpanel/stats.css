@@ -8,13 +8,13 @@
 #armortextbonus{color: #00ff15; font-size: 12px; position: 242px 125px 0px; horizontal-align: center;}
 #speedicon{position: 710px 68px 0px; width: 65px; height: 45px;}
 #speedtext{color: #ffffff; font-size: 12px; position: 295px 112px 0px; horizontal-align: center;}
-#stricon{position: 785px 33px 0px; width: 32px; height: 32px; border-radius: 50% / 50%;}
+#stricon{position: 785px 33px 0px; width: 32px; height: 32px;}
 #strtext{color: #ffffff; font-size: 14px; position: -52px 40.5px 0px; horizontal-align: right;}
 #strtextbonus{color: #00ff15; font-size: 14px; position: 848px 40px 0px;}
-#agiicon{position: 785px 68px 0px; width: 32px; height: 32px; border-radius: 50% / 50%;}
+#agiicon{position: 785px 68px 0px; width: 32px; height: 32px;}
 #agitext{color: #ffffff; font-size: 14px; position: -52px 77.5px 0px; horizontal-align: right;}
 #agitextbonus{color: #00ff15; font-size: 14px; position: 848px 77px 0px;}
-#inticon{position: 785px 103px 0px; width: 32px; height: 32px; border-radius: 50% / 50%;}
+#inticon{position: 785px 103px 0px; width: 32px; height: 32px;}
 #inttext{color: #ffffff; font-size: 14px; position: -52px 114.5px 0px; horizontal-align: right;}
 #inttextbonus{color: #00ff15; font-size: 14px; position: 849px 114px 0px;}
 #SelectedUnits{z-index: 3; width: 250px; height: 125px; horizontal-align: right; vertical-align: bottom;}

@@ -22,11 +22,10 @@
             <Image id="stricon" src="s2r://panorama/images/hud/pip_str_png.vtex"/>
             <Label id="strtext" text="N/A" />
             <Image id="agiicon" src="s2r://panorama/images/hud/pip_agi_png.vtex"/>
-            <!-- <Image id="agiicon" src="file://{images}/hud/icon_agi.png"/> -->
             <Label id="agitext" text="N/A" />
-            <!-- <Image id="inticon" src="file://{images}/hud/icon_int.png"/> -->
             <Image id="inticon" src="s2r://panorama/images/hud/pip_int_png.vtex"/>
             <Label id="inttext" text="N/A" />
+            <Image id="attmain" src="file://{images}/hud/border_attribute.png" />
         </Panel>
         <Panel id="StatsBonus">
             <Label id="agitextbonus" text="+ N/A" />
