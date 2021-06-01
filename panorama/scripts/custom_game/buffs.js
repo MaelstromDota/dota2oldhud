@@ -4,9 +4,6 @@ function Main(){
 	let unit = Players.GetLocalPlayerPortraitUnit();
 	let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
 	let buffs = [];
-	for (let i=0; i < buffs.length; i++){
-		buffs.pop();
-	};
 	for (let i=0; i < Entities.GetNumBuffs(unit); i++){
 		if (!Buffs.IsHidden(unit, Entities.GetBuff(unit,i))){
 			buffs.push(Entities.GetBuff(unit,i));
@@ -46,9 +43,6 @@ function Main(){
 	for (let i = buffs.length; i < pContainer.GetChildCount(); i++) {
 		let pPanel = pContainer.GetChild(i);
 		pPanel.DeleteAsync(0);
-	};
-	for (let i=0; i < buffs.length; i++){
-		buffs.pop();
 	};
 	return;
 };

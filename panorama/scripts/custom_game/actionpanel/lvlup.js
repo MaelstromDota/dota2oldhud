@@ -40,6 +40,14 @@ function PointCheker() {
         $('#LevelUpButton').style.opacity = 0;
         HideUpgradableAbilities();
     };
+    let AllAbilities = $('#AbilitiesContainer').Children();
+    for (let i = 0; i < AllAbilities.length; i++) {
+        let ability = Entities.GetAbility(Players.GetLocalPlayerPortraitUnit(), i);
+        if (ability != undefined && Abilities.GetLevel(ability) > 0) {
+            AllAbilities[i].FindChildTraverse("AbilityImage").style.saturation = '1';
+            AllAbilities[i].FindChildTraverse("AbilityImage").style.brightness = '1';
+        };
+    };
     $.Schedule(0.5, PointCheker);
 };
 function VisibleLvlUpBacklighting(AbilityUp) {
@@ -54,13 +62,13 @@ function HideUpgradableAbilities() {
     let AllAbilities = $('#AbilitiesContainer').Children();
     for (let i = 0; i < AllAbilities.length; i++) {
         AllAbilities[i].FindChildTraverse("LearnOverlay").style.visibility = 'collapse';
-        if (Abilities.GetLevel(Entities.GetAbility( Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), i )) == 0) {
+        if (Abilities.GetLevel(Entities.GetAbility( Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), i )) < 1) {
             AllAbilities[i].FindChildTraverse("AbilityImage").style.saturation = '0';
             AllAbilities[i].FindChildTraverse("AbilityImage").style.brightness = '0.03';
         };
     };
 };
-function AddLeaenSkill() {
+function AddLearnSkill() {
     SearchForSkills();
     let AllAbilities = $('#AbilitiesContainer').Children();
     for (let i = 0; i < SaveAbilityList.length; i++) {
@@ -82,6 +90,6 @@ function OnPanelLoaded() {
     $.Schedule(3, function () {
         SearchForSkills();
         PointCheker();
-        AddLeaenSkill();
+        AddLearnSkill();
     }); 
 };
