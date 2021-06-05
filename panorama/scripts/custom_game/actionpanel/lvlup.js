@@ -23,11 +23,7 @@ function PointCheker() {
 			for (let i = 0; i < SaveAbilityList.length; i++) {
 				var Aentity = Entities.GetAbility(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), SaveAbilityList[i]);
 				if (Abilities.CanAbilityBeUpgraded(Aentity) == 0 && Entities.GetLevel(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) >= Abilities.GetHeroLevelRequiredToUpgrade(Aentity)) {
-					if (Abilities.GetAbilityType(Aentity) == 1) {
-						AbilityUp.push(AbilityUp[AbilityUp.length - 1] + 1);
-					} else {
-						AbilityUp.push(i);
-					};
+					AbilityUp.push(i);
 				};
 			};
 			HideUpgradableAbilities();
@@ -72,6 +68,7 @@ function UpdateSelectedUnit() {
 	if (Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()) != Players.GetLocalPlayerPortraitUnit()) {
 		LearnActive = false;
 	};
+	PointCheker();
 };
 GameEvents.Subscribe("dota_player_learned_ability", PointCheker );
 GameEvents.Subscribe("dota_player_gained_level", PointCheker );
