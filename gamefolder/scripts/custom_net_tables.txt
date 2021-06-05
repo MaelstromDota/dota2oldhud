@@ -3,6 +3,6 @@
 	custom_net_tables =
 	[
 		"stats",
-		"courier_burst_cooldown"
+		"courier_burst_cooldown",
 	]
 }

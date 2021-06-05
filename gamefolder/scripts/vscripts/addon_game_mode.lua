@@ -58,7 +58,7 @@ function CAddonTemplateGameMode:GetAbilityBehavior(keys)
 	local player = PlayerResource:GetPlayer(keys.player)
 	local behavior = ability:GetBehaviorInt()
 	if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then behavior = DOTA_UNIT_ORDER_CAST_POSITION
-	elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then behavior = DOTA_UNIT_ORDER_CAST_POSITION end
+	elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then behavior = DOTA_ABILITY_BEHAVIOR_UNIT_TARGET end
 	CustomGameEventManager:Send_ServerToPlayer(player, "UseAbility", {behavior = behavior, ability = keys.ability, target = keys.target})
 end
 function CAddonTemplateGameMode:OnNPCSpawned(keys)
