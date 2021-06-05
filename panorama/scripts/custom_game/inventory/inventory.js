@@ -3,15 +3,6 @@ function econHoverEnd(origin) {$.DispatchEvent("DOTAHideTextTooltip");}
 function statusClicked() {GameUI.SelectUnit(currentCourier, false);}
 function burstClicked() {GameEvents.SendCustomGameEventToServer('useability', {pid: Players.GetLocalPlayer(), unit: currentCourier, ability: "courier_burst"});}
 function deliverClicked() {GameEvents.SendCustomGameEventToServer('useability', {pid: Players.GetLocalPlayer(), unit: currentCourier, ability: "courier_take_stash_and_transfer_items"});}
-function burstCooldown() {
-    if (Entities.HasFlyMovementCapability(currentCourier)){
-        GameEvents.SendCustomGameEventToServer('getburstcooldown', {unit: currentCourier})
-        var cooldown = Math.ceil(CustomNetTables.GetTableValue("courier_burst_cooldown", currentCourier).cooldown)
-        $("#CourierBurstCooldown").text = cooldown.toString()
-        if (cooldown < 1) {$("#CourierBurstCooldown").style.visibility = 'collapse'} else {$("#CourierBurstCooldown").style.visibility = 'visible'}
-    };
-    $.Schedule(0.5, burstCooldown);
-}
 var ItemDB = {587: "default", 10150: "dire", 10324: "portal", 10346: "mana_pool"};
 var currentUnit = Players.GetLocalPlayerPortraitUnit();
 var currentCourier = -1;
@@ -86,8 +77,14 @@ if (i > 5) {continue;} else if (i > 2) {parent_1 = $("#row1");}
 items[i] = new ItemPanel(parent_1, i);}
 $("#deadCourierTimer").text = "N/A";
 function onGoldChanged() {
-    $.Schedule(0.1, onGoldChanged)
+    if (Entities.HasFlyMovementCapability(currentCourier)){
+        GameEvents.SendCustomGameEventToServer('getburstcooldown', {unit: currentCourier});
+        var cooldown = CustomNetTables.GetTableValue("courier_burst_cooldown", currentCourier) != undefined ? Math.ceil(CustomNetTables.GetTableValue("courier_burst_cooldown", currentCourier).cooldown).toString() : 0;
+        $("#CourierBurstCooldown").text = cooldown;
+        $.Msg(cooldown);
+        if (cooldown < 1) {$("#CourierBurstCooldown").style.visibility = 'collapse'} else {$("#CourierBurstCooldown").style.visibility = 'visible'}
+    };
     $("#goldCount").text = Players.GetGold(Entities.GetPlayerOwnerID(Players.GetLocalPlayerPortraitUnit())).toString();
+    $.Schedule(0.1, onGoldChanged)
 }
 onGoldChanged();
-burstCooldown();
