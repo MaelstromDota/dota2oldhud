@@ -81,8 +81,7 @@ function onGoldChanged() {
         GameEvents.SendCustomGameEventToServer('getburstcooldown', {unit: currentCourier});
         var cooldown = CustomNetTables.GetTableValue("courier_burst_cooldown", currentCourier) != undefined ? Math.ceil(CustomNetTables.GetTableValue("courier_burst_cooldown", currentCourier).cooldown).toString() : 0;
         $("#CourierBurstCooldown").text = cooldown;
-        $.Msg(cooldown);
-        if (cooldown < 1) {$("#CourierBurstCooldown").style.visibility = 'collapse'} else {$("#CourierBurstCooldown").style.visibility = 'visible'}
+        if (cooldown < 1) {$("#CourierBurstCooldown").style.visibility = 'collapse'; $("#courierBurst").RemoveClass("Cooldown")} else {$("#CourierBurstCooldown").style.visibility = 'visible'; $("#courierBurst").AddClass("Cooldown")};
     };
     $("#goldCount").text = Players.GetGold(Entities.GetPlayerOwnerID(Players.GetLocalPlayerPortraitUnit())).toString();
     $.Schedule(0.1, onGoldChanged)

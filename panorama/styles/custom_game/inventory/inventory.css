@@ -132,13 +132,23 @@
     background-size: 100% 100%;
 }
 #courierBurst {visibility: collapse;}
+#courierBurst.Cooldown   {
+    border-top-color: #282828;
+    border-left-color: #212121;
+    border-right-color: #171717;
+    border-bottom-color: #141414;
+    padding: 2px;
+    saturation: 0;
+    brightness: 0.15;
+}
 #CourierBurstCooldown {
     visibility: visible;
-    margin-left: -15px;
-    margin-top: 7px;
+    margin-left: -17.5px;
+    margin-top: 8px;
     width: 100%;
     height: 100%;
     color: white;
+    font-family: Arial;
     text-align: center;
 }
 #courier.Dead #deadCourier {visibility: visible;}

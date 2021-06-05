@@ -16,7 +16,7 @@ function OnLVLButtonPressed() {
 	PointCheker();
 };
 function PointCheker() {
-	if (Entities.GetAbilityPoints(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) != 0 && Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()) == Players.GetLocalPlayerPortraitUnit()) {
+	if (Entities.GetAbilityPoints(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) > 0 && Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()) == Players.GetLocalPlayerPortraitUnit()) {
 		$('#LevelUpButton').style.opacity = 1;
 		if (LearnActive) {
 			let AbilityUp = [];
