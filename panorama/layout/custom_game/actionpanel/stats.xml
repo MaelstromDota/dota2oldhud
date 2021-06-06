@@ -26,7 +26,7 @@
             <Label id="agitext" text="N/A" />
             <Image id="inticon" src="s2r://panorama/images/hud/pip_int_png.vtex"/>
             <Label id="inttext" text="N/A" />
-            <Image id="attmain" src="file://{images}/hud/border_attribute.png" />
+            <Image id="attmain" src="s2r://panorama/images/hud/hudv2_stat_icon_border_png.vtex" />
         </Panel>
         <Panel id="StatsBonus">
             <Label id="agitextbonus" text="+ N/A" />
