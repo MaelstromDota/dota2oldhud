@@ -35,7 +35,8 @@ function Main(){
 		if (stacks < 1) {stackstext.style.visibility = 'collapse';} else {stackstext.style.visibility = 'visible'; stackstext.text = stacks;};
 		if (Buffs.IsDebuff(unit,buffs[i])) {border.SetImage("file://{images}/hud/border_debuff.png");} else {border.SetImage("file://{images}/hud/border_buff.png")};
 		let id = Buffs.GetName(unit, buffs[i]);
-		let path = Abilities.IsItem(Buffs.GetAbility(unit, buffs[i])) ? 'items' : 'spellicons';
+		if (Abilities.IsItem(Buffs.GetAbility(unit, buffs[i]))) {iconn.push(id.toString());};
+		let path = iconn.includes(id.toString()) ? 'items' : 'spellicons';
 		let icon = path == 'items' ? Buffs.GetTexture(unit,buffs[i]).substring(5, Buffs.GetTexture(unit,buffs[i]).length) : Buffs.GetTexture(unit,buffs[i]);
 		pPanel.FindChildTraverse("image").SetImage(`s2r://panorama/images/${path}/${icon}_png.vtex`);
 		if (duration - elapsed < 0.1) {iconn[id] = false};
