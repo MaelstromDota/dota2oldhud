@@ -85,11 +85,11 @@ function statsupdate(){
     $("#speedtext").text = Math.ceil(Entities.GetIdealSpeed(unit));
     if (CustomNetTables.GetTableValue("stats", unit) != undefined) {
         $("#strtext").text = CustomNetTables.GetTableValue("stats", unit).str;
-        if (CustomNetTables.GetTableValue("stats", unit).strbonus == 0) {$("#strtextbonus").text = '';} else {$("#strtextbonus").text = `+ ${CustomNetTables.GetTableValue("stats", unit).strbonus}`;};
+        if (CustomNetTables.GetTableValue("stats", unit).strbonus == 0) {$("#strtextbonus").text = ''; $("#strtext").style.position = '190px 15px 0px';} else {$("#strtextbonus").text = `+ ${CustomNetTables.GetTableValue("stats", unit).strbonus}`; $("#strtext").style.position = '178px 15px 0px';};
         $("#agitext").text = CustomNetTables.GetTableValue("stats", unit).agi;
-        if (CustomNetTables.GetTableValue("stats", unit).agibonus == 0) {$("#agitextbonus").text = '';} else {$("#agitextbonus").text = `+ ${CustomNetTables.GetTableValue("stats", unit).agibonus}`;};
+        if (CustomNetTables.GetTableValue("stats", unit).agibonus == 0) {$("#agitextbonus").text = ''; $("#agitext").style.position = '190px 50px 0px';} else {$("#agitextbonus").text = `+ ${CustomNetTables.GetTableValue("stats", unit).agibonus}`; $("#agitext").style.position = '178px 50px 0px';};
         $("#inttext").text = CustomNetTables.GetTableValue("stats", unit).int;
-        if (CustomNetTables.GetTableValue("stats", unit).intbonus == 0) {$("#inttextbonus").text = '';} else {$("#inttextbonus").text = `+ ${CustomNetTables.GetTableValue("stats", unit).intbonus}`;};
+        if (CustomNetTables.GetTableValue("stats", unit).intbonus == 0) {$("#inttextbonus").text = ''; $("#inttext").style.position = '190px 85px 0px';} else {$("#inttextbonus").text = `+ ${CustomNetTables.GetTableValue("stats", unit).intbonus}`; $("#inttext").style.position = '178px 85px 0px';};
         $("#attmain").style.visibility = 'collapse';
         if (CustomNetTables.GetTableValue("stats", unit).att != 3 && CustomNetTables.GetTableValue("stats", unit).att != -1) {$("#attmain").style.visibility = 'visible';}
         if (CustomNetTables.GetTableValue("stats", unit).att == 0){$("#attmain").style.position = "130.5px 8px 0px";} else if (CustomNetTables.GetTableValue("stats", unit).att == 1){$("#attmain").style.position = "130.5px 45px 0px";} else if (CustomNetTables.GetTableValue("stats", unit).att == 2){$("#attmain").style.position = "130.5px 79px 0px";};

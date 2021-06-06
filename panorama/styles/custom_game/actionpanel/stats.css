@@ -11,13 +11,13 @@
 #speedtext{color: #ffffff; font-size: 14px; position: 78px 86px 0px; text-align: center;}
 #stricon{position: 130px 8px 0px; width: 32px; height: 32px;}
 #strtext{color: #ffffff; font-size: 14px; position: 190px 15px 0px; text-align: center;}
-#strtextbonus{color: #00ff15; font-size: 14px; position: 848px 40px 0px;}
+#strtextbonus{color: #00ff15; font-size: 14px; position: 195px 15px 0px; text-align: center;}
 #agiicon{position: 130px 45px 0px; width: 32px; height: 32px;}
 #agitext{color: #ffffff; font-size: 14px; position: 190px 50px 0px; text-align: center;}
-#agitextbonus{color: #00ff15; font-size: 14px; position: 848px 77px 0px;}
+#agitextbonus{color: #00ff15; font-size: 14px; position: 195px 50px 0px; text-align: center;}
 #inticon{position: 130px 79px 0px; width: 32px; height: 32px;}
 #inttext{color: #ffffff; font-size: 14px; position: 190px 85px 0px; text-align: center;}
-#inttextbonus{color: #00ff15; font-size: 14px; position: 849px 114px 0px;}
+#inttextbonus{color: #00ff15; font-size: 14px; position: 195px 85px 0px; text-align: center;}
 #SelectedUnits{z-index: 3; width: 250px; height: 125px; horizontal-align: right; vertical-align: bottom;}
 .Portrait{position: 22px 5px 0px; width: 16%; height: 38%;}
 .PortraitBottom{position: 22px 55px 0px; width: 16%; height: 38%;}
