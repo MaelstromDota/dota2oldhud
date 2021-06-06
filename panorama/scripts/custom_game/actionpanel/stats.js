@@ -92,7 +92,7 @@ function statsupdate(){
         if (CustomNetTables.GetTableValue("stats", unit).intbonus == 0) {$("#inttextbonus").text = '';} else {$("#inttextbonus").text = `+ ${CustomNetTables.GetTableValue("stats", unit).intbonus}`;};
         $("#attmain").style.visibility = 'collapse';
         if (CustomNetTables.GetTableValue("stats", unit).att != 3 && CustomNetTables.GetTableValue("stats", unit).att != -1) {$("#attmain").style.visibility = 'visible';}
-        if (CustomNetTables.GetTableValue("stats", unit).att == 0){$("#attmain").style.position = "785.5px 33.5px 0px";} else if (CustomNetTables.GetTableValue("stats", unit).att == 1){$("#attmain").style.position = "785.5px 68.5px 0px";} else if (CustomNetTables.GetTableValue("stats", unit).att == 2){$("#attmain").style.position = "785.5px 103.5px 0px";};
+        if (CustomNetTables.GetTableValue("stats", unit).att == 0){$("#attmain").style.position = "130.5px 8px 0px";} else if (CustomNetTables.GetTableValue("stats", unit).att == 1){$("#attmain").style.position = "130.5px 45px 0px";} else if (CustomNetTables.GetTableValue("stats", unit).att == 2){$("#attmain").style.position = "130.5px 79px 0px";};
     };
     let units = Players.GetSelectedEntities(Players.GetLocalPlayer());
     function compareNumeric(a, b) {if (a > b) return 1; if (a == b) return 0; if (a < b) return -1;};
