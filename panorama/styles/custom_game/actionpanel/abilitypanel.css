@@ -453,15 +453,17 @@
     border-radius: 4px;
     horizontal-align: center;
     vertical-align: top;
-    border: 3px solid #000;
-    background-color: gold;
+    background-image: url("s2r://panorama/images/hud/hudv2_shopbutton_lit_png.vtex");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     opacity: 0;
     z-index: 100;
 }
 .LVLUPText {
     text-align: center;
-    color: blue;
-    font-size: 22px;
+    position: 25px 6px 0px;
+    color: #ffffff;
+    font-size: 18px;
     z-index: 100;
 }
 .LevelUpButtonContainer {

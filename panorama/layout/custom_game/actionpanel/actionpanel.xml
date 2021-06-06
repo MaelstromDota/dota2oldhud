@@ -49,7 +49,7 @@
         <Image class="hud" id="PortraitBorder" hittest="true" src="raw://resource/flash3/images/hud_skins/default/actionpanel/portrait_wide.png">
             <Panel id="LevelUpButton" class="LevelUpButton" >
                 <Panel id="LVLUPDecore" class="LVLUPDecore" onactivate="OnLVLButtonPressed()" oncancel="HideUpgradableAbilities(false)">
-                    <Label id="LVLUPText" class="LVLUPText" text="Уровень + " />
+                    <Label id="LVLUPText" class="LVLUPText" text="УРОВЕНЬ + " />
                     <Panel id="LVLUPIcon" class="LVLUPIcon" onload="OnPanelLoaded()" />
                 </Panel>
             </Panel>

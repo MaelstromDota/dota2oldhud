@@ -1,5 +1,5 @@
 let pContainer = $("#Buffs");
-var iconn = [];
+var isitem = [];
 function Main(){
 	let unit = Players.GetLocalPlayerPortraitUnit();
 	let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
@@ -34,12 +34,11 @@ function Main(){
 		let stackstext = pPanel.FindChildTraverse("stacks");
 		if (stacks < 1) {stackstext.style.visibility = 'collapse';} else {stackstext.style.visibility = 'visible'; stackstext.text = stacks;};
 		if (Buffs.IsDebuff(unit,buffs[i])) {border.SetImage("file://{images}/hud/border_debuff.png");} else {border.SetImage("file://{images}/hud/border_buff.png")};
-		let id = Buffs.GetName(unit, buffs[i]);
-		if (Abilities.IsItem(Buffs.GetAbility(unit, buffs[i]))) {iconn.push(id.toString());};
-		let path = iconn.includes(id.toString()) ? 'items' : 'spellicons';
+		let name = Buffs.GetName(unit, buffs[i]);
+		if (Abilities.IsItem(Buffs.GetAbility(unit, buffs[i]))) {isitem.push(name.toString());};
+		let path = isitem.includes(name.toString()) ? 'items' : 'spellicons';
 		let icon = path == 'items' ? Buffs.GetTexture(unit,buffs[i]).substring(5, Buffs.GetTexture(unit,buffs[i]).length) : Buffs.GetTexture(unit,buffs[i]);
 		pPanel.FindChildTraverse("image").SetImage(`s2r://panorama/images/${path}/${icon}_png.vtex`);
-		if (duration - elapsed < 0.1) {iconn[id] = false};
 	};
 	for (let i = buffs.length; i < pContainer.GetChildCount(); i++) {
 		let pPanel = pContainer.GetChild(i);
