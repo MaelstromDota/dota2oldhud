@@ -50,7 +50,7 @@
             <Label id="Hotkey" text="W"/>
             <Panel id="LevelUpButton" class="LevelUpButton" >
                 <Panel id="LVLUPDecore" class="LVLUPDecore" onactivate="OnLVLButtonPressed()" oncancel="HideUpgradableAbilities(false)">
-                    <Label id="LVLUPText" class="LVLUPText" text="УРОВЕНЬ +" />
+                    <Label id="LVLUPText" class="LVLUPText" text="#DOTA_LevelUp" />
                     <Panel id="LVLUPIcon" class="LVLUPIcon" onload="OnPanelLoaded()" />
                 </Panel>
             </Panel>
