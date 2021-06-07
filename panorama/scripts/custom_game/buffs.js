@@ -9,8 +9,9 @@ function Main(){
 			buffs.push(Entities.GetBuff(unit,i));
 		};
 	};
+	var buff;
 	for (let i=0; i < buffs.length; i++){
-		let buff = buffs[i];
+		buff = buffs[i];
 		var pPanel = pContainer.GetChild(i);
 		let stacks = Buffs.GetStackCount(unit, buffs[i]);
 		if (pPanel == null || pPanel == undefined) {
