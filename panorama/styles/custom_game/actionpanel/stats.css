@@ -1,7 +1,31 @@
 .StatsClass{width: 240px; height: 125px; z-index: 1; vertical-align: bottom; position: 660px 0px 0px;}
 #Stats{width: 1500px;}
 #attmain{width: 32px; height: 32px;}
-#AttributeBonus{width: 118px; height: 115px; vertical-align: bottom; horizontal-align: right; position: -6px 0px 0px; background-image: url("s2r://panorama/images/hud/learnspell_png.vtex"); background-repeat: no-repeat; background-size: 100% 100%; visibility: collapse;}
+#HotkeyLabel
+{
+	horizontal-align: right;
+    background-color: gradient( linear, 0% 0%, 100% 20%, from( #202020 ), to( #3c3c3c ) );
+    font-size: 12px;
+    color: #dbccbc;
+    font-family: Radiance;
+    width: 19px;
+    height: 20px;
+    padding-left: 4px;
+    padding-top: -1px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: -108px;
+    margin-top: 0px;
+    border-top: 1px solid #444444;
+    border-right: 1px solid #222222;
+    border-bottom: 1px solid #222222;
+    border-left: 1px solid #333333;
+    box-shadow: #000f 0px 0px 2px 0px;
+    text-shadow: 0px 0px 2px 2.0 #000000ff;
+	visibility: collapse;
+	z-index: 3;
+}
+#AttributeBonus{width: 118px; height: 115px; vertical-align: bottom; horizontal-align: right; position: -6px 0px 0px; background-image: url("s2r://panorama/images/hud/learnspell_png.vtex"); background-repeat: no-repeat; background-size: 100% 100%; visibility: collapse; z-index: 2;}
 #damageicon{position: -3px -8px 0px; width: 155px; height: 55px;}
 #damagetext{color: #ffffff; font-size: 16px; position: -28px 1.25px 0px; horizontal-align: center; vertical-align: center;}
 #damagetextbonus{color: #00ff15; font-size: 16px; position: 60px 18.9px 0px;}
