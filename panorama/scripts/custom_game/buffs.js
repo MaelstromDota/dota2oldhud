@@ -1,15 +1,14 @@
 let pContainer = $("#Buffs");
 var isitem = [];
+var buffs = [];
 function Main(){
 	let unit = Players.GetLocalPlayerPortraitUnit();
-	let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
-	let buffs = [];
+	buffs = [];
 	for (let i=0; i < Entities.GetNumBuffs(unit); i++){
 		if (!Buffs.IsHidden(unit, Entities.GetBuff(unit,i))){
 			buffs.push(Entities.GetBuff(unit,i));
 		};
 	};
-	var buff;
 	for (let i=0; i < buffs.length; i++){
 		buff = buffs[i];
 		var pPanel = pContainer.GetChild(i);
@@ -18,14 +17,9 @@ function Main(){
 			pPanel = $.CreatePanel("Panel", pContainer, "");
 			pPanel.BLoadLayoutSnippet("Buff");
 			let iPanel = pPanel.FindChildTraverse("buffid");
-			buff = buffs[i];
-			iPanel.SetPanelEvent("onmouseover", function(){$.DispatchEvent("DOTAShowBuffTooltip", iPanel, unit, buff, Entities.IsEnemy(unit));})
-			iPanel.SetPanelEvent("onmouseout", function(){$.DispatchEvent("DOTAHideBuffTooltip", iPanel);})
-			iPanel.SetPanelEvent("onactivate", function(){
-				if (GameUI.IsAltDown()){
-					if (localplayer == unit || Entities.IsEnemy(unit)) {Players.BuffClicked(unit, buff, true);};
-				};
-			});
+			iPanel.SetPanelEvent("onmouseover", showbufftooltip.bind(i))
+			iPanel.SetPanelEvent("onmouseout", hidebufftooltip.bind(i))
+			iPanel.SetPanelEvent("onactivate", clickbuff.bind(i));
 		};
 		pPanel.style.marginLeft = `${48 * i}px`;
 		let border = pPanel.FindChildTraverse("border");
@@ -46,6 +40,13 @@ function Main(){
 		pPanel.DeleteAsync(0);
 	};
 	return;
+};
+function showbufftooltip(){$.DispatchEvent("DOTAShowBuffTooltip", pContainer.GetChild(parseInt(this)).FindChildTraverse("buffid"), Players.GetLocalPlayerPortraitUnit(), buffs[parseInt(this)], Entities.IsEnemy(Players.GetLocalPlayerPortraitUnit()));}
+function hidebufftooltip(){$.DispatchEvent("DOTAHideBuffTooltip", pContainer.GetChild(parseInt(this)).FindChildTraverse("buffid"));}
+function clickbuff(){
+	if (GameUI.IsAltDown()){
+		if (Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()) == Players.GetLocalPlayerPortraitUnit() || Entities.IsEnemy(Players.GetLocalPlayerPortraitUnit())) {Players.BuffClicked(Players.GetLocalPlayerPortraitUnit(), buffs[parseInt(this)], true);};
+	};
 };
 function Update() {
 	$.Schedule(Game.GetGameFrameTime(), Update);
