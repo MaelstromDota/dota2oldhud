@@ -10,7 +10,6 @@
 }
 .ItemSlot.Muted #bg {
     brightness: 0.2;
-    visibility: collapse;
 }
 .ItemSlot.Active #hotkey {
     visibility: visible;

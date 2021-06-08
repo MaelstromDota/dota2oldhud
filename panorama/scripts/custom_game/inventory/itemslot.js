@@ -25,14 +25,6 @@ function altDump(name, object, reference) {
     }
     $.Msg("=====================================");
 }
-var ItemState;
-(function (ItemState) {
-    ItemState[ItemState["Default"] = 0] = "Default";
-    ItemState[ItemState["Active"] = 1] = "Active";
-    ItemState[ItemState["AbilityPhase"] = 2] = "AbilityPhase";
-    ItemState[ItemState["Cooldown"] = 3] = "Cooldown";
-    ItemState[ItemState["Muted"] = 4] = "Muted";
-})(ItemState || (ItemState = {}));
 var ItemPanel = (function () {
     function ItemPanel(parent, slot) {
         this.keybind = "";
@@ -50,14 +42,16 @@ var ItemPanel = (function () {
     }
     ItemPanel.prototype.onMouseOver = function () {
         if (this.item == -1)
-            return;
+        return;
         $.DispatchEvent("DOTAShowAbilityInventoryItemTooltip", this.panel, this.unit, this.slot);
     };
     ItemPanel.prototype.onMouseOut = function () {
         $.DispatchEvent("DOTAHideAbilityTooltip", this.panel);
     };
     ItemPanel.prototype.onRightClick = function () {
+        GameEvents.SendCustomGameEventToServer('getitemstate', {item: this.item});
         var panel = $.CreatePanel("ContextMenuScript", this.panel, "");
+        let locked = CustomNetTables.GetTableValue("itemstate", this.item) != undefined ? CustomNetTables.GetTableValue("itemstate", this.item).locked : false
         panel.AddClass("ContextMenu_NoArrow");
         panel.AddClass("ContextMenu_NoBorder");
         panel.GetContentsPanel().BLoadLayout("file://{resources}/layout/custom_game/inventory/itemslot_contextmenu.xml", false, false);
@@ -67,7 +61,7 @@ var ItemPanel = (function () {
         panel.GetContentsPanel().SetHasClass("UnAlertable", !Items.IsAlertableItem(this.item));
         panel.GetContentsPanel().SetHasClass("NotInStash", this.slot < 6);
         panel.GetContentsPanel().SetHasClass("UnStashable", !Items.IsDroppable(this.item) || !Entities.IsInRangeOfShop(this.unit, 0, true));
-        //TODO: LOCKED / UNLOCKED VALVE PLZ
+        panel.GetContentsPanel().SetHasClass("Locked", locked);
         panel.GetContentsPanel().SetAttributeInt("itemID", this.item);
         altDump("ContextMenu", panel, this.panel);
     };
@@ -112,8 +106,8 @@ var ItemPanel = (function () {
             this.keybind = Abilities.GetKeybind(this.item);
             this.panel.FindChildTraverse("hotkey").text = this.keybind;
         }
-        // this.panel.SetHasClass("Muted", Entities.IsMuted(this.unit));
-        this.panel.SetHasClass("Muted", Items.IsMuted(this.item));
+        this.panel.SetHasClass("Muted", Entities.IsMuted(this.unit));
+        // this.panel.SetHasClass("Muted", Items.IsMuted(this.item));
         this.panel.SetHasClass("Primary", Items.ShouldDisplayCharges(this.item));
         this.panel.SetHasClass("Secondary", Items.ShowSecondaryCharges(this.item));
         if (this.item == -1) {this.panel.RemoveClass("Active");} else {this.panel.SetHasClass("Active", !Abilities.IsPassive(this.item));}
@@ -127,6 +121,7 @@ var ItemPanel = (function () {
         }
         var itemImage = this.panel.FindChildTraverse("bg");
         itemImage.SetImage("s2r://panorama/images/items/" + ((this.item == -1) ? "emptyitembg" : Items.GetAbilityTextureSF(this.item)) + ".png");
+        $.Schedule(1/30, this.update.bind(this))
     };
     return ItemPanel;
 }());
