@@ -96,7 +96,7 @@ function statsupdate(){
 		if (CustomNetTables.GetTableValue("stats", unit).att != 3 && CustomNetTables.GetTableValue("stats", unit).att != -1) {$("#attmain").style.visibility = 'visible';}
 		if (CustomNetTables.GetTableValue("stats", unit).att == 0){$("#attmain").style.position = "130.5px 8px 0px";} else if (CustomNetTables.GetTableValue("stats", unit).att == 1){$("#attmain").style.position = "130.5px 45px 0px";} else if (CustomNetTables.GetTableValue("stats", unit).att == 2){$("#attmain").style.position = "130.5px 79px 0px";};
 	};
-	if (Game.IsInAbilityLearnMode() && Abilities.CanAbilityBeUpgraded(this.ability) === AbilityLearnResult_t.ABILITY_CAN_BE_UPGRADED) {
+	if (Game.IsInAbilityLearnMode() && Abilities.CanAbilityBeUpgraded(Entities.GetAbilityByName(unit,'attribute_bonus_datadriven')) === AbilityLearnResult_t.ABILITY_CAN_BE_UPGRADED) {
 		$('#AttributeBonus').style.visibility = 'visible';
 		$('#HotkeyLabel').style.visibility = 'visible';
 	} else {

@@ -407,21 +407,6 @@
     horizontal-align: center;
     opacity: 0.7;
 }
-
-@keyframes 'SpellCooldown'
-{
-	0%
-	{
-        clip: radial(50% 50%, 0deg, 360deg);
-        background-color: rgba(0, 0, 0, 1);
-	}
-
-    100%
-	{
-		clip: radial(50% 50%, 0deg, 0deg);
-        background-color: rgba(0, 0, 0, 1);
-	}
-}
 @keyframes 'AbilityLevelUpFrame'
 {
 	0%

@@ -158,11 +158,9 @@ var AbilityPanel = (function () {
 
 		cooldownPanel.style.opacity = "0.75";
 		cooldownPanel.style.clip = "radial(50% 50%, 0deg, 0deg)";
-		cooldownPanel.style.animationName = "SpellCooldown";
-		cooldownPanel.style.animationDuration = `${totalDuration}s`;
-		cooldownPanel.style.animationTimingFunction = `linear`;
-		cooldownPanel.style.animationIterationCount = 1;
-		
+		let elapsed = Abilities.GetCooldownTimeRemaining(this.ability);
+		cooldownPanel.style.backgroundColor =  'rgba(0, 0, 0, 1)';
+		cooldownPanel.style.clip = `radial(50% 50%, 0deg, ${elapsed/totalDuration*360}deg)`;
 		var cooldownLabel = this.panel.FindChildTraverse("CooldownLabel");
 		cooldownLabel.text = String(Math.ceil(duration));
 		cooldownLabel.style.visibility = "visible";
@@ -170,6 +168,7 @@ var AbilityPanel = (function () {
 	};
 	AbilityPanel.prototype.updateCooldown = function () {
 		var cooldownPanel = this.panel.FindChildTraverse("cooldownswipe");
+		var cooldown = Abilities.GetCooldownTimeRemaining(this.ability);
 
 		if (Abilities.IsCooldownReady(this.ability)) {
 			this.panel.FindChildTraverse("CooldownLabel").style.visibility = "collapse";
@@ -177,8 +176,11 @@ var AbilityPanel = (function () {
 			cooldownPanel.style.animationDuration = '0s';
 			cooldownPanel.style.clip = "radial(50% 50%, 0deg, -360deg)";
 			return;
-		}
-		var cooldown = Abilities.GetCooldownTimeRemaining(this.ability);
+		} else {
+			let duration = Abilities.GetCooldownLength(this.ability);
+			cooldownPanel.style.backgroundColor =  'rgba(0, 0, 0, 1)';
+			cooldownPanel.style.clip = `radial(50% 50%, 0deg, ${cooldown/duration*360}deg)`;
+		};
 		this.panel.FindChildTraverse("CooldownLabel").text = String(Math.ceil(cooldown));
 		$.Schedule(0.1, this.updateCooldown.bind(this));
 	};
