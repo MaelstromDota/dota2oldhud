@@ -155,5 +155,12 @@ function OnSelectionUpdated(){
 function LevelUpAttributes(){
 	if (Game.IsInAbilityLearnMode()) {Abilities.AttemptToUpgrade(Entities.GetAbilityByName(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), 'attribute_bonus_datadriven'));}
 };
+function showattributetooltip(att){
+	let panel = $(`#${att}`);
+	$.DispatchEvent("DOTAShowTitleImageTextTooltip", panel, '', 's2r://panorama/images/hud/pip_str_png.vtex', '456')
+}
+function hideattributetooltip(){
+	$.DispatchEvent("DOTAHideTitleImageTextTooltip")
+}
 GameEvents.Subscribe("dota_player_update_selected_unit", OnSelectionUpdated);
 statsupdate();

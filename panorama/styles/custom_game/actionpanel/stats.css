@@ -34,15 +34,19 @@
 #armortextbonus{color: #00ff15; font-size: 14px; position: 25px 100px 0px; text-align: center;}
 #speedicon{position: 55px 45px 0px; width: 65px; height: 40px;}
 #speedtext{color: #ffffff; font-size: 14px; position: 78px 86px 0px; text-align: center;}
+#StatsBonus{horizontal-align: right; width: 30px; position: -12px 15px 0px;}
+#str{width: 100px; height: 30px; horizontal-align: right; position: -10px 10px 0px; z-index: 3;}
 #stricon{position: 130px 8px 0px; width: 32px; height: 32px;}
 #strtext{color: #ffffff; font-size: 14px; position: 190px 15px 0px; text-align: center;}
-#strtextbonus{color: #00ff15; font-size: 14px; position: 195px 15px 0px; text-align: center;}
+#strtextbonus{color: #00ff15; font-size: 14px; position: 0px 0px 0px; text-align: center;}
+#agi{width: 100px; height: 30px; horizontal-align: right; vertical-align: middle; position: -10px 2px 0px; z-index: 3;}
 #agiicon{position: 130px 45px 0px; width: 32px; height: 32px;}
 #agitext{color: #ffffff; font-size: 14px; position: 190px 50px 0px; text-align: center;}
-#agitextbonus{color: #00ff15; font-size: 14px; position: 195px 50px 0px; text-align: center;}
+#agitextbonus{color: #00ff15; font-size: 14px; position: 0px 35px 0px; text-align: center;}
+#int{width: 100px; height: 30px; horizontal-align: right; vertical-align: bottom; position: -10px -8px 0px; z-index: 3;}
 #inticon{position: 130px 79px 0px; width: 32px; height: 32px;}
 #inttext{color: #ffffff; font-size: 14px; position: 190px 85px 0px; text-align: center;}
-#inttextbonus{color: #00ff15; font-size: 14px; position: 195px 85px 0px; text-align: center;}
+#inttextbonus{color: #00ff15; font-size: 14px; position: 0px 70px 0px; text-align: center;}
 #SelectedUnits{z-index: 3; width: 250px; height: 125px; horizontal-align: right; vertical-align: bottom;}
 .Portrait{position: 22px 5px 0px; width: 16%; height: 38%;}
 .PortraitBottom{position: 22px 55px 0px; width: 16%; height: 38%;}
