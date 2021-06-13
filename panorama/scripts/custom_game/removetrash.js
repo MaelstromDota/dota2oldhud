@@ -3,6 +3,7 @@ function removetrash(){
 	pregame.FindChildTraverse('StartingItemsBackpackRow').style.visibility = 'collapse';
 	pregame.FindChildTraverse('StartingItemsRightColumn').style.visibility = 'collapse';
 	var newUI = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("HUDElements");
+	var customui = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("CustomUIRoot");
 	newUI.FindChildTraverse('inventory_backpack_list').style.visibility = 'collapse';
 	newUI.FindChildTraverse('GridNeutralsTab').style.visibility = 'collapse';
 	newUI.FindChildTraverse('AghsStatusShard').style.visibility = 'collapse';
@@ -25,6 +26,11 @@ function removetrash(){
 	GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_PANEL, false );
     GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_MINIMAP, true );
     GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_SHOP, true );
+	if (customui.FindChildTraverse('ZooHUD') != undefined && customui.FindChildTraverse('ZooHUD').FindChildTraverse("HeroViewButton") != undefined) {
+		customui.FindChildTraverse('ZooHUD').FindChildTraverse("HeroViewButton").style.marginBottom = "34px";
+		customui.FindChildTraverse('ZooHUD').FindChildTraverse("InspectButton").style.marginBottom = "36px";
+		customui.FindChildTraverse('ZooHUD').FindChildTraverse("InspectButton").style.marginLeft = "128px";
+	}
 	$.Schedule( 1, removetrash )
 }
 removetrash()

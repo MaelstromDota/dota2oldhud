@@ -25,11 +25,11 @@
         <Button id="MoveToStash" class="Entry" onactivate="MoveToStash()">
             <Label text="#DOTA_InventoryMenu_MoveToStash" />
         </Button>
-        <Button id="LockCombine" class="Entry" onactivate="LockCombine()">
+        <!-- <Button id="LockCombine" class="Entry" onactivate="LockCombine()">
             <Label text="#DOTA_InventoryMenu_LockCombine" />
         </Button>
         <Button id="UnlockCombine" class="Entry" onactivate="UnlockCombine()">
             <Label text="#DOTA_InventoryMenu_UnlockCombine" />
-        </Button>
+        </Button> -->
     </Panel>
 </root>

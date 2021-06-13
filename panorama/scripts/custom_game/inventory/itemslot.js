@@ -1,30 +1,5 @@
 let DragDropChek = false
 let a, b
-function altDump(name, object, reference) {
-    $.Msg("=====================================");
-    $.Msg("This is a giant dump in " + name);
-    $.Msg("=====================================");
-    var referenceList = [];
-    for (var v in reference) {
-        referenceList[v] = typeof (reference[v]);
-    }
-    for (var v in object) {
-        if (referenceList[v] !== undefined) {
-            continue;
-        }
-        if (typeof object[v] == "object") {
-            $.Msg(v + " = {");
-            for (var w in object[v]) {
-                $.Msg("\t" + v + "." + w + " = " + ("" + object[v][w]));
-            }
-            $.Msg("}");
-        }
-        else {
-            $.Msg(name + "." + v + " = (" + typeof object[v] + ") " + object[v]);
-        }
-    }
-    $.Msg("=====================================");
-}
 var ItemPanel = (function () {
     function ItemPanel(parent, slot) {
         this.keybind = "";
@@ -49,9 +24,7 @@ var ItemPanel = (function () {
         $.DispatchEvent("DOTAHideAbilityTooltip", this.panel);
     };
     ItemPanel.prototype.onRightClick = function () {
-        GameEvents.SendCustomGameEventToServer('getitemstate', {item: this.item});
         var panel = $.CreatePanel("ContextMenuScript", this.panel, "");
-        let locked = CustomNetTables.GetTableValue("itemstate", this.item) != undefined ? CustomNetTables.GetTableValue("itemstate", this.item).locked : false
         panel.AddClass("ContextMenu_NoArrow");
         panel.AddClass("ContextMenu_NoBorder");
         panel.GetContentsPanel().BLoadLayout("file://{resources}/layout/custom_game/inventory/itemslot_contextmenu.xml", false, false);
@@ -61,9 +34,7 @@ var ItemPanel = (function () {
         panel.GetContentsPanel().SetHasClass("UnAlertable", !Items.IsAlertableItem(this.item));
         panel.GetContentsPanel().SetHasClass("NotInStash", this.slot < 6);
         panel.GetContentsPanel().SetHasClass("UnStashable", !Items.IsDroppable(this.item) || !Entities.IsInRangeOfShop(this.unit, 0, true));
-        panel.GetContentsPanel().SetHasClass("Locked", locked);
         panel.GetContentsPanel().SetAttributeInt("itemID", this.item);
-        altDump("ContextMenu", panel, this.panel);
     };
 	ItemPanel.prototype.onLeftClick = function () {
         Abilities.ExecuteAbility(this.item, this.unit, false);
@@ -107,7 +78,6 @@ var ItemPanel = (function () {
             this.panel.FindChildTraverse("hotkey").text = this.keybind;
         }
         this.panel.SetHasClass("Muted", Entities.IsMuted(this.unit));
-        // this.panel.SetHasClass("Muted", Items.IsMuted(this.item));
         this.panel.SetHasClass("Primary", Items.ShouldDisplayCharges(this.item));
         this.panel.SetHasClass("Secondary", Items.ShowSecondaryCharges(this.item));
         if (this.item == -1) {this.panel.RemoveClass("Active");} else {this.panel.SetHasClass("Active", !Abilities.IsPassive(this.item));}
