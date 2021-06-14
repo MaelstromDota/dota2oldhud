@@ -18,6 +18,11 @@
                 <Label id="primary" text="0" />
                 <Label id="secondary" text="0"/>
                 <Label id="hotkey" text="E" />
+                <Label id="CooldownLabel" text="188" />
+                <Panel id="AbilityManaMask" />
+                <Panel class="abilitycooldowncontainer">
+                    <Panel id="cooldownswipe" />
+                </Panel>
             </Panel>
         </snippet>
     </snippets>
