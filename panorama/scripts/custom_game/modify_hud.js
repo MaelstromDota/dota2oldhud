@@ -23,6 +23,7 @@ function removetrash(){
 	newUI.FindChildTraverse('QuickBuyRows').FindChildTraverse("QuickBuySlot8").style.marginTop = "10px";
 	newUI.FindChildTraverse('QuickBuyRows').FindChildTraverse("StickyItemSlotContainer").style.backgroundColor = "#00000000";
 	newUI.FindChildTraverse('lower_hud').FindChildTraverse('center_block').FindChildTraverse('ButtonAndLevel').style.visibility = 'collapse';
+	newUI.FindChildTraverse('QuickStatsContainer').style.visibility = 'collapse';
 	GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_PANEL, false );
     GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ACTION_MINIMAP, true );
     GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_SHOP, true );
