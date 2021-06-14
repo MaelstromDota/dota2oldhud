@@ -61,6 +61,18 @@ function Main(){
         agilvl.text = $.Localize("#DOTA_StatTooltip_TotalAttributesSkilled")+lvl;
         intlvl.text = $.Localize("#DOTA_StatTooltip_TotalAttributesSkilled")+lvl;
     };
+    let attackspeed = $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("MainTooltip").FindChildTraverse('attackspeed');
+    let damage = $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("MainTooltip").FindChildTraverse('damage');
+    let attackrange = $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("MainTooltip").FindChildTraverse('attackrange');
+    let armor = $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("MainTooltip").FindChildTraverse('armor');
+    let physical = $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("MainTooltip").FindChildTraverse('physical');
+    let magical = $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("MainTooltip").FindChildTraverse('magical');
+    attackspeed.text = `${$.Localize("#DOTA_DmgArmorTooltip_AttackSpeed")}${(Entities.GetAttackSpeed(unit) * 100).toFixed(0)} (${(1/Entities.GetAttacksPerSecond(unit)).toFixed(2)}${$.Localize("#DOTA_DmgArmorTooltip_AttackSpeedSeconds")})`;
+    damage.text = `${$.Localize("#DOTA_DmgArmorTooltip_AttackDamage")}${Entities.GetDamageMin(unit)} - ${Entities.GetDamageMax(unit)}`;
+    attackrange.text = `${$.Localize("#DOTA_DmgArmorTooltip_AttackRange")}${Entities.GetAttackRange(unit)}`;
+    armor.text = `${$.Localize("#DOTA_DmgArmorTooltip_Armor")}${Entities.GetPhysicalArmorValue(unit).toFixed(1)}`;
+    physical.text = `${$.Localize("#DOTA_DmgArmorTooltip_DmgResist")}${(100*((0.06*Entities.GetPhysicalArmorValue(unit))/(1+0.06*Entities.GetPhysicalArmorValue(unit)))).toFixed(0)}%`;
+    magical.text = `${$.Localize("#DOTA_DmgArmorTooltip_MagicDmgResist")}${Entities.GetBaseMagicalResistanceValue(unit).toFixed(0)}%`;
     $.Schedule(Game.GetGameFrameTime(), Main)
 }
 Main()

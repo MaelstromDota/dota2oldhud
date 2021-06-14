@@ -26,6 +26,7 @@
 	z-index: 3;
 }
 #AttributeBonus{width: 118px; height: 115px; vertical-align: bottom; horizontal-align: right; position: -6px 0px 0px; background-image: url("s2r://panorama/images/hud/learnspell_png.vtex"); background-repeat: no-repeat; background-size: 100% 100%; visibility: collapse; z-index: 2;}
+#MainTooltip{width: 110px; height: 110px; position: 5px 0px 0px; z-index: 3;}
 #damageicon{position: -3px -8px 0px; width: 155px; height: 55px;}
 #damagetext{color: #ffffff; font-size: 16px; position: -28px 1.25px 0px; horizontal-align: center; vertical-align: center;}
 #damagetextbonus{color: #00ff15; font-size: 16px; position: 60px 18.9px 0px;}

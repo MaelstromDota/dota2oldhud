@@ -1,13 +1,25 @@
 <root>
     <styles>
         <include src="file://{resources}/styles/custom_game/actionpanel/tooltips.css" />
+        <include src="s2r://panorama/styles/dotastyles.css" />
     </styles>
     <scripts>
         <include src="file://{resources}/scripts/custom_game/actionpanel/tooltips.js" />
     </scripts>
     <Panel class="Tooltip">
         <Panel id="MainTooltip">
-            
+            <Panel id="AttackTooltip">
+                <Image id="damageicon" src="file://{images}/hud/damage_icon.png" />
+                <Label id="attackspeed" text="Attack speed: 114 (1.49sec. per attack)" />
+                <Label id="damage" text="Damage: 50 - 60" />
+                <Label id="attackrange" text="Attack Range: 128" />
+            </Panel>
+            <Panel id="DefenseTooltip">
+                <Image id="armoricon" src="s2r://panorama/images/hud/hudv2_iconarmor_png.vtex" />
+                <Label id="armor" text="Physical Armor: 2.0" />
+                <Label id="physical" text="Physical damage resistance: 10%" />
+                <Label id="magical" text="Magical damage resistance: 25%" />
+            </Panel>
         </Panel>
     </Panel>
 </root>

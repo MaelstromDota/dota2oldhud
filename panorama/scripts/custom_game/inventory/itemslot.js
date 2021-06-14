@@ -37,7 +37,7 @@ var ItemPanel = (function () {
         panel.GetContentsPanel().SetAttributeInt("itemID", this.item);
     };
 	ItemPanel.prototype.onLeftClick = function () {
-        Abilities.ExecuteAbility(this.item, this.unit, false);
+        if (GameUI.IsAltDown()) {Abilities.PingAbility(this.item);} else {Abilities.ExecuteAbility(this.item, this.unit, false);};
     };
     ItemPanel.prototype.onDragStart = function (panelID, dragCallbacks) {
         DragDropChek = false

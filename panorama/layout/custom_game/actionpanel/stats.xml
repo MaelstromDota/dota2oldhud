@@ -12,6 +12,7 @@
 		<Panel id="Stats">
 			<Label id="HotkeyLabel" text="U"/>
 			<Panel id="AttributeBonus" onactivate="LevelUpAttributes()" />
+			<Panel id="MainTooltip" onmouseover="UIShowCustomLayoutParametersTooltip(MainTooltip, file://{resources}/layout/custom_game/actionpanel/tooltips/main.xml)" onmouseout="UIHideCustomLayoutTooltip(MainTooltip)"/>>
 			<Image id="damageicon" src="s2r://panorama/images/hud/hudv2_icondamage_png.vtex">
 				<Label id="damagetext" text="N/A" />
 				<Label id="damagetextbonus" text="+ N/A" />
