@@ -1,4 +1,7 @@
-function ShowInShop() {}
+function ShowInShop() {
+	GameEvents.SendEventClientSide("dota_link_clicked", {"link": (`dota.item.${Abilities.GetAbilityName($.GetContextPanel().GetAttributeInt("itemID", -1))}`), "shop": 0, "recipe": 0});
+    $.DispatchEvent("DismissAllContextMenus");
+}
 function Sell() {
     Items.LocalPlayerSellItem($.GetContextPanel().GetAttributeInt("itemID", -1));
     $.DispatchEvent("DismissAllContextMenus");
@@ -20,10 +23,7 @@ function MoveToStash() {
     $.DispatchEvent("DismissAllContextMenus");
 }
 function LockCombine() {
-    Game.PrepareUnitOrders({
-        OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_SET_ITEM_COMBINE_LOCK,
-        AbilityIndex: $.GetContextPanel().GetAttributeInt("itemID", -1)
-    });
+    Game.PrepareUnitOrders({OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_SET_ITEM_COMBINE_LOCK, AbilityIndex: $.GetContextPanel().GetAttributeInt("itemID", -1)});
     $.DispatchEvent("DismissAllContextMenus");
 }
 function UnlockCombine() {
