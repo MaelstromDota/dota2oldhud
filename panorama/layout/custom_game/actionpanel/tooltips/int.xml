@@ -1,0 +1,19 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/actionpanel/tooltips.css" />
+		<include src="s2r://panorama/styles/dotastyles.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/actionpanel/tooltips.js" />
+	</scripts>
+	<Panel class="Tooltip">
+		<Panel class="IntellectTooltip">
+			<Image id="inticon" src="s2r://panorama/images/hud/pip_int_png.vtex" />
+			<Image id="attmain" src="s2r://panorama/images/hud/hudv2_stat_icon_border_png.vtex" />
+			<Label id="int" text="#DOTA_StatTooltip_Intelligence" />
+			<Label id="intbonus" text="#DOTA_StatTooltip_IntelligenceBonus" />
+			<Label id="intperlvl" text="#DOTA_StatTooltip_GainPerLevel" />
+			<Label id="attrlvl" text="#DOTA_StatTooltip_TotalAttributesSkilled" />
+		</Panel>
+	</Panel>
+</root>

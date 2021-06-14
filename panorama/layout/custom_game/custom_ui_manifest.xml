@@ -1,6 +1,6 @@
 <root>
 	<scripts>
-		<include src="s2r://panorama/scripts/custom_game/removetrash.vjs_c" /> 
+		<include src="s2r://panorama/scripts/custom_game/modify_hud.vjs_c" /> 
 	</scripts>
     <script>
         var newUI = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("HUDElements");

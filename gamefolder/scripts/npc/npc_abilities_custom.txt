@@ -6,14 +6,14 @@
 	{
 		"BaseClass"					"ability_datadriven"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityTextureName"		"attribute_bonus_old"
-		//"MaxLevel"					"4"
+		"MaxLevel"					"11"
+		"LevelsBetweenUpgrades"		"0"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attribute_bonus_all"	"2 4 6 8"
+				"attribute_bonus_all"	"0 2 4 6 8 10 12 14 16 18 20"
 			}
 		}
 		"Modifiers"

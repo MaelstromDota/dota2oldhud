@@ -1,0 +1,12 @@
+#Contents.StrengthTooltip {flow-children: down;}
+#stricon,#agiicon,#inticon {
+    width: 32px;
+    height: 32px;
+    position: -10px -15px 0px;
+    margin-right: 15px;
+}
+#str,#agi,#int{color: #c5c5c5; position: 25px -8px 0px; font-family: Tahoma; font-size: 15px;}
+#strbonus,#agibonus,#intbonus{color: #c5c5c5; position: 25px 10px 0px; font-family: Tahoma; font-size: 15px;}
+#strperlvl,#agiperlvl,#intperlvl{color: #c5c5c5; position: 25px 45px 0px; font-family: Tahoma; font-size: 15px;}
+#attrlvl{color: #c5c5c5; position: 25px 85px 0px; font-family: Tahoma; font-size: 15px;}
+#attmain{width: 32px; height: 32px; visibility: collapse; position: -10px -15px 0px;}

@@ -12,7 +12,7 @@
 		<Panel id="Stats">
 			<Label id="HotkeyLabel" text="U"/>
 			<Panel id="AttributeBonus" onactivate="LevelUpAttributes()" />
-			<Image id="damageicon" src="s2r://panorama/images/hud/hudv2_icondamage_png.vtex" onmouseover="ShowLeftStats()" onmouseout="HideLeftStats()">
+			<Image id="damageicon" src="s2r://panorama/images/hud/hudv2_icondamage_png.vtex">
 				<Label id="damagetext" text="N/A" />
 				<Label id="damagetextbonus" text="+ N/A" />
 			</Image>
@@ -21,13 +21,13 @@
 			<Label id="armortextbonus" text="+ N/A" />
 			<Image id="speedicon" src="file://{images}/hud/icon_speed.png"/>
 			<Label id="speedtext" text="N/A" />
-			<Panel id="str" onmouseover='showattributetooltip("str")' onmouseout='hideattributetooltip()'/>
+			<Panel id="str" onmouseover="UIShowCustomLayoutParametersTooltip(StrengthTooltip, file://{resources}/layout/custom_game/actionpanel/tooltips/str.xml)" onmouseout="UIHideCustomLayoutTooltip(StrengthTooltip)"/>
 			<Image id="stricon" src="s2r://panorama/images/hud/pip_str_png.vtex"/>
 			<Label id="strtext" text="N/A" />
-			<Panel id="agi" onmouseover='showattributetooltip("agi")' onmouseout='hideattributetooltip()'/>
+			<Panel id="agi" onmouseover="UIShowCustomLayoutParametersTooltip(AgilityTooltip, file://{resources}/layout/custom_game/actionpanel/tooltips/agi.xml)" onmouseout="UIHideCustomLayoutTooltip(AgilityTooltip)"/>
 			<Image id="agiicon" src="s2r://panorama/images/hud/pip_agi_png.vtex"/>
 			<Label id="agitext" text="N/A" />
-			<Panel id="int" onmouseover='showattributetooltip("int")' onmouseout='hideattributetooltip()'/>
+			<Panel id="int" onmouseover="UIShowCustomLayoutParametersTooltip(IntellectTooltip, file://{resources}/layout/custom_game/actionpanel/tooltips/int.xml)" onmouseout="UIHideCustomLayoutTooltip(IntellectTooltip)"/>
 			<Image id="inticon" src="s2r://panorama/images/hud/pip_int_png.vtex"/>
 			<Label id="inttext" text="N/A" />
 			<Image id="attmain" src="s2r://panorama/images/hud/hudv2_stat_icon_border_png.vtex" />

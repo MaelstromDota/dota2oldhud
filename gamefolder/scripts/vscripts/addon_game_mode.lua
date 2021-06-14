@@ -12,6 +12,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener("useability", Dynamic_Wrap(CAddonTemplateGameMode, "UIUseAbility"))
 	CustomGameEventManager:RegisterListener("getburstcooldown", Dynamic_Wrap(CAddonTemplateGameMode, "GetCourierBurstCooldown"))
 	CustomGameEventManager:RegisterListener("getabilitybehavior", Dynamic_Wrap(CAddonTemplateGameMode, "GetAbilityBehavior"))
+	CustomGameEventManager:RegisterListener("getitemstate", Dynamic_Wrap(CAddonTemplateGameMode, "GetItemState"))
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 end
 function CAddonTemplateGameMode:OnThink()
@@ -20,6 +21,9 @@ function CAddonTemplateGameMode:OnThink()
 		return nil
 	end
 	return 1
+end
+function CAddonTemplateGameMode:GetItemState(keys)
+	CustomNetTables:SetTableValue("itemstate", tostring(keys.item), {})
 end
 function CAddonTemplateGameMode:UIUseAbility(keys)
 	local behavior = tonumber(tostring(EntIndexToHScript(keys.unit):FindAbilityByName(keys.ability):GetBehavior()))
@@ -37,21 +41,27 @@ function CAddonTemplateGameMode:RecalculateStats(keys)
 	local unit = EntIndexToHScript(keys.unit)
 	local str = 0
 	local strbonus = 0
+	local strperlvl = 0
 	local agi = 0
 	local agibonus = 0
+	local agiperlvl = 0
 	local int = 0
 	local intbonus = 0
+	local intperlvl = 0
 	local primaryattribute = -1
 	if unit and not unit:IsNull() and unit:IsHero() then
 		str = math.floor(unit:GetBaseStrength())
 		strbonus = math.floor(unit:GetStrength()) - str
+		strperlvl = unit:GetStrengthGain()
 		agi = math.floor(unit:GetBaseAgility())
 		agibonus = math.floor(unit:GetAgility()) - agi
+		agiperlvl = unit:GetAgilityGain()
 		int = math.floor(unit:GetBaseIntellect())
 		intbonus = math.floor(unit:GetIntellect()) - int
+		intperlvl = unit:GetIntellectGain()
 		primaryattribute = unit:GetPrimaryAttribute()
 	end
-	CustomNetTables:SetTableValue("stats", tostring(keys.unit), {str = str, strbonus = strbonus, agi = agi, agibonus = agibonus, int = int, intbonus = intbonus, att = primaryattribute})
+	CustomNetTables:SetTableValue("stats", tostring(keys.unit), {str = str, strbonus = strbonus, strperlvl = strperlvl, agi = agi, agibonus = agibonus, agiperlvl = agiperlvl, int = int, intbonus = intbonus, intperlvl = intperlvl, att = primaryattribute})
 end
 function CAddonTemplateGameMode:GetAbilityBehavior(keys)
 	local ability = EntIndexToHScript(keys.ability)

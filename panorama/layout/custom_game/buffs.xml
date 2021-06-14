@@ -13,7 +13,7 @@
                 <Panel id="buffid">
                     <Image class="border" src="file://{images}/hud/border_nobuff.png" />
                     <Image id="border" class="border" src="file://{images}/hud/border_buff.png" />
-                    <Image id="image" class="imageclass" src="s2r://panorama/images/spellicons/pudge_rot_png.vtex"/>
+                    <Image id="image" class="imageclass" src="s2r://panorama/images/spellicons/pudge_rot_png.vtex" scaling="stretch-to-fit-y-preserve-aspect"/>
                     <Label id="stacks" />
                 </Panel>
             </Panel>

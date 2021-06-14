@@ -1,0 +1,19 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/actionpanel/tooltips.css" />
+		<include src="s2r://panorama/styles/dotastyles.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/actionpanel/tooltips.js" />
+	</scripts>
+	<Panel class="Tooltip">
+		<Panel class="AgilityTooltip">
+			<Image id="agiicon" src="s2r://panorama/images/hud/pip_agi_png.vtex" />
+			<Image id="attmain" src="s2r://panorama/images/hud/hudv2_stat_icon_border_png.vtex" />
+			<Label id="agi" text="#DOTA_StatTooltip_Agility" />
+			<Label id="agibonus" text="#DOTA_StatTooltip_AgilityBonus" />
+			<Label id="agiperlvl" text="#DOTA_StatTooltip_GainPerLevel" />
+			<Label id="attrlvl" text="#DOTA_StatTooltip_TotalAttributesSkilled" />
+		</Panel>
+	</Panel>
+</root>
