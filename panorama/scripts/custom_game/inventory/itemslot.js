@@ -80,6 +80,22 @@ var ItemPanel = (function () {
         this.panel.SetHasClass("Muted", Entities.IsMuted(this.unit));
         this.panel.SetHasClass("Primary", Items.ShouldDisplayCharges(this.item));
         this.panel.SetHasClass("Secondary", Items.ShowSecondaryCharges(this.item));
+        this.panel.SetHasClass("NoMana", Abilities.IsItem(this.item) && !Abilities.IsOwnersManaEnough(this.item));
+        this.panel.FindChildTraverse("CooldownLabel").text = Abilities.GetCooldownTimeRemaining(this.item).toFixed(0);
+        this.panel.FindChildTraverse("CooldownLabel").visible = Abilities.IsItem(this.item) && !Abilities.IsCooldownReady(this.item);
+        this.panel.SetHasClass("Cooldown", !Abilities.IsCooldownReady(this.item));
+		let cooldownPanel = this.panel.FindChildTraverse("cooldownswipe");
+        if (!Abilities.IsCooldownReady(this.item) && Abilities.IsItem(this.item)){
+            let totalDuration = Abilities.GetCooldownLength(this.item);
+            let elapsed = Abilities.GetCooldownTimeRemaining(this.item);
+            cooldownPanel.style.opacity = "0.75";
+            cooldownPanel.style.clip = "radial(50% 50%, 0deg, 0deg)";
+            cooldownPanel.style.backgroundColor =  'rgba(0, 0, 0, 1)';
+            cooldownPanel.style.clip = `radial(50% 50%, 0deg, ${elapsed/totalDuration*360}deg)`;
+        } else {
+			cooldownPanel.style.opacity = "0";
+			cooldownPanel.style.clip = "radial(50% 50%, 0deg, -360deg)";
+        };
         if (this.item == -1) {this.panel.RemoveClass("Active");} else {this.panel.SetHasClass("Active", !Abilities.IsPassive(this.item));}
         if (Abilities.GetToggleState(this.item) || !Items.ShowSecondaryCharges(this.item)) {
             this.panel.FindChildTraverse("primary").text = Items.GetDisplayedCharges(this.item).toString();
@@ -91,7 +107,7 @@ var ItemPanel = (function () {
         }
         var itemImage = this.panel.FindChildTraverse("bg");
         itemImage.SetImage("s2r://panorama/images/items/" + ((this.item == -1) ? "emptyitembg" : Items.GetAbilityTextureSF(this.item)) + ".png");
-        $.Schedule(1/30, this.update.bind(this))
+        $.Schedule(0.1, this.update.bind(this))
     };
     return ItemPanel;
 }());

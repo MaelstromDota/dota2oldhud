@@ -1,3 +1,0 @@
--add mana cost label to items
--add cooldown display to items
--add no mana mask to items

@@ -5,7 +5,6 @@
         <include src="file://panorama/styles/custom_game/inventory/itemslot.css" />
         <include src="file://panorama/styles/custom_game/inventory/inventory.css" />     
     </styles>
-
     <scripts>
         <include src="file://panorama/scripts/custom_game/inventory/itemslot.js" />
         <include src="file://panorama/scripts/custom_game/inventory/inventory.js" />
@@ -15,11 +14,11 @@
             <Panel class="ItemSlot" draggable="true">
                 <Image id="bg" src="raw://resource/flash3/images/items/emptyitembg.png" />
                 <Panel id="hover" />
+                <Panel id="AbilityManaMask" />
                 <Label id="primary" text="0" />
                 <Label id="secondary" text="0"/>
                 <Label id="hotkey" text="E" />
                 <Label id="CooldownLabel" text="188" />
-                <Panel id="AbilityManaMask" />
                 <Panel class="abilitycooldowncontainer">
                     <Panel id="cooldownswipe" />
                 </Panel>
