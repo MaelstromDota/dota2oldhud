@@ -4,7 +4,7 @@ var render = [];
 function ClickPortrait(portrait){
 	let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
 	if (GameUI.IsShiftDown()) {
-		var selected_entities = Players.GetSelectedEntities(Players.GetLocalPlayer());
+		let selected_entities = Players.GetSelectedEntities(Players.GetLocalPlayer());
 		function compareNumeric(a, b) {if (a > b) return 1; if (a == b) return 0; if (a < b) return -1;};
 		selected_entities.sort(compareNumeric);
 		selected_entities.splice(parseInt(portrait)-1, 1);
@@ -122,7 +122,7 @@ function statsupdate(){
 		if (currentpage < 1) {currentpage = 1} else if (currentpage > 5) {currentpage = 5};
 		let i_value = currentpage === 1 ? 1: currentpage * 10 - 10;
 		for (let i=1; i < 11; i++) {
-			if (units[i-(i_value)] != undefined && units[i-(i_value)] == unit) {$(`#PortraitBorder${i}`).style.visibility = "visible";} else {$(`#PortraitBorder${i}`).style.visibility = "collapse";};
+			if (units[i-(i_value)] != undefined && units[i-(i_value)] == Players.GetLocalPlayerPortraitUnit()) {$(`#PortraitBorder${i}`).style.visibility = "visible";} else {$(`#PortraitBorder${i}`).style.visibility = "collapse";};
 			if (i!=11 && units[i-(i_value)] != undefined) {$(`#HPBar${i}`).style.width = `${(Entities.GetHealth(units[i-i_value]) / Entities.GetMaxHealth(units[i-i_value])) * 100 -15}%`;};
 			if (units[i-(i_value)] != undefined && Entities.GetMaxMana(units[i-(i_value)]) != 0 && i!=11) {$(`#MPBar${i}`).style.width = `${(Entities.GetMana(units[i-i_value]) / Entities.GetMaxMana(units[i-i_value])) * 100 -15}%`;} else if (units[i-(i_value)] != undefined && Entities.GetMaxMana(units[i-(i_value)]) == 0 && i!=11) {$(`#MPBar${i}`).style.width = '85%';};
 		};

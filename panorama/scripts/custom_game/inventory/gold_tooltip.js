@@ -1,12 +1,12 @@
 function update() {
-    var heroLevel = Players.GetLevel(Players.GetLocalPlayer());
-    var buybackCost = 100 + (heroLevel * heroLevel * 1.5) + ((Game.GetDOTATime(false, false) / 60) * 15);
-    var buybackSurplus = Players.GetGold(Players.GetLocalPlayer()) - buybackCost - (heroLevel * 30);
+    let heroLevel = Players.GetLevel(Players.GetLocalPlayer());
+    let buybackCost = 100 + (heroLevel * heroLevel * 1.5) + ((Game.GetDOTATime(false, false) / 60) * 15);
+    let buybackSurplus = Players.GetGold(Players.GetLocalPlayer()) - buybackCost - (heroLevel * 30);
     $("#reliable").SetDialogVariableInt("reliable_gold", Players.GetReliableGold(Players.GetLocalPlayer()));
     $("#unreliable").SetDialogVariableInt("unreliable_gold", Players.GetUnreliableGold(Players.GetLocalPlayer()));
     $("#deathCost").SetDialogVariableInt("death_cost", heroLevel * 30);
     $("#buybackCost").SetDialogVariableInt("buyback_cost", buybackCost);
-    var buybackTime = Players.GetLastBuybackTime(Players.GetLocalPlayer());
+    let buybackTime = Players.GetLastBuybackTime(Players.GetLocalPlayer());
     if (buybackTime == 0) {$("#buybackCooldown").text = $.Localize("#DOTA_HUD_BuybackCooldownReady");} else {
         buybackTime = buybackTime + (60 * 7) - Game.GetGameTime();
         if (buybackTime > 0) {

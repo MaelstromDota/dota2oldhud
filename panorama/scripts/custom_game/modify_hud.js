@@ -1,9 +1,9 @@
 function removetrash(){
-	var pregame = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("PreGame");
+	let pregame = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("PreGame");
 	pregame.FindChildTraverse('StartingItemsBackpackRow').style.visibility = 'collapse';
 	pregame.FindChildTraverse('StartingItemsRightColumn').style.visibility = 'collapse';
-	var newUI = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("HUDElements");
-	var customui = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("CustomUIRoot");
+	let newUI = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("HUDElements");
+	let customui = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("CustomUIRoot");
 	newUI.FindChildTraverse('inventory_backpack_list').style.visibility = 'collapse';
 	newUI.FindChildTraverse('GridNeutralsTab').style.visibility = 'collapse';
 	newUI.FindChildTraverse('AghsStatusShard').style.visibility = 'collapse';
