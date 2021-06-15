@@ -1,6 +1,5 @@
 var lastUnit = [];
 var last = [];
-var page = [];
 var render = [];
 function ClickPortrait(portrait){
 	let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
@@ -241,5 +240,48 @@ function OnSelectionUpdated(){
 function LevelUpAttributes(){
 	if (Game.IsInAbilityLearnMode()) {Abilities.AttemptToUpgrade(Entities.GetAbilityByName(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), 'attribute_bonus_datadriven'));}
 };
+GameUI.GetPanelPosition = function (Panel) {
+	let Position = Panel.GetPositionWithinWindow();
+	return {x: Position.x + Panel.actuallayoutwidth / 2, y: Position.y + Panel.actuallayoutheight / 2};
+};
+Difference = function(a,b) {
+	let max,min;
+	if (a>=b){max=a;min=b} else {max=b;min=a}
+	return max - min;
+};
+function UseQuickCastOnPortrait(table){
+	let units = Players.GetSelectedEntities(Players.GetLocalPlayer());
+	let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
+	function compareNumeric(a, b) {if (a > b) return 1; if (a == b) return 0; if (a < b) return -1;};
+	units.sort(compareNumeric);
+	for (let i=0; i < units.length -1; i++) {
+		if (!Entities.IsAlive(units[i])) {units.splice[i,1];};
+	};
+	let portraits = units.length <= 10 ? units.length : 10
+	let order = table['order_type'];
+	let ability = table['ability'];
+	let x,y,z,pos,target;
+	if (order == dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION){
+		x = table['x'];
+		y = table['y'];
+		z = table['z'];
+		pos = [x,y,z];
+	} else if (order == dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET){
+		target = table['target'];
+		pos = Entities.GetAbsOrigin(target);
+	};
+	let fScreenX = Game.WorldToScreenX(pos[0], pos[1], pos[2]);
+	let fScreenY = Game.WorldToScreenY(pos[0], pos[1], pos[2]);
+	for (let i=1;i<=portraits;i++){
+		let portrait = $(`#Portrait${i}${i}`)
+		if (Difference(GameUI.GetPanelPosition(portrait).x, fScreenX) < 19 && Difference(GameUI.GetPanelPosition(portrait).y, fScreenY) < 24) {
+			let pos = Entities.GetAbsOrigin(lastUnit[i])
+			Game.PrepareUnitOrders({OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_STOP});
+			Abilities.ExecuteAbility(Entities.GetAbilityByName(localplayer, "attribute_bonus_datadriven"), localplayer, true);
+			Game.PrepareUnitOrders({OrderType: order, AbilityIndex: ability, Position: pos, TargetIndex: target});
+		}
+	}
+}
 GameEvents.Subscribe("dota_player_update_selected_unit", OnSelectionUpdated);
+GameEvents.Subscribe("abilityorder", UseQuickCastOnPortrait);
 statsupdate();
