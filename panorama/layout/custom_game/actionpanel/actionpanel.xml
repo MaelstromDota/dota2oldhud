@@ -9,7 +9,7 @@
     <scripts>
         <include src="s2r://panorama/scripts/custom_game/actionpanel/abilitypanel.js" />
         <include src="s2r://panorama/scripts/custom_game/actionpanel/actionpanel.js" />
-        <include src="s2r://panorama/scripts/custom_game/actionpanel/lvlup.js" />
+        <include src="s2r://panorama/scripts/custom_game/actionpanel/helper.js" />
     </scripts>
     <snippets>
         <snippet name="AbilityPanel">
