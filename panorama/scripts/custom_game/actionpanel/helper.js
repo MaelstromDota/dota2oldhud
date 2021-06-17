@@ -1,5 +1,5 @@
 function OnLVLButtonPressed() {if (Game.IsInAbilityLearnMode()){Game.EndAbilityLearnMode()}else{Game.EnterAbilityLearnMode()}};
-function PointCheker() {
+function Main() {
 	if (Entities.GetAbilityPoints(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())) > 0 && Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()) == Players.GetLocalPlayerPortraitUnit()) {
 		$('#LevelUpButton').style.opacity = 1;
 		$('#Hotkey').style.visibility = 'visible';
@@ -10,6 +10,10 @@ function PointCheker() {
 		$('#LevelUpButton').style.opacity = 0;
 		Game.EndAbilityLearnMode();
 	};
-	$.Schedule(Game.GetGameFrameTime(), PointCheker)
+	$("#Death").visible = Players.GetRespawnSeconds(Entities.GetPlayerOwnerID(Players.GetLocalPlayerPortraitUnit())) > -1;
+	$("#DeathTimer").SetDialogVariableInt("seconds", Players.GetRespawnSeconds(Entities.GetPlayerOwnerID(Players.GetLocalPlayerPortraitUnit()))+1);
+	$("#DeathTimer").text = $.Localize("#DOTAold_RespawnTime",$("#DeathTimer"));
+	// $("#BuybackGoldCount").text = Players.GetGold(Entities.GetPlayerOwnerID(Players.GetLocalPlayerPortraitUnit())).toString();
+	$.Schedule(Game.GetGameFrameTime(), Main)
 };
-PointCheker();
+Main();
