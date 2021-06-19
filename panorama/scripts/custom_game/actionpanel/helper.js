@@ -10,8 +10,8 @@ function Main() {
 		$('#LevelUpButton').style.opacity = 0;
 		Game.EndAbilityLearnMode();
 	};
-	$("#Death").visible = Players.GetRespawnSeconds(Entities.GetPlayerOwnerID(Players.GetLocalPlayerPortraitUnit())) > -1;
-	$("#BuyBack").visible = Players.GetRespawnSeconds(Entities.GetPlayerOwnerID(Players.GetLocalPlayerPortraitUnit())) > -1;
+	$("#Death").visible = !Entities.IsAlive(Players.GetLocalPlayerPortraitUnit()) && Entities.IsRealHero(Players.GetLocalPlayerPortraitUnit());
+	$("#BuyBack").visible = !Entities.IsAlive(Players.GetLocalPlayerPortraitUnit()) && Entities.IsRealHero(Players.GetLocalPlayerPortraitUnit());
 	$("#DeathTimer").SetDialogVariableInt("seconds", Players.GetRespawnSeconds(Entities.GetPlayerOwnerID(Players.GetLocalPlayerPortraitUnit()))+1);
 	$("#DeathTimer").text = $.Localize("#DOTAold_RespawnTime",$("#DeathTimer"));
 	$.Schedule(Game.GetGameFrameTime(), Main)
@@ -27,7 +27,7 @@ function PingRespawnTime() {
 }
 function BuyBack() {
 	if (GameUI.IsAltDown()) {
-		
+
 	} else {Game.PrepareUnitOrders({OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_BUYBACK});};
 }
 Main();
