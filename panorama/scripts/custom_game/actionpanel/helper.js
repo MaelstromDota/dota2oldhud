@@ -13,7 +13,15 @@ function Main() {
 	$("#Death").visible = Players.GetRespawnSeconds(Entities.GetPlayerOwnerID(Players.GetLocalPlayerPortraitUnit())) > -1;
 	$("#DeathTimer").SetDialogVariableInt("seconds", Players.GetRespawnSeconds(Entities.GetPlayerOwnerID(Players.GetLocalPlayerPortraitUnit()))+1);
 	$("#DeathTimer").text = $.Localize("#DOTAold_RespawnTime",$("#DeathTimer"));
-	// $("#BuybackGoldCount").text = Players.GetGold(Entities.GetPlayerOwnerID(Players.GetLocalPlayerPortraitUnit())).toString();
 	$.Schedule(Game.GetGameFrameTime(), Main)
 };
+function PingRespawnTime() {
+	if (GameUI.IsAltDown()) {
+		$("#Death").SetDialogVariableInt("seconds", Players.GetRespawnSeconds(Entities.GetPlayerOwnerID(Players.GetLocalPlayerPortraitUnit()))+1)
+		$("#Death").SetDialogVariable("name", $.Localize(`#${Entities.GetUnitName(Players.GetLocalPlayerPortraitUnit())}`))
+		if (Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()) == Players.GetLocalPlayerPortraitUnit()) {Game.ServerCmd(`say_team ${$.Localize("#DOTAold_HPMana_Alert_Self_Dead",$("#Death"))}`)} else
+		if (Entities.IsEnemy(Players.GetLocalPlayerPortraitUnit())) {Game.ServerCmd(`say_team ${$.Localize("#DOTAold_HPMana_Alert_Enemy_Dead",$("#Death"))}`)} else
+		{Game.ServerCmd(`say_team ${$.Localize("#DOTAold_HPMana_Alert_Ally_Dead",$("#Death"))}`)};
+	}
+}
 Main();

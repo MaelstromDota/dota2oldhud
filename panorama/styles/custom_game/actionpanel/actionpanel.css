@@ -228,7 +228,7 @@
 DOTAPortrait{horizontal-align: center; vertical-align: bottom; width: 8%; height: 69%; z-index: 3; margin-left: -1120px; margin-right: 965px;}
 #Death{position: 0px 0px 0px; width: 100%; height: 110%;}
 #DeathMask{width: 110%; height: 100%; z-index: 1;}
-#DeathImage{width: 24px; height: 24px; z-index: 5; margin-top: 5px; margin-left: 170px;}
+#DeathImage{width: 24px; height: 24px; z-index: 5; margin-top: 5px; margin-left: 190px;}
 #DeathTimer{
     font-size: 19px;
     font-family: Arial;
@@ -237,5 +237,5 @@ DOTAPortrait{horizontal-align: center; vertical-align: bottom; width: 8%; height
     text-align: center;
     z-index: 5;
     margin-top: 8px;
-    margin-left: 200px;
+    margin-left: 220px;
 }
