@@ -226,9 +226,9 @@
 #AbilitiesContainer.AbilityLayout5 {padding-left: 0%; padding-right: 0%; margin-left: 395px;}
 #AbilitiesContainer.AbilityLayout6 {padding-left: 0%; padding-right: 0%; margin-left: 415px;}
 DOTAPortrait{horizontal-align: center; vertical-align: bottom; width: 8%; height: 69%; z-index: 3; margin-left: -1120px; margin-right: 965px;}
-#Death{position: 0px 0px 0px; width: 100%; height: 110%;}
+#Death{width: 100%; height: 110%;}
 #DeathMask{width: 110%; height: 100%; z-index: 1;}
-#DeathImage{width: 24px; height: 24px; z-index: 5; margin-top: 5px; margin-left: 190px;}
+#DeathImage{width: 24px; height: 24px; z-index: 5; margin-top: 5px; margin-left: 170px;}
 #DeathTimer{
     font-size: 19px;
     font-family: Arial;
@@ -237,5 +237,12 @@ DOTAPortrait{horizontal-align: center; vertical-align: bottom; width: 8%; height
     text-align: center;
     z-index: 5;
     margin-top: 8px;
-    margin-left: 220px;
+    margin-left: 200px;
+}
+#BuyBack{width: 23%; height: 50%; horizontal-align: right; position: -15px 0px 0px; vertical-align: middle;}
+#BuyBackLabel{
+    position: 8px 0px 0px;
+    color: #dbdbdb;
+    /* color: #850101; */
+    text-shadow: 1px 0.5px 1px 3.5 #200b0a;
 }

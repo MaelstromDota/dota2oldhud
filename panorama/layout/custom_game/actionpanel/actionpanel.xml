@@ -1,79 +1,79 @@
 <root>
-    <styles>
+	<styles>
 		<include src="s2r://panorama/styles/hud/dota_hud_portrait.vcss_c" />
-        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
-        <include src="s2r://panorama/styles/hudstyles.vcss_c" />
-        <include src="file://panorama/styles/custom_game/actionpanel/abilitypanel.css" />     
-        <include src="file://panorama/styles/custom_game/actionpanel/actionpanel.css" />     
-    </styles>
-    <scripts>
-        <include src="s2r://panorama/scripts/custom_game/actionpanel/abilitypanel.js" />
-        <include src="s2r://panorama/scripts/custom_game/actionpanel/actionpanel.js" />
-        <include src="s2r://panorama/scripts/custom_game/actionpanel/helper.js" />
-    </scripts>
-    <snippets>
-        <snippet name="AbilityPanel">
-            <Panel class="Ability">
-                <Panel id="AbilityFrame" class="AbilityFrame">
-                    <Panel class="spacer" />
-                    <Button id="AbilityButton" hittest="true">
-                        <DOTAAbilityImage id="AbilityImage" />
-                        <Panel class="abilitycooldowncontainer">
-                            <Panel id="cooldownswipe" />
-                        </Panel>
-                        <Panel id="AutocastPanel" />
-                        <Panel id="AutocastMask">
-                            <Panel id="AutocastMaskInner"></Panel>
-                            <Panel id="AutocastMaskInner2"></Panel>
-                        </Panel>
-                        <Label id="CooldownLabel" text="188" />
-                        <Panel id="AbilityManaMask"></Panel>
-                        <Panel id="PassiveMask"></Panel>
-                        <Panel id="AbilityPhaseMask"></Panel>
-                        <Panel id="CDShineMask" />
-                        <Panel id="SilencedMask"></Panel>
-                        <Panel id="HoverHighlight"></Panel>
-                        <Panel id="LearnOverlay"></Panel>
-                        <Label id="ManaLabel" text="333"/>
-                        <Label id="HotkeyLabel" text="W"/>
-                    </Button>
-                    <Panel id="PipContainer">
-                    </Panel>
-                </Panel>
-            </Panel>
-        </snippet>
-    </snippets>
-    <Panel class="hudpanel" hittest="false">
-        <Image id="MinimapBorder" hittest="false" src="raw://resource/flash3/images/hud_skins/default/actionpanel/minimapborder.png" />
-        <Image id="MinimapSpacer" src="raw://resource/flash3/images/hud_skins/default/actionpanel/spacer_16_9.png" />
-        <Image class="hud" id="PortraitBorder" hittest="true" src="raw://resource/flash3/images/hud_skins/default/actionpanel/portrait_wide.png">
-            <Label id="Hotkey" text="W"/>
-            <Panel id="LevelUpButton" class="LevelUpButton" >
-                <Panel id="LVLUPDecore" class="LVLUPDecore" onactivate="OnLVLButtonPressed()" oncancel="HideUpgradableAbilities(false)">
-                    <Label id="LVLUPText" class="LVLUPText" text="#DOTA_LevelUp" />
-                    <Panel id="LVLUPIcon" class="LVLUPIcon" />
-                </Panel>
-            </Panel>
-            <Label id="HeroName" text="N/A" />
-            <Panel id="LevelTextBox">
-                <Label id="LevelNumber" text="N/A" />
-            </Panel>
-            <Panel id="XPBar" />
-            <Label id="XPLabel" text="N/A" />
-        </Image>
-        <!-- <DOTAScenePanel class="hud" id="Portrait" unit="npc_dota_hero_zuus"/> -->
-        <DOTAPortrait>
-            <Button id="InspectButtonn" class="PortraitButtonn" onactivate="DOTAHUDInspect();" always-cache-composition-layer="true" />
-            <Button id="HeroViewButtonn" class="PortraitButtonn" onactivate="DOTAHUDHeroViewClicked();" always-cache-composition-layer="true" />
-        </DOTAPortrait>
-        <Image class="hud" id="center_left_wide" src="raw://resource/flash3/images/hud_skins/default/actionpanel/center_left_wide.png" hittest="true">
-            <Panel class="BlackBox" id="LeftStatsBox"/>
-            <Panel class="BlackBox" id="RightStatsBox"/>
-        </Image>
-        <Image id="center_right" src="raw://resource/flash3/images/hud_skins/default/actionpanel/center_right.png" hittest="true">
-            <Panel id="AbilitiesContainer" />
-            <Panel id="LVLUPButtonsContainer" />
-        </Image>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/hudstyles.vcss_c" />
+		<include src="file://panorama/styles/custom_game/actionpanel/abilitypanel.css" />     
+		<include src="file://panorama/styles/custom_game/actionpanel/actionpanel.css" />     
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/custom_game/actionpanel/abilitypanel.js" />
+		<include src="s2r://panorama/scripts/custom_game/actionpanel/actionpanel.js" />
+		<include src="s2r://panorama/scripts/custom_game/actionpanel/helper.js" />
+	</scripts>
+	<snippets>
+		<snippet name="AbilityPanel">
+			<Panel class="Ability">
+				<Panel id="AbilityFrame" class="AbilityFrame">
+					<Panel class="spacer" />
+					<Button id="AbilityButton" hittest="true">
+						<DOTAAbilityImage id="AbilityImage" />
+						<Panel class="abilitycooldowncontainer">
+							<Panel id="cooldownswipe" />
+						</Panel>
+						<Panel id="AutocastPanel" />
+						<Panel id="AutocastMask">
+							<Panel id="AutocastMaskInner"></Panel>
+							<Panel id="AutocastMaskInner2"></Panel>
+						</Panel>
+						<Label id="CooldownLabel" text="188" />
+						<Panel id="AbilityManaMask"></Panel>
+						<Panel id="PassiveMask"></Panel>
+						<Panel id="AbilityPhaseMask"></Panel>
+						<Panel id="CDShineMask" />
+						<Panel id="SilencedMask"></Panel>
+						<Panel id="HoverHighlight"></Panel>
+						<Panel id="LearnOverlay"></Panel>
+						<Label id="ManaLabel" text="333"/>
+						<Label id="HotkeyLabel" text="W"/>
+					</Button>
+					<Panel id="PipContainer">
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="hudpanel" hittest="false">
+		<Image id="MinimapBorder" hittest="false" src="raw://resource/flash3/images/hud_skins/default/actionpanel/minimapborder.png" />
+		<Image id="MinimapSpacer" src="raw://resource/flash3/images/hud_skins/default/actionpanel/spacer_16_9.png" />
+		<Image class="hud" id="PortraitBorder" hittest="true" src="raw://resource/flash3/images/hud_skins/default/actionpanel/portrait_wide.png">
+			<Label id="Hotkey" text="W"/>
+			<Panel id="LevelUpButton" class="LevelUpButton" >
+				<Panel id="LVLUPDecore" class="LVLUPDecore" onactivate="OnLVLButtonPressed()" oncancel="HideUpgradableAbilities(false)">
+					<Label id="LVLUPText" class="LVLUPText" text="#DOTA_LevelUp" />
+					<Panel id="LVLUPIcon" class="LVLUPIcon" />
+				</Panel>
+			</Panel>
+			<Label id="HeroName" text="N/A" />
+			<Panel id="LevelTextBox">
+				<Label id="LevelNumber" text="N/A" />
+			</Panel>
+			<Panel id="XPBar" />
+			<Label id="XPLabel" text="N/A" />
+		</Image>
+		<!-- <DOTAScenePanel class="hud" id="Portrait" unit="npc_dota_hero_zuus"/> -->
+		<DOTAPortrait>
+			<Button id="InspectButtonn" class="PortraitButtonn" onactivate="DOTAHUDInspect();" always-cache-composition-layer="true" />
+			<Button id="HeroViewButtonn" class="PortraitButtonn" onactivate="DOTAHUDHeroViewClicked();" always-cache-composition-layer="true" />
+		</DOTAPortrait>
+		<Image class="hud" id="center_left_wide" src="raw://resource/flash3/images/hud_skins/default/actionpanel/center_left_wide.png" hittest="true">
+			<Panel class="BlackBox" id="LeftStatsBox"/>
+			<Panel class="BlackBox" id="RightStatsBox"/>
+		</Image>
+		<Image id="center_right" src="raw://resource/flash3/images/hud_skins/default/actionpanel/center_right.png" hittest="true">
+			<Panel id="AbilitiesContainer" />
+			<Panel id="LVLUPButtonsContainer" />
+		</Image>
 		<Panel id="HealthBar">
 			<Panel id="HealthBarInner">
 				<Panel id="HealthBarLight" />
@@ -91,11 +91,15 @@
 			<Label id="ManaRegText" text="+0" />
 			<Label id="HealthBarText" text="0/0" />
 			<Label id="HealthRegText" text="+0" />
-            <Panel id="Death" onactivate="PingRespawnTime()">
-                <Image id="DeathMask" src="file://{images}/hud/deathmask.png" />
-                <Image id="DeathImage" src="s2r://panorama/images/hud/skull_stroke_png.vtex" />
-                <Label id="DeathTimer" text="#DOTAold_RespawnTime" />
-            </Panel>
+			<Panel id="Death" onactivate="PingRespawnTime()">
+				<Image id="DeathMask" src="file://{images}/hud/deathmask.png" />
+				<Image id="DeathImage" src="s2r://panorama/images/hud/skull_stroke_png.vtex" />
+				<Label id="DeathTimer" text="#DOTAold_RespawnTime" />
+			</Panel>
+			<Button id="BuyBack" onactivate="BuyBack()">
+				<Image src="file://{images}/hud/wide_button.png" />
+				<Label id="BuyBackLabel" text="#DOTA_Buyback" />
+			</Button>
 		</Panel>
-    </Panel>
+	</Panel>
 </root>
