@@ -92,8 +92,9 @@
 			<Label id="HealthBarText" text="0/0" />
 			<Label id="HealthRegText" text="+0" />
             <Panel id="Death">
-                <Label id="DeathTimer" text="#DOTAold_RespawnTime" />
+                <Image id="DeathMask" src="file://{images}/hud/deathmask.png" />
                 <Image id="DeathImage" src="s2r://panorama/images/hud/skull_stroke_png.vtex" />
+                <Label id="DeathTimer" text="#DOTAold_RespawnTime" />
             </Panel>
 		</Panel>
     </Panel>

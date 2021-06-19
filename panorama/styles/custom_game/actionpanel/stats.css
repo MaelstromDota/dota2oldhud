@@ -1,8 +1,7 @@
 .StatsClass{width: 240px; height: 125px; z-index: 1; vertical-align: bottom; position: 660px 0px 0px;}
 #Stats{width: 1500px;}
 #attmain{width: 32px; height: 32px;}
-#HotkeyLabel
-{
+#HotkeyLabel{
 	horizontal-align: right;
     background-color: gradient( linear, 0% 0%, 100% 20%, from( #202020 ), to( #3c3c3c ) );
     font-size: 12px;
