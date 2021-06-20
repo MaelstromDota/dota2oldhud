@@ -63,8 +63,8 @@
 #Portrait1010{margin-left: 67%;}
 .HealthBar{width: 87%; height: 12%; margin-top: 70%; margin-left: 6.5%; flow-children: right; background-color: gradient(linear, 0% 0%, 0% 100%, from(#4cc452), color-stop(0.5, #4cc452), to(#003400)); overflow: noclip;}
 .ManaBar{width: 87%; height: 10%; margin-top: 80%; margin-left: 6.5%; flow-children: right; background-color: gradient(linear, 0% 0%, 0% 100%, from(#7395bd96), color-stop(0.3, #34609F), color-stop(0.31, #0D448C), to(#294D84));}
-.pagebutton{width: 8%; height: 11%; vertical-align: bottom; position: 17% -5.5% 0px;}
-#group2{position: 27% -5.5% 0%;}
-#group3{position: 37% -5.5% 0%;}
-#group4{position: 47% -5.5% 0%;}
-#group5{position: 57% -5.5% 0%;}
+.pagebutton{width: 8%; height: 13%; vertical-align: bottom; position: 10% -5.5% 0px;}
+#group2{position: 20% -5.5% 0%; }
+#group3{position: 30% -5.5% 0%;}
+#group4{position: 40% -5.5% 0%;}
+#group5{position: 50% -5.5% 0%;}

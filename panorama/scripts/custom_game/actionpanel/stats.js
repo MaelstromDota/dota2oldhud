@@ -66,7 +66,7 @@ function RenderPage(units, page){
 			if (render[i-1] == undefined && $(`#Portrait${i}${i}`) != undefined) {$(`#Portrait${i}${i}`).style.visibility = "collapse";};
 		};
 		for (let i=1; i<=5;i++){
-			if (page == i) {$(`#group${i}`).SetImage("file://{images}/hud/group_button_selected.png");} else {$(`#group${i}`).SetImage("file://{images}/hud/group_button.png");};
+			if (page == i) {$(`#group${i}`).SetImage("s2r://panorama/images/hud/multiunit_page_active_png.vtex");} else {$(`#group${i}`).SetImage("s2r://panorama/images/hud/multiunit_page_png.vtex");};
 		}
 	};
 }
