@@ -5,5 +5,6 @@
 		"stats",
 		"courier_burst_cooldown",
 		"itemstate",
+		"players",
 	]
 }

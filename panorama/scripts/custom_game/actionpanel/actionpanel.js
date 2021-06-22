@@ -192,7 +192,7 @@
 	$("#hpbartext").SetPanelEvent("onactivate", function(){
 		if (GameUI.IsAltDown()){
 			let unit = Players.GetLocalPlayerPortraitUnit()
-			let localplayer = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer());
+			let localplayer = Entities.GetLocalPlayer();
 			$("#hpbartext").SetDialogVariableInt("health", Entities.GetHealthPercent(unit));
 			$("#hpbartext").SetDialogVariableInt("mana", parseInt((Entities.GetMana(unit) / Entities.GetMaxMana(unit) * 100).toFixed(0)));
 			$("#hpbartext").SetDialogVariable("name", $.Localize(Entities.GetUnitName(unit)));

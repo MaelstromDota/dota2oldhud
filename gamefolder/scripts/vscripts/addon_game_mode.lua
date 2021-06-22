@@ -17,7 +17,12 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 end
 function CAddonTemplateGameMode:OnThink()
-	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+	if GameRules:State_Get() >= DOTA_GAMERULES_STATE_PRE_GAME and GameRules:State_Get() <= DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+		for i=0, DOTA_MAX_TEAM_PLAYERS do
+			if PlayerResource:IsValidPlayerID(i) and PlayerResource:GetSelectedHeroEntity(i) then
+				CustomNetTables:SetTableValue("players", tostring(i), {buybackcooldown = PlayerResource:GetSelectedHeroEntity(i):GetBuybackCooldownTime(), buybackcost = PlayerResource:GetSelectedHeroEntity(i):GetBuybackCost(false)})
+			end
+		end
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
 		return nil
 	end

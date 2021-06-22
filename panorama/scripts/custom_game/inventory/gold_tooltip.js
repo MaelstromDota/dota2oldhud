@@ -1,6 +1,6 @@
 function update() {
     let heroLevel = Players.GetLevel(Players.GetLocalPlayer());
-    let buybackCost = 100 + (heroLevel * heroLevel * 1.5) + ((Game.GetDOTATime(false, false) / 60) * 15);
+    let buybackCost = Players.GetBuybackCost(Players.GetLocalPlayer());
     let buybackSurplus = Players.GetGold(Players.GetLocalPlayer()) - buybackCost - (heroLevel * 30);
     $("#reliable").SetDialogVariableInt("reliable_gold", Players.GetReliableGold(Players.GetLocalPlayer()));
     $("#unreliable").SetDialogVariableInt("unreliable_gold", Players.GetUnreliableGold(Players.GetLocalPlayer()));

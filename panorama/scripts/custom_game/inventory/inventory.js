@@ -14,7 +14,7 @@ function onSteamInventoryChanged(event) {var skinName = GameUI.CustomUIConfig().
     function onUnitChanged(event) {
         onInventoryChanged(event);
         if (Players.GetLocalPlayerPortraitUnit() == currentCourier) {$("#courier").AddClass("Selected");} else {$("#courier").RemoveClass("Selected");}
-    if (Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()) != Players.GetLocalPlayerPortraitUnit()) {$("#stats").SetHasClass("Hidden", true);} else {$("#stats").SetHasClass("Hidden", false);}
+    if (Entities.GetLocalPlayer() != Players.GetLocalPlayerPortraitUnit()) {$("#stats").SetHasClass("Hidden", true);} else {$("#stats").SetHasClass("Hidden", false);}
     currentUnit = Players.GetQueryUnit(Players.GetLocalPlayer());
 }
 function onInventoryItemChanged(event) {

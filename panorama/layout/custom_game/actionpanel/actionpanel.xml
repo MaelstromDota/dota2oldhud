@@ -96,10 +96,11 @@
 				<Image id="DeathImage" src="s2r://panorama/images/hud/skull_stroke_png.vtex" />
 				<Label id="DeathTimer" text="#DOTAold_RespawnTime" />
 			</Panel>
-			<Button id="BuyBack" onactivate="BuyBack()">
-				<Image src="file://{images}/hud/wide_button.png" />
+			<Image id="BuyBack" src="file://{images}/hud/buyback_button.png" onactivate="BuyBack()">
+				<Image id="BuyBackGoldImage" src="s2r://panorama/images/hud/icon_gold.psd" />
 				<Label id="BuyBackLabel" text="#DOTA_Buyback" />
-			</Button>
+				<Label id="BuyBackCost" text="1062" />
+			</Image>
 		</Panel>
 	</Panel>
 </root>

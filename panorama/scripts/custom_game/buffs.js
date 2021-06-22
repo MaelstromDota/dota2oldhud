@@ -25,6 +25,7 @@ function Main(){
 		let border = pPanel.FindChildTraverse("border");
 		let elapsed = Buffs.GetElapsedTime(unit, buffs[i]);
 		let duration = Buffs.GetDuration(unit, buffs[i]);
+		$.Msg(Buffs.GetCreationTime(unit, buffs[i]))
 		border.style.clip = `radial(50% 50%, 0deg, ${360 - elapsed/duration*360}deg)`;
 		let stackstext = pPanel.FindChildTraverse("stacks");
 		if (stacks < 1) {stackstext.style.visibility = 'collapse';} else {stackstext.style.visibility = 'visible'; stackstext.text = stacks;};
@@ -45,7 +46,7 @@ function showbufftooltip(){$.DispatchEvent("DOTAShowBuffTooltip", pContainer.Get
 function hidebufftooltip(){$.DispatchEvent("DOTAHideBuffTooltip", pContainer.GetChild(parseInt(this)).FindChildTraverse("buffid"));}
 function clickbuff(){
 	if (GameUI.IsAltDown()){
-		if (Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()) == Players.GetLocalPlayerPortraitUnit() || Entities.IsEnemy(Players.GetLocalPlayerPortraitUnit())) {Players.BuffClicked(Players.GetLocalPlayerPortraitUnit(), buffs[parseInt(this)], true);};
+		if (Entities.GetLocalPlayer() == Players.GetLocalPlayerPortraitUnit() || Entities.IsEnemy(Players.GetLocalPlayerPortraitUnit())) {Players.BuffClicked(Players.GetLocalPlayerPortraitUnit(), buffs[parseInt(this)], true);};
 	};
 };
 function Update() {

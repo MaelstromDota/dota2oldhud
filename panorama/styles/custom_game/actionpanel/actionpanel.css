@@ -29,7 +29,8 @@
     text-align: center;
     margin-bottom: 68%;
     padding-top: 0px;
-    font-size: 15px;
+    font-size: 16px;
+    text-overflow: shrink;
     font-family: Goudy Trajan Medium;
 }
 .AspectRatio4x3 #HeroName{width: 45%; height: 88px; margin-bottom: 50.5%;}
@@ -239,10 +240,34 @@ DOTAPortrait{horizontal-align: center; vertical-align: bottom; width: 8%; height
     margin-top: 8px;
     margin-left: 200px;
 }
-#BuyBack{width: 23%; height: 50%; horizontal-align: right; position: -15px 0px 0px; vertical-align: middle;}
+#BuyBack{
+    width: 23%;
+    height: 50%;
+    horizontal-align: right;
+    position: -15px 0px 0px;
+    vertical-align: middle;
+}
 #BuyBackLabel{
-    position: 8px 0px 0px;
+    position: 8px -1px 0px;
     color: #dbdbdb;
     /* color: #850101; */
     text-shadow: 1px 0.5px 1px 3.5 #200b0a;
+    font-size: 13px;
+    vertical-align: middle;
+}
+#BuyBackGoldImage {
+    width: 20px;
+    height: 20px;
+    horizontal-align: right;
+    position: -45px -1px 0px;
+}
+#BuyBackCost{
+    width: 70%;
+    height: 100%;
+    font-size: 16px;
+    color: #fea500;
+    text-shadow: 0px 0px 2px 2.0 #000000;
+    horizontal-align: right;
+    text-align: right;
+    position: -12px 1px 0px;
 }
