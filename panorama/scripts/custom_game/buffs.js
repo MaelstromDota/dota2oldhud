@@ -1,5 +1,4 @@
 let pContainer = $("#Buffs");
-var isitem = [];
 var buffs = [];
 function Main(){
 	let unit = Players.GetLocalPlayerPortraitUnit();
@@ -21,19 +20,17 @@ function Main(){
 			iPanel.SetPanelEvent("onmouseout", hidebufftooltip.bind(i))
 			iPanel.SetPanelEvent("onactivate", clickbuff.bind(i));
 		};
-		pPanel.style.marginLeft = `${48 * i}px`;
+		pPanel.style.marginLeft = `${48*i}px`;
 		let border = pPanel.FindChildTraverse("border");
 		let elapsed = Buffs.GetElapsedTime(unit, buffs[i]);
 		let duration = Buffs.GetDuration(unit, buffs[i]);
-		$.Msg(Buffs.GetCreationTime(unit, buffs[i]))
+		let isitem = Buffs.GetTexture(unit, buffs[i]).indexOf("item_") === -1 ? false : true;
 		border.style.clip = `radial(50% 50%, 0deg, ${360 - elapsed/duration*360}deg)`;
 		let stackstext = pPanel.FindChildTraverse("stacks");
 		if (stacks < 1) {stackstext.style.visibility = 'collapse';} else {stackstext.style.visibility = 'visible'; stackstext.text = stacks;};
 		if (Buffs.IsDebuff(unit,buffs[i])) {border.SetImage("file://{images}/hud/border_debuff.png");} else {border.SetImage("file://{images}/hud/border_buff.png")};
-		let name = Buffs.GetName(unit, buffs[i]);
-		if (Abilities.IsItem(Buffs.GetAbility(unit, buffs[i]))) {isitem.push(name.toString());};
-		let path = isitem.includes(name.toString()) ? 'items' : 'spellicons';
-		let icon = path == 'items' ? Buffs.GetTexture(unit,buffs[i]).substring(5, Buffs.GetTexture(unit,buffs[i]).length) : Buffs.GetTexture(unit,buffs[i]);
+		let path = isitem ? 'items' : 'spellicons';
+		let icon = isitem ? Buffs.GetTexture(unit,buffs[i]).substring(5, Buffs.GetTexture(unit,buffs[i]).length) : Buffs.GetTexture(unit,buffs[i]);
 		pPanel.FindChildTraverse("image").SetImage(`s2r://panorama/images/${path}/${icon}_png.vtex`);
 	};
 	for (let i = buffs.length; i < pContainer.GetChildCount(); i++) {
