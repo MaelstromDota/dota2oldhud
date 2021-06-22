@@ -22,15 +22,12 @@ function Main(){
 		};
 		pPanel.style.marginLeft = `${48*i}px`;
 		let border = pPanel.FindChildTraverse("border");
-		let elapsed = Buffs.GetElapsedTime(unit, buffs[i]);
-		let duration = Buffs.GetDuration(unit, buffs[i]);
-		let isitem = Buffs.GetTexture(unit, buffs[i]).indexOf("item_") === -1 ? false : true;
-		border.style.clip = `radial(50% 50%, 0deg, ${360 - elapsed/duration*360}deg)`;
+		if (Buffs.GetRemainingTime(unit,buffs[i]) < 0) {border.style.clip = `radial(50% 50%, 0deg, 360deg)`;} else {border.style.clip = `radial(50% 50%, 0deg, ${360 - Buffs.GetElapsedTime(unit, buffs[i])/Buffs.GetDuration(unit, buffs[i])*360}deg)`;};
 		let stackstext = pPanel.FindChildTraverse("stacks");
 		if (stacks < 1) {stackstext.style.visibility = 'collapse';} else {stackstext.style.visibility = 'visible'; stackstext.text = stacks;};
 		if (Buffs.IsDebuff(unit,buffs[i])) {border.SetImage("file://{images}/hud/border_debuff.png");} else {border.SetImage("file://{images}/hud/border_buff.png")};
-		let path = isitem ? 'items' : 'spellicons';
-		let icon = isitem ? Buffs.GetTexture(unit,buffs[i]).substring(5, Buffs.GetTexture(unit,buffs[i]).length) : Buffs.GetTexture(unit,buffs[i]);
+		let path = Buffs.IsItem(unit, buffs[i]) ? 'items' : 'spellicons';
+		let icon = Buffs.IsItem(unit, buffs[i]) ? Buffs.GetTexture(unit,buffs[i]).substring(5, Buffs.GetTexture(unit,buffs[i]).length) : Buffs.GetTexture(unit,buffs[i]);
 		pPanel.FindChildTraverse("image").SetImage(`s2r://panorama/images/${path}/${icon}_png.vtex`);
 	};
 	for (let i = buffs.length; i < pContainer.GetChildCount(); i++) {
@@ -41,11 +38,7 @@ function Main(){
 };
 function showbufftooltip(){$.DispatchEvent("DOTAShowBuffTooltip", pContainer.GetChild(parseInt(this)).FindChildTraverse("buffid"), Players.GetLocalPlayerPortraitUnit(), buffs[parseInt(this)], Entities.IsEnemy(Players.GetLocalPlayerPortraitUnit()));}
 function hidebufftooltip(){$.DispatchEvent("DOTAHideBuffTooltip", pContainer.GetChild(parseInt(this)).FindChildTraverse("buffid"));}
-function clickbuff(){
-	if (GameUI.IsAltDown()){
-		if (Entities.GetLocalPlayer() == Players.GetLocalPlayerPortraitUnit() || Entities.IsEnemy(Players.GetLocalPlayerPortraitUnit())) {Players.BuffClicked(Players.GetLocalPlayerPortraitUnit(), buffs[parseInt(this)], true);};
-	};
-};
+function clickbuff(){if (GameUI.IsAltDown()){if (Entities.GetLocalPlayer() == Players.GetLocalPlayerPortraitUnit() || Entities.IsEnemy(Players.GetLocalPlayerPortraitUnit())) {Players.BuffClicked(Players.GetLocalPlayerPortraitUnit(), buffs[parseInt(this)], true);};};};
 function Update() {
 	$.Schedule(Game.GetGameFrameTime(), Update);
 	Main();

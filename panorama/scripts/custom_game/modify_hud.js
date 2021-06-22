@@ -60,3 +60,6 @@ GameUI.GetPanelPosition = function (Panel) {
 	let Position = Panel.GetPositionWithinWindow();
 	return {x: Position.x + Panel.actuallayoutwidth / 2, y: Position.y + Panel.actuallayoutheight / 2};
 };
+Buffs.IsItem = function(unit, buff){
+	return Buffs.GetTexture(unit, buff).indexOf("item_") === 0;
+}
