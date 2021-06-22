@@ -100,11 +100,15 @@ function CAddonTemplateGameMode:OrderFilter(keys)
 	if keys.queue == 1 then return true end
 	local target = keys.entindex_target ~= 0 and EntIndexToHScript(keys.entindex_target) or nil
 	local ability = keys.entindex_ability ~= 0 and EntIndexToHScript(keys.entindex_ability) or nil
-	if unit ~= nil and ability ~= nil and unit:IsRealHero() and ability:GetAbilityName() ~= "attribute_bonus_datadriven" and unit:GetPlayerID() ~= nil then
-		if keys.order_type == DOTA_UNIT_ORDER_CAST_POSITION and keys.position_x ~= nil and keys.position_y ~= nil and keys.position_z ~= nil then
+	local portrait_pass = false
+	for _,valid in pairs({DOTA_UNIT_ORDER_CAST_POSITION, DOTA_UNIT_ORDER_CAST_TARGET}) do
+		if keys.order_type == valid then portrait_pass = true end
+	end
+	if portrait_pass and unit and ability and unit:IsRealHero() and ability:GetAbilityName() ~= "attribute_bonus_datadriven" and unit:GetPlayerID() then
+		if keys.order_type == DOTA_UNIT_ORDER_CAST_POSITION and keys.position_x and keys.position_y and keys.position_z then
 			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(unit:GetPlayerID()), "abilityorder", {order_type = keys.order_type, ability = ability:entindex(), x = keys.position_x, y = keys.position_y, z = keys.position_z})
 		end
-		if keys.order_type == DOTA_UNIT_ORDER_CAST_TARGET and target ~= nil then
+		if keys.order_type == DOTA_UNIT_ORDER_CAST_TARGET and target then
 			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(unit:GetPlayerID()), "abilityorder", {order_type = keys.order_type, ability = ability:entindex(), target = target:entindex()})
 		end
 	end
