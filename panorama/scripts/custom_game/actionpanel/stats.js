@@ -79,18 +79,18 @@ function statsupdate(){
 	GameEvents.SendCustomGameEventToServer('recalulatestats', {unit: unit});
 	$("#damagetext").text = Math.ceil((Entities.GetDamageMin(unit) + Entities.GetDamageMax(unit)) / 2);
 	if (Math.ceil(Entities.GetDamageBonus(unit)) == 0) {$("#damagetextbonus").text = '';
-	$("#damagetext").style.position = "-10px 1.25px 0px"} else {$("#damagetextbonus").text = `+ ${Math.ceil(Entities.GetDamageBonus(unit))}`;
-	$("#damagetext").style.position = "-28px 1.25px 0px";};
+	$("#damagetext").style.position = "-10px 1.25px 0px"} else {$("#damagetextbonus").text = `+${Math.ceil(Entities.GetDamageBonus(unit))}`;
+	$("#damagetext").style.position = "-25px 1.25px 0px";};
 	$("#armortext").text = Math.ceil(Entities.GetPhysicalArmorValue(unit) - Entities.GetBonusPhysicalArmor(unit))
 	if (Math.ceil(Entities.GetBonusPhysicalArmor(unit)) == 0) {$("#armortextbonus").text = '';} else {$("#armortextbonus").text = `+ ${Math.ceil(Entities.GetBonusPhysicalArmor(unit))}`;};
 	$("#speedtext").text = Math.ceil(Entities.GetIdealSpeed(unit));
 	if (Entities.GetStats(unit) != 0) {
 		$("#strtext").text = Entities.GetStats(unit).str;
-		if (Entities.GetStats(unit).strbonus == 0) {$("#strtextbonus").text = ''; $("#strtext").style.position = '190px 15px 0px';} else {$("#strtextbonus").text = `+ ${Entities.GetStats(unit).strbonus}`; $("#strtext").style.position = '178px 15px 0px';};
+		if (Entities.GetStats(unit).strbonus == 0) {$("#strtextbonus").text = ''; $("#strtext").style.position = '190px 15px 0px';} else {$("#strtextbonus").text = `+ ${Entities.GetStats(unit).strbonus}`; $("#strtext").style.position = '175px 15px 0px';};
 		$("#agitext").text = Entities.GetStats(unit).agi;
-		if (Entities.GetStats(unit).agibonus == 0) {$("#agitextbonus").text = ''; $("#agitext").style.position = '190px 50px 0px';} else {$("#agitextbonus").text = `+ ${Entities.GetStats(unit).agibonus}`; $("#agitext").style.position = '178px 50px 0px';};
+		if (Entities.GetStats(unit).agibonus == 0) {$("#agitextbonus").text = ''; $("#agitext").style.position = '190px 50px 0px';} else {$("#agitextbonus").text = `+ ${Entities.GetStats(unit).agibonus}`; $("#agitext").style.position = '176px 50px 0px';};
 		$("#inttext").text = Entities.GetStats(unit).int;
-		if (Entities.GetStats(unit).intbonus == 0) {$("#inttextbonus").text = ''; $("#inttext").style.position = '190px 85px 0px';} else {$("#inttextbonus").text = `+ ${Entities.GetStats(unit).intbonus}`; $("#inttext").style.position = '178px 85px 0px';};
+		if (Entities.GetStats(unit).intbonus == 0) {$("#inttextbonus").text = ''; $("#inttext").style.position = '190px 85px 0px';} else {$("#inttextbonus").text = `+ ${Entities.GetStats(unit).intbonus}`; $("#inttext").style.position = '175px 85px 0px';};
 		$("#attmain").style.visibility = 'collapse';
 		if (Entities.GetStats(unit).att != 3 && Entities.GetStats(unit).att != -1) {$("#attmain").style.visibility = 'visible';}
 		if (Entities.GetStats(unit).att == 0){$("#attmain").style.position = "130.5px 8px 0px";} else if (Entities.GetStats(unit).att == 1){$("#attmain").style.position = "130.5px 45px 0px";} else if (Entities.GetStats(unit).att == 2){$("#attmain").style.position = "130.5px 79px 0px";};

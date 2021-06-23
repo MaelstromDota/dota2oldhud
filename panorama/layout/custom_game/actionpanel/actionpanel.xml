@@ -48,8 +48,8 @@
 		<Image id="MinimapSpacer" src="raw://resource/flash3/images/hud_skins/default/actionpanel/spacer_16_9.png" />
 		<Image class="hud" id="PortraitBorder" hittest="true" src="raw://resource/flash3/images/hud_skins/default/actionpanel/portrait_wide.png">
 			<Label id="Hotkey" text="W"/>
-			<Panel id="LevelUpButton" class="LevelUpButton" >
-				<Panel id="LVLUPDecore" class="LVLUPDecore" onactivate="OnLVLButtonPressed()" oncancel="HideUpgradableAbilities(false)">
+			<Panel id="LevelUpButton" class="LevelUpButton" onactivate="OnLVLButtonPressed()">
+				<Panel id="LVLUPDecore" class="LVLUPDecore">
 					<Label id="LVLUPText" class="LVLUPText" text="#DOTA_LevelUp" />
 					<Panel id="LVLUPIcon" class="LVLUPIcon" />
 				</Panel>

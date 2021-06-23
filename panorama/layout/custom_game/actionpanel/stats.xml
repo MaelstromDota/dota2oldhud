@@ -14,29 +14,29 @@
 			<Panel id="AttributeBonus" onactivate="LevelUpAttributes()" />
 			<Panel id="Main" onmouseover="UIShowCustomLayoutParametersTooltip(MainTooltip, file://{resources}/layout/custom_game/actionpanel/tooltips/main.xml)" onmouseout="UIHideCustomLayoutTooltip(MainTooltip)"/>>
 			<Image id="damageicon" src="s2r://panorama/images/hud/hudv2_icondamage_png.vtex">
-				<Label id="damagetext" text="N/A" />
-				<Label id="damagetextbonus" text="+ N/A" />
+				<Label id="damagetext" class="font" text="N/A" />
+				<Label id="damagetextbonus" class="font" text="+ N/A" />
 			</Image>
 			<Image id="armoricon" src="s2r://panorama/images/hud/hudv2_iconarmor_png.vtex"/>
-			<Label id="armortext" text="N/A" />
-			<Label id="armortextbonus" text="+ N/A" />
+			<Label id="armortext" class="font" text="N/A" />
+			<Label id="armortextbonus" class="font" text="+ N/A" />
 			<Image id="speedicon" src="file://{images}/hud/icon_speed.png"/>
-			<Label id="speedtext" text="N/A" />
+			<Label id="speedtext" class="font" text="N/A" />
 			<Panel id="str" onmouseover="UIShowCustomLayoutParametersTooltip(StrengthTooltip, file://{resources}/layout/custom_game/actionpanel/tooltips/str.xml)" onmouseout="UIHideCustomLayoutTooltip(StrengthTooltip)"/>
 			<Image id="stricon" src="s2r://panorama/images/hud/pip_str_png.vtex"/>
-			<Label id="strtext" text="N/A" />
+			<Label id="strtext" class="font" text="N/A" />
 			<Panel id="agi" onmouseover="UIShowCustomLayoutParametersTooltip(AgilityTooltip, file://{resources}/layout/custom_game/actionpanel/tooltips/agi.xml)" onmouseout="UIHideCustomLayoutTooltip(AgilityTooltip)"/>
 			<Image id="agiicon" src="s2r://panorama/images/hud/pip_agi_png.vtex"/>
-			<Label id="agitext" text="N/A" />
+			<Label id="agitext" class="font" text="N/A" />
 			<Panel id="int" onmouseover="UIShowCustomLayoutParametersTooltip(IntellectTooltip, file://{resources}/layout/custom_game/actionpanel/tooltips/int.xml)" onmouseout="UIHideCustomLayoutTooltip(IntellectTooltip)"/>
 			<Image id="inticon" src="s2r://panorama/images/hud/pip_int_png.vtex"/>
-			<Label id="inttext" text="N/A" />
+			<Label id="inttext" class="font" text="N/A" />
 			<Image id="attmain" src="s2r://panorama/images/hud/hudv2_stat_icon_border_png.vtex" />
 		</Panel>
 		<Panel id="StatsBonus">
-			<Label id="agitextbonus" text="+ N/A" />
-			<Label id="strtextbonus" text="+ N/A" />
-			<Label id="inttextbonus" text="+ N/A" />
+			<Label id="agitextbonus" class="font" text="+ N/A" />
+			<Label id="strtextbonus" class="font" text="+ N/A" />
+			<Label id="inttextbonus" class="font" text="+ N/A" />
 		</Panel>
 		<Panel id="SelectedUnits">
 			<Panel id="Portrait11" class="Portrait">

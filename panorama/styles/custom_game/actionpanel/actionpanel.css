@@ -248,12 +248,13 @@ DOTAPortrait{horizontal-align: center; vertical-align: bottom; width: 8%; height
     vertical-align: middle;
 }
 #BuyBackLabel{
-    position: 8px -1px 0px;
+    position: 8px 0.5px 0px;
     color: #dbdbdb;
     /* color: #850101; */
     text-shadow: 1px 0.5px 1px 3.5 #200b0a;
     font-size: 13px;
     vertical-align: middle;
+    font-family: GOUDY TRAJAN MEDIUM;
 }
 #BuyBackGoldImage {
     width: 20px;
